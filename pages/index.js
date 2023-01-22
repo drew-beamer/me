@@ -42,6 +42,18 @@ export default function Home({ allPostsData }) {
         </p>
       </section>
 
+
+      <section id="contact">
+        <h2 className={utilStyles.headingLg}>Contact</h2>
+        <p style={{margin: 0}}>I can be reached via either of the following:</p>
+        <ul>
+          <li>Email: <a className={utilStyles.link} href="mailto:andrewmbeamer@gmail.com">andrewmbeamer@gmail.com</a></li>
+          <li>Instagram: <a className={utilStyles.link} href="https://www.instagram.com/crazed4birds/">@crazed4birds</a></li>
+        </ul>
+
+        
+      </section>
+
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Recent Posts</h2>
         <ul className={utilStyles.list}>

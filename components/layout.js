@@ -23,7 +23,7 @@ export default function Layout({ children, home }) {
                     <h3 className={utilStyles.headingLg}>{"<db>"}</h3>
                 </div>
                 <div className={styles.navButtonContainer}>
-                    {["about", "posts"].map((item) => {
+                    {[].map((item) => {
                         return <Link className={`${styles.navButton} ${utilStyles.link}`} href={`/${item}`}><h4>{item}</h4></Link>
                     })}
 
@@ -31,14 +31,14 @@ export default function Layout({ children, home }) {
             </div>
 
         </nav>
-        <header className={styles.header}>
+
+        {home ? <header className={styles.header}>
             <div className={styles.hero}>
                 <h2 className={utilStyles.headingXl} style={{ width: "100%", textAlign: "center" }}>Hello there 👋</h2>
                 <h1 className={utilStyles.heading2Xl} style={{ width: "100%", textAlign: "center" }}>I'm Drew Beamer</h1>
                 <h3 className={utilStyles.headingMd} style={{ width: "100%", textAlign: "center" }}>student | developer | birder</h3>
                 <div className={styles.heroButtonRow}>
-                    <button>Posts</button>
-                    <button>Contact</button>
+                    <button onClick={() => {window.location = "#contact"}}>Contact</button>
                 </div>
 
             </div>
@@ -47,12 +47,12 @@ export default function Layout({ children, home }) {
                 <Carousel />
             </div>
 
-        </header >
+        </header > : null}
         <div className={styles.container}>
             <main>{children}</main>
             {!home && (
                 <div className={styles.backToHome}>
-                    <Link href="/">Back to Home</Link>
+                    <Link className={utilStyles.link} href="/">Back to Home</Link>
                 </div>
             )}
         </div>;

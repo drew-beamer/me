@@ -1,0 +1,73 @@
+---
+title: 'Reflections on Belize and Guatemala'
+date: '2023-01-21'
+---
+
+# Introduction
+Over the holidays, I visited the countries of Belize and Guatemala with my family. While the trip was primarily a family vacation, I was able to carve out two full days of birding, along with numerous opportunities for birding on my own throughout Belize and Guatemala. We visited 4 areas within the two countries, yielding a total of 166 species and countless great looks and photo opportunities.
+
+I ended up seeing 59 species I had not observed prior—a pretty good mark considering I had visited other countries in Central America prior.  Some of the highlights of the trip included seeing the Yucutan-endemic Ocellated Turkey, a fleeting glimpse at a majestic King Vulture, heading the water drop call of the Chestnut-headed Oropendola, and the secretive Boat-billed Heron.
+
+# Birding in Belize
+We visited Belize in two separate intervals, separated by our time in Guatemala. Both of the guided birding tours I did were in Belize, at Crooked Tree Wildlife Preserve and Cockscomb Basin Wildlife Refuge.  I saw 159 of the 166 species seen on the trip in Belize.
+
+### Black Orchid Resort
+We stayed at the Black Orchid Resort for around two days at the start of the trip, and some of the birds on the property were nice gets. The highlight was likely a Montezuma Oropendola that would occasionally visit the pool area. There were quite a few birds on the property though, and there was a nice fruit feeder that attracted the attention of Melodious Blackbirds, Brown Jays, and Ruddy Ground-Doves. I was also able to see a couple of migrants around the room, including a Black-throated Green Warbler, an American Redstart, and a White-eyed Vireo.
+
+### Crooked Tree Wildlife Preserve
+On our first full day in Belize, I visited Crooked Tree Wildlife Refuge for an unforgetable lagoon tour with Birds Eye View Lodge. Our guide was fantastic, and we had a great trip—observing countless Northern Jacanas, Snail Kites, Limpkins, and several species of herons. Unfortunately, it being December, the lagoon water level was a bit too high for the highly sought-after Agami Heron, an elusive and secretive bird. 
+
+![Limpkin in a tree](/images/posts/belize-guatemala/limpkin-1.jpg)
+
+We were also able to get tremendous looks at a Great Black Hawk—the only time I would
+see one on the trip—and a couple of Bat Falcons were a nice addition to the list. 
+We also saw a fairly sizeable Morelet's Crocodile momentarilty, before it dove underwater.
+
+![Bat Falcon Perched](/images/posts/belize-guatemala/gbhawithfish-1.jpg)
+
+After the trip I had the opportunity to spend a few minutes birding around the Birds Eye property, where I spotted an Amazon Pygmy Kingfisher, a striking pair of Baltimore Orioles, and a vibrant male Vermillion Flycatcher.
+
+[Link to the eBird Checklist](https://ebird.org/checklist/S124534531)
+
+On the way back, we had a surprise encounter with a Jabiru about 30 feet off the side of the road. Our driver pulled over and let us observe it for a few minutes before we went back to the hotel.
+
+![Jabiru in a Marsh](/images/posts/belize-guatemala/jabiru-1.jpg)
+
+### Sleeping Giant Rainforest Lodge
+After visiting Guatemala, we returned to Belize for a couple of nights at the Sleeping
+Giant rainforest lodge in western Belize. These days accounted for some of the most
+productive solo birding of the trip. 
+
+At Sleeping Giant, I was able to get great looks at all three common species of trogons
+found in Belize, along with some flyover Mealy Parrots, my first Keel-billed Toucan of
+the trip, and several Collared Aracaris. On the second morning at the resort, I took
+a guided tour of the property and saw some new species, including good looks at the 
+odd, yet stunning Turqoise-browed Motmot.
+
+I knew this was the best shot of seeing a King Vulture on the trip, and unfortunately
+it had been raining for a few days. On the last day, we finally got some late morning sun, so I took to skywatching. I was not disappointed, as after checking three vultures I spotted a King Vulture. While a very quick glimpse, I was able to snap a very low quality photo.
+
+![King Vulture flying overhead](/images/posts/belize-guatemala/kivu-1.jpg)
+
+
+### Cockscomb Basin
+For our last day in Belize we hired Christian Bech—a local guide and eBird reviewer—to take us around Cockscomb Basin. I cannot recommend Christian highly enough. Christian was a terrific guide, and I saw somewhere in the neighborhood of 30 lifers on the last day. We birded the road leading into Cockscomb Basin, seeing numerous Keel-billed Toucans, and hearing all sorts of birds I had not observed before (including the threatened Yellow-headed Parrot!). We also got great looks at a tree-shaking Crested Guan, and some jumpy White-collared Manakins.
+
+Once in Cockscomb, we birded around the visitor center for a bit, picking up some species I had not seen yet on the trip. We had a quick breakfast before embarking down one of the trails. Here, we saw some Baird's Tapir tracks, a White-throated Thrush, and a nemesis bird for me: the Common Tody-Flycatcher (seriously, I have no idea how I had not seen one prior).
+
+We returned to the visitor center and went looking for a Rufous-tailed Jacamar. While we only heard it, we did get great looks at a shy White-whiskered Puffbird in the process.
+
+![White-whiskered Puffbird](/images/posts/belize-guatemala/puffbird-1.jpg)
+
+We went back to our hotel in Placencia, and Christian made a quick stop for us to try to see a Boat-billed Heron at a nearby resort. After a few minutes, Christian was able to spot one of these strange and secretive birds.
+
+![Boat-billed Heron](/images/posts/belize-guatemala/boatbill-1.jpg)
+
+
+# Birding in Guatemala
+Between the lack of planned birding outings and the seemingly constant rain, I was unable to do much serious birding in Guatemala. I did however, see one of the most species birds of the trip at PN Tikal, so I figure it's worth a mention. The guided trip we were on had us bike along the entry road into the park, and my eyes were peeled for a stunning endemic: the Ocellated Turkey. This was my best shot at seeing one of these otherworldly birds, and I was still unsure if we would (some of the eBird reports only had 1 or 2). While biking, I spotted 2 along the entry road to the park. Unfortunately, I did not have my camera on me, but I still had my fingers crossed for a few more in the park. I was not disappointed. Our group saw 2 turkeys in the Gran Plaza, practically posing for photos in front of the towering Mayan ruins of Tikal. We even had 2 more on the way back to the van—I managed to snag a selfie with one of them.
+
+![Ocellated Turkey](/images/posts/belize-guatemala/ocellatedturkey1-1.jpg)
+
+# Conclusion
+Overall this was a great trip, and I'd highly recommend a Belize/Guatemala for anyone looking to do some birding travel in Central America. Feel free to contact me if you're looking for recommendations! [The eBird trip report for this trip can be found here.](https://ebird.org/tripreport/94410)
