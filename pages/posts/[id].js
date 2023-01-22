@@ -3,8 +3,15 @@ import { getAllPostIds, getPostData } from "../../lib/posts";
 import Head from "next/head";
 import Date from "../../components/date";
 import utilStyles from '../../styles/utils.module.css';
+import { MDXRemote } from 'next-mdx-remote';
+import Image from 'next/image';
+
 
 export default function Post({ postData }) {
+
+    const components = { Image };
+
+
     return <Layout>
         <Head>
             <title>{postData.title}</title>
@@ -14,7 +21,7 @@ export default function Post({ postData }) {
             <div className={utilStyles.lightText}>
                 <Date dateString={postData.date} />
             </div>
-            <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+            <MDXRemote {...postData.contentHtml} components={components}/>
         </article>
     </Layout>;
 }
@@ -29,6 +36,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
     const postData = await getPostData(params.id);
+    console.log(postData)
     return {
         props: {
             postData,
