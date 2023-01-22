@@ -38,7 +38,9 @@ export default function Layout({ children, home }) {
                 <h1 className={utilStyles.heading2Xl} style={{ width: "100%", textAlign: "center" }}>I'm Drew Beamer</h1>
                 <h3 className={utilStyles.headingMd} style={{ width: "100%", textAlign: "center" }}>student | developer | birder</h3>
                 <div className={styles.heroButtonRow}>
-                    <button onClick={() => {window.location = "#contact"}}>Contact</button>
+                    <button onClick={() => {
+                        window.location = "#contact"
+                    }}>Contact</button>
                 </div>
 
             </div>

@@ -54,4 +54,6 @@
 
 .link {
     color: #487f63;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
