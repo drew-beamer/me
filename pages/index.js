@@ -1,9 +1,11 @@
 import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout';
-import utilStyles from "../styles/utils.module.css"
+import utilStyles from "../styles/utils.module.css";
+import homeStyles from "../styles/Home.module.css";
 import { getSortedPostsData } from '../lib/posts';
 import Link from 'next/link';
 import Date from '../components/date';
+import Image from 'next/image';
 
 
 export async function getStaticProps() {
@@ -45,25 +47,33 @@ export default function Home({ allPostsData }) {
 
       <section id="contact">
         <h2 className={utilStyles.headingLg}>Contact</h2>
-        <p style={{margin: 0}}>I can be reached via either of the following:</p>
-        <ul>
-          <li>Email: <a className={utilStyles.link} href="mailto:andrewmbeamer@gmail.com">andrewmbeamer@gmail.com</a></li>
-          <li>Instagram: <a className={utilStyles.link} href="https://www.instagram.com/crazed4birds/">@crazed4birds</a></li>
+        <p style={{ marginTop: 0 }}>I can be reached via either of the following:</p>
+        <ul class={utilStyles.list}>
+          <li class={utilStyles.listItem}>Email: <a className={utilStyles.link} href="mailto:andrewmbeamer@gmail.com">andrewmbeamer@gmail.com</a></li>
+          <li class={utilStyles.listItem}>Instagram: <a className={utilStyles.link} href="https://www.instagram.com/crazed4birds/">@crazed4birds</a></li>
         </ul>
 
-        
+
       </section>
 
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Recent Posts</h2>
         <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title, readTime }) => (
+          {allPostsData.map(({ id, date, title, readTime, postImage }) => (
             <li className={utilStyles.listItem} key={id}>
-              <Link className={utilStyles.link} href={`/posts/${id}`}>{title}</Link>
-              <br />
-              <small className={utilStyles.lightText} style={{ display: "flex", fontSize: "0.75rem" }}>
-                <p style={{ margin: 0 }}><Date dateString={date} />{" | "}{Math.ceil(readTime)} Minute Read</p>
-              </small>
+              <div className={homeStyles.blogPostContainer}>
+                <div className={homeStyles.blogPostImage}>
+                  <Image src={postImage} fill style={{borderRadius: "10px"}} />
+                </div>
+                <div className={homeStyles.blogPostInformation}>
+                  <Link className={utilStyles.link} href={`/posts/${id}`}>{title}</Link>
+                  <br />
+                  <small className={utilStyles.lightText} style={{ display: "flex", fontSize: "0.75rem" }}>
+                    <p style={{ margin: 0 }}><Date dateString={date} />{" | "}{Math.ceil(readTime)} Minute Read</p>
+                  </small>
+                </div>
+
+              </div>
             </li>
           ))}
         </ul>

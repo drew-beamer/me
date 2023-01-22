@@ -10,6 +10,7 @@ body {
   color: #1a2e39;
   scroll-behavior:smooth;
   overflow-x: hidden;
+  scroll-padding-top: 70px;
 }
 
 
