@@ -5,11 +5,73 @@
 }
 
 .header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 100%;
+    top: 55px;
+    position: relative;
 }
 
 .backToHome {
     margin: 3rem 0 0;
+}
+
+.navbarContainer {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    z-index: 1;
+}
+
+.navLogoContainer {
+    flex-grow: 1;
+}
+
+.navButtonContainer {
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.navButton {
+    margin-left: 1rem;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 50px 0px;
+}
+
+.hero h1, .hero h2, .hero h3 {
+    margin: 5px;
+}
+
+.heroButtonRow {
+    margin: 5px;
+}
+
+.heroButtonRow button {
+    margin: 0px 15px;
+    width: 100px;
+    height: 30px;
+    font-size: 0.75rem;
+    border-radius: 9999px;
+    border: 2px solid #487f63;
+    color: #487f63;
+    background-color: white;
+    transition: 0.3s ease;
+    font-weight: bold;
+}
+
+.heroButtonRow button:hover {
+    color: white;
+    background-color: #487f63;
+    cursor: pointer;
 }

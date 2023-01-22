@@ -5,6 +5,7 @@ import { getSortedPostsData } from '../lib/posts';
 import Link from 'next/link';
 import Date from '../components/date';
 
+
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
   return {
@@ -21,19 +22,35 @@ export default function Home({ allPostsData }) {
         <title>{siteTitle}</title>
       </Head>
 
-      <section className={utilStyles.headingMd}>
-        <p>Hi! My name is Drew and I'm a Computer Science student at Davidson College. Here I'll blog about birds, design, and other various topics.</p>
+
+      {/*
+
+      About me section
+
+      */}
+      <section>
+        <h2 className={utilStyles.headingLg}>About Me</h2>
+        <p>
+          My name is Drew Beamer, and I am a computer science student with a
+          passion for birding. I am currently pursing a degree in computer science with an interdisciplinary minor in genomics
+          at Davidson College, and have worked on several web application projects related
+          to birds and sports analytics. This site serves as a place where I share
+          my work and various musings related to birds, genomics, and computer science.
+          <br /><br />
+
+          This section was outlined with the help of ChatGPT.
+        </p>
       </section>
 
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
+        <h2 className={utilStyles.headingLg}>Recent Posts</h2>
         <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
+          {allPostsData.map(({ id, date, title, readTime }) => (
             <li className={utilStyles.listItem} key={id}>
-              <Link href={`/posts/${id}`}>{title}</Link>
+              <Link className={utilStyles.link} href={`/posts/${id}`}>{title}</Link>
               <br />
-              <small className={utilStyles.lightText}>
-                <Date dateString={date} />
+              <small className={utilStyles.lightText} style={{ display: "flex", fontSize: "0.75rem" }}>
+                <p style={{ margin: 0 }}><Date dateString={date} />{" | "}{Math.ceil(readTime)} Minute Read</p>
               </small>
             </li>
           ))}
