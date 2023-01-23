@@ -23,7 +23,7 @@ export default function Layout({ children, home }) {
                     <h3 className={utilStyles.headingLg}>{"<db>"}</h3>
                 </div>
                 <div className={styles.navButtonContainer}>
-                    {["blog"].map((item) => {
+                    {["posts"].map((item) => {
                         return <Link className={`${styles.navButton} ${utilStyles.link}`} href={`/${item}`}><h4>{item}</h4></Link>
                     })}
 
