@@ -35,7 +35,7 @@ img {
 
 
 .blog-post-image {
-  width: 90vw;
+  max-width: 90vw;
   aspect-ratio: 1.5;
   position: relative;
   max-width: 36rem;

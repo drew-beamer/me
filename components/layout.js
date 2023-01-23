@@ -5,8 +5,8 @@ import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
 import Carousel from './carousel';
 
-const name = 'Drew'
-export const siteTitle = 'Next.js Sample Website'
+const name = 'Drew Beamer'
+export const siteTitle = 'Drew Beamer'
 
 export default function Layout({ children, home }) {
     return <div>
