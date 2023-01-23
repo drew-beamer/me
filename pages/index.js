@@ -1,11 +1,9 @@
 import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout';
 import utilStyles from "../styles/utils.module.css";
-import homeStyles from "../styles/Home.module.css";
 import { getSortedPostsData } from '../lib/posts';
-import Link from 'next/link';
-import Date from '../components/date';
-import Image from 'next/image';
+
+import BlogFeed from '../components/blogFeed';
 
 
 export async function getStaticProps() {
@@ -57,26 +55,7 @@ export default function Home({ allPostsData }) {
       </section>
 
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Recent Posts</h2>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title, readTime, postImage }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <div className={homeStyles.blogPostContainer}>
-                <div className={homeStyles.blogPostImage}>
-                  <Image src={postImage} fill style={{borderRadius: "10px"}} />
-                </div>
-                <div className={homeStyles.blogPostInformation}>
-                  <Link className={utilStyles.link} href={`/posts/${id}`}>{title}</Link>
-                  <br />
-                  <small className={utilStyles.lightText} style={{ display: "flex", fontSize: "0.75rem" }}>
-                    <p style={{ margin: 0 }}><Date dateString={date} />{" | "}{Math.ceil(readTime)} Minute Read</p>
-                  </small>
-                </div>
-
-              </div>
-            </li>
-          ))}
-        </ul>
+        <BlogFeed postData={allPostsData} />
       </section>
     </Layout>
   )
