@@ -1,9 +1,24 @@
 import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout';
-import utilStyles from "../styles/utils.module.css";
+import Image from 'next/image';
 import { getSortedPostsData } from '../lib/posts';
 
-import BlogFeed from '../components/blogFeed';
+import { GithubIcon, InstagramIcon } from '../components/icons';
+import { useEffect, useState } from 'react';
+
+
+const quickLinkData = [
+  {
+    component: <GithubIcon size="24" />,
+    url: "https://github.com/drew-beamer",
+    text: "see my code"
+  },
+  {
+    component: <InstagramIcon size="24" />,
+    url: "https://www.instagram.com/crazed4birds/",
+    text: "check out my photography"
+  },
+]
 
 
 export async function getStaticProps() {
@@ -15,48 +30,67 @@ export async function getStaticProps() {
   }
 }
 
+
 export default function Home({ allPostsData }) {
+
+  const goalText = "DREW BEAMER"
+  const [headlineText, setHeadlineText] = useState("DREW BEAMER");
+
+  function generateRandomString(length) {
+    const RANDOM_LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let randomString = ""
+    for (let i = 0; i < length; i++) {
+      randomString += RANDOM_LETTERS.charAt(Math.floor(RANDOM_LETTERS.length * Math.random()))
+    }
+    return randomString
+  }
+
+  useEffect(() => {
+    setHeadlineText()
+    let timesRun = 0;
+    const interval = setInterval(() => {
+      if (timesRun === goalText.length + 1) {
+        clearInterval(interval);
+      } else {
+        const newString = goalText.substring(0, timesRun) + generateRandomString(goalText.length - timesRun);
+        setHeadlineText(newString);
+      }
+      timesRun += 1;
+    }, 75)
+  }, [])
+
+
+
   return (
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
 
-
-      {/*
-
-      About me section
-
-      */}
       <section>
-        <h2 className={utilStyles.headingLg}>About Me</h2>
-        <p>
-          My name is Drew Beamer, and I am a computer science student with a
-          passion for birding. I am currently pursing a degree in computer science with an interdisciplinary minor in genomics
-          at Davidson College, and have worked on several web application projects related
-          to birds and sports analytics. This site serves as a place where I share
-          my work and various musings related to birds, genomics, and computer science.
-          <br /><br />
-
-          This section was outlined with the help of ChatGPT.
-        </p>
+        <div className='bg-raisin-black'>
+          <h1><span className="text-green-400">{headlineText}</span></h1>
+          <p className='mt-2'>Hi there, I'm Drew. I'm a computer science student at Davidson College, pursuing a career in software engineering.</p>
+        </div>
+        <div className='w-full flex flex-wrap items-center mt-6'>
+          <div className='h-24 w-24 relative flex mr-6 my-1.5 item'>
+            <Image className='rounded-full m-0 w-full' priority src="/images/profile.jpg" height={96} width={96} />
+          </div>
+          <div className='relative flex w-fit sm:m-0 leading-tight'>
+            <ul>
+              {quickLinkData.map((data, index) => {
+                return <li key={index}>
+                  <a target="_blank" href={data.url} className="flex flex-wrap hover:underline my-3">{data.component}<span className="ml-3">{data.text}</span></a>
+                </li>
+              })}
+            </ul>
+          </div>
+        </div>
+        <div className="mt-6">
+          <p>I'm passionate about creating <b>data-driven</b>, minimalist web applications, and enjoy working with <b>React/Next.js</b> and <b>Python</b> On this website, you will find a showcase of some of my previous work, as well as a blog where I write about various interests of mine. If you have any questions or would like to potentially collaborate on a project, feel free to get in touch.</p>
+        </div>
       </section>
 
-
-      <section id="contact">
-        <h2 className={utilStyles.headingLg}>Contact</h2>
-        <p style={{ marginTop: 0 }}>I can be reached via either of the following:</p>
-        <ul class={utilStyles.list}>
-          <li class={utilStyles.listItem}>Email: <a className={utilStyles.link} href="mailto:andrewmbeamer@gmail.com">andrewmbeamer@gmail.com</a></li>
-          <li class={utilStyles.listItem}>Instagram: <a className={utilStyles.link} href="https://www.instagram.com/crazed4birds/">@crazed4birds</a></li>
-        </ul>
-
-
-      </section>
-
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <BlogFeed postData={allPostsData} />
-      </section>
     </Layout>
   )
 }

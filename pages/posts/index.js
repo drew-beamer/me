@@ -14,6 +14,9 @@ export async function getStaticProps() {
 
 export default function PostsPage({ allPostsData }) {
     return <Layout>
-        <BlogFeed postData={allPostsData} />
+        <section>
+            <h2>Recent posts</h2>
+            <BlogFeed postData={allPostsData} />
+        </section>
     </Layout>
 }
