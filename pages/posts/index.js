@@ -1,3 +1,4 @@
+'use client';
 import BlogFeed from "../../components/blogFeed";
 import Layout from "../../components/layout";
 import { getSortedPostsData } from "../../lib/posts";

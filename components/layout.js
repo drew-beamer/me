@@ -14,7 +14,6 @@ export default function Layout({ children, home }) {
             />
         </Head>
         <div>
-            <Navbar />
 
             <main className='flex justify-center '>
                 <div className='mt-20 px-7 sm:px-0 max-w-[540px]'>
