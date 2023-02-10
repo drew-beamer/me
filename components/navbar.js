@@ -1,8 +1,6 @@
-
+'use client';
 import Link from "next/link";
 import { usePathname } from 'next/navigation'
-import { MenuIcon } from "./icons";
-import { useEffect, useState } from "react";
 
 const buttonData = {
     "/": {
@@ -40,7 +38,7 @@ export default function Navbar() {
                     </div>
                     <div className="flex flex-row items-start relative pb-0 fade ">
                         <div className="flex relative w-[256px] flex-row items-center space-x-0 mb-2 mt-2">
-                            <div key="back-slider" className={`absolute h-[30px] transition-all bg-neutral-800 z-[-1] rounded-md left-0`} style={{width: buttonData[pathName].width, left: buttonData[pathName].x}}></div>
+                            {buttonData[pathName] ? <div key="back-slider" className={`absolute h-[30px] transition-all bg-neutral-800 z-[-1] rounded-md left-0`} style={{ width: buttonData[pathName].width, left: buttonData[pathName].x }}></div> : null}
                             {Object.entries(buttonData).map(([path, { name }]) => {
                                 const isActive = path === pathName;
                                 return <div className={`${isActive ? "text-green-400" : ""} rounded-md py-[10px] px-[10px] `}>
