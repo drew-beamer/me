@@ -15,8 +15,8 @@ export default function Layout({ children, home }) {
         </Head>
         <div>
 
-            <main className='flex justify-center '>
-                <div className='mt-20 px-7 sm:px-0 max-w-[540px]'>
+            <main className='flex justify-center'>
+                <div className='mt-0 sm:mt-12 mx-10 sm:mx-0 max-w-[540px]'>
                     {children}
                 </div>
 

@@ -38,7 +38,7 @@ export default function Home({ allPostsData }) {
   const [headlineText, setHeadlineText] = useState("DREW BEAMER");
 
   function generateRandomString(length) {
-    const RANDOM_LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const RANDOM_LETTERS = "ABCDEFGHIJKLMNOPRSTUVWXYZ";
     let randomString = ""
     for (let i = 0; i < length; i++) {
       randomString += RANDOM_LETTERS.charAt(Math.floor(RANDOM_LETTERS.length * Math.random()))
