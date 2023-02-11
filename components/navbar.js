@@ -1,6 +1,7 @@
 'use client';
 import Link from "next/link";
 import { usePathname } from 'next/navigation'
+import { motion } from "framer-motion";
 
 const buttonData = {
     "/": {
@@ -38,7 +39,17 @@ export default function Navbar() {
                     </div>
                     <div className="flex flex-row items-start relative pb-0 fade">
                         <div className="flex relative w-[256px] flex-row items-center space-x-0 mb-2 mt-2">
-                            {buttonData[pathName] ? <div key="back-slider" className={`absolute h-[30px] transition-all bg-neutral-800 z-[-1] rounded-md left-0`} style={{ width: buttonData[pathName].width, left: buttonData[pathName].x }}></div> : null}
+                            {buttonData[pathName] ? <motion.div
+                                key="back-slider"
+                                initial={{ x: buttonData[pathName].x, opacity: 0 }}
+                                animate={{ opacity: 1, x: buttonData[pathName].x, width: buttonData[pathName].width }}
+                                transition={{
+                                    type: "spring",
+                                    damping: 40,
+                                    stiffness: 300
+                                }}
+                                className={`absolute h-[30px] bg-neutral-800 z-[-1] rounded-md left-0`}
+                            /> : null}
                             {Object.entries(buttonData).map(([path, { name }]) => {
                                 const isActive = path === pathName;
                                 return <div className={`${isActive ? "text-green-400" : ""} rounded-md py-[10px] px-[10px] `}>
