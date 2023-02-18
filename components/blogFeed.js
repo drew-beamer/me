@@ -6,8 +6,8 @@ import Date from './date';
 export default function BlogFeed({ postData }) {
 
     return <div className="mt-4 flex flex-wrap">
-        {postData.map(({ date, title, postImage, body: { raw }}, index) => {
-        const pageUrl = `/posts/${postData.url}`
+        {postData.map(({ date, title, postImage, body: { raw }, url}, index) => {
+        const pageUrl = `/posts/${url}`
         return <div key={title} className="w-full">
             <div className="flex flex-wrap">
                 <div className="w-full h-auto sm:w-44 sm:h-32 relative mr-5 mb-2">
