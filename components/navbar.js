@@ -27,11 +27,11 @@ const buttonData = {
 }
 
 export default function Navbar() {
-
-
     let pathName = usePathname();
+    if (pathName.includes("/posts/")) {
+        pathName = "/posts"
+    }
     return <>
-        <aside>
             <nav className="w-full pt-6 sm:pt-3">
                 <div className="flex items-center justify-center sm:justify-start h-full flex-wrap px-5">
                     <div className="grow flex justify-center w-full sm:w-auto sm:justify-start">
@@ -51,16 +51,14 @@ export default function Navbar() {
                                 className={`absolute h-[30px] bg-neutral-800 z-[-1] rounded-md left-0`}
                             /> : null}
                             {Object.entries(buttonData).map(([path, { name }]) => {
-                                const isActive = path === pathName;
-                                return <div className={`${isActive ? "text-green-400" : ""} rounded-md py-[10px] px-[10px] `}>
-                                    <Link key={path} href={path}> <h4>{name}</h4> </Link>
-
+                                const isActive = pathName === path;
+                                return <div key={path} className={`${isActive ? "text-green-400" : ""} rounded-md py-[10px] px-[10px] `}>
+                                    <Link href={path}> <h4>{name}</h4> </Link>
                                 </div>
                             })}
                         </div>
                     </div>
                 </div>
             </nav >
-        </aside >
-    </>
+        </>
 }

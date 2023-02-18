@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import Navbar from './navbar';
 
 export const siteTitle = 'Drew Beamer'
 
@@ -28,5 +27,4 @@ export default function Layout({ children, home }) {
             )}
         </div>
     </div>
-
 }
