@@ -18,9 +18,12 @@ export async function generateStaticParams() {
 
 const NextImage = (props) => {
     return <div className="blog-post-image">
-        <Image src={props.src} {...props} />
+        <Image src={props.src} {...props} className="px-4 py-4 relative bottom-4" />
     </div>
+}
 
+const LinkWrapper = (props) => {
+    return <a target={"_blank"} {...props}>{props.children}</a>
 }
 
 const PostLayout = ({ params }) => {
@@ -29,14 +32,18 @@ const PostLayout = ({ params }) => {
     })
 
     const components = {
-        Image: NextImage
+        Image: NextImage,
+        a: LinkWrapper
     }
 
     const Content = useMDXComponent(post.body.code)
 
     return (
         <>
+        <article className="blogPost">
             <Content components={{ ...components }} />
+        </article>
+            
         </>
     )
 }

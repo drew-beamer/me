@@ -26,8 +26,8 @@ export default function Home() {
     const goalText = "DREW BEAMER"
     const [headlineText, setHeadlineText] = useState("DREW BEAMER");
 
-    function generateRandomString(length) {
-        const RANDOM_LETTERS = "ABCDEFGHIJKLMNOPRSTUVWXYZ";
+    function generateRandomString(length : number) : string {
+        const RANDOM_LETTERS = "1234567890!#$%^&*";
         let randomString = ""
         for (let i = 0; i < length; i++) {
             randomString += RANDOM_LETTERS.charAt(Math.floor(RANDOM_LETTERS.length * Math.random()))

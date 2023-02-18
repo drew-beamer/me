@@ -50,10 +50,17 @@ body {
 }
 
 
+.blogPost p {
+  @apply mt-2;
+  @apply mb-8;
+} 
 
-.blog-post-image {
-  max-width: 90vw;
-  aspect-ratio: 1.5;
-  position: relative;
-  max-width: 36rem;
+.blogPost a {
+  @apply text-viridian;
+  @apply transition-all;
+  @apply border-viridian;
+}
+
+.blogPost a:hover {
+  @apply underline;
 }
