@@ -3,6 +3,10 @@ This is a personal blog built using [Next.js](https://nextjs.org) and [MDX](http
 
 It is a spinoff of the Next.js tutorial site, which can be found here: https://nextjs.org/learn/basics/create-nextjs-app
 
+## Inspiration
+It took a long time to get the site to a state I'm proud of, and I'd like to give credits to sites I was inspired by in the process
+- [leerob.io](https://leerob.io)
+
 ## Getting Started/Running the Repository Locally
 1. Clone the Repository
 ```

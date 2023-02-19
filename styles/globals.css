@@ -1,42 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-raisin-black;
+    @apply min-h-screen;
+    @apply text-floral-white;
+    @apply antialiased
+  }
+
+  h1 {
+    @apply text-green-400 mb-2;
+    @apply uppercase;
+    @apply text-5xl;
+    @apply font-bold;
+
+  }
+
+  h2 {
+    @apply text-2xl;
+    @apply font-bold;
+  }
+
+  h3 {
+    @apply text-lg;
+    @apply font-bold;
+  }
+
+  h4 {
+    @apply text-base;
+    @apply font-bold
+  }
+
+  p {
+    @apply text-lg;
+  }
+
+  section {
+    @apply mb-5;
+  }
+
+  ul {
+    @apply list-disc list-inside;
+  }
+}
+
 
 html,
 body {
-  width: 100vw;
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  line-height: 1.6;
-  font-size: 18px;
-  color: #1a2e39;
-  scroll-behavior:smooth;
-  overflow-x: hidden;
+  font-family: "assistant", sans-serif;
+  scroll-behavior: smooth;
   scroll-padding-top: 70px;
 }
 
 
-
-* {
-  box-sizing: border-box;
+.blogPost p {
+  @apply mt-2;
+  @apply mb-8;
 }
 
-a {
-  color: #487f63;
-  text-decoration: none;
+.blogPost a {
+  @apply text-green-400;
+  @apply transition-all;
+  @apply border-viridian;
 }
 
-a:hover {
-  text-decoration: underline;
+.blogPost a:hover {
+  @apply underline;
 }
 
-img {
-  max-width: 100%;
-  display: block;
-}
-
-
-.blog-post-image {
-  max-width: 90vw;
-  aspect-ratio: 1.5;
-  position: relative;
-  max-width: 36rem;
+.blogPost ul {
+  @apply mb-8
 }

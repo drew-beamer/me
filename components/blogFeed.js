@@ -1,26 +1,28 @@
-import utilStyles from "../styles/utils.module.css";
 import Link from 'next/link';
-import Date from '../components/date';
 import Image from 'next/image';
+import { Button2 } from './ui-components/buttons';
+import Date from './date';
 
 export default function BlogFeed({ postData }) {
-    return <ul className={utilStyles.list}>
-        {postData.map(({ id, date, title, readTime, postImage }) => (
-            <li className={utilStyles.listItem} key={id}>
-                <div className={utilStyles.blogPostContainer}>
-                    <div className={utilStyles.blogPostImage}>
-                        <Image src={postImage} fill style={{ borderRadius: "10px" }} />
-                    </div>
-                    <div className={utilStyles.blogPostInformation}>
-                        <Link className={utilStyles.link} href={`/posts/${id}`}>{title}</Link>
-                        <br />
-                        <small className={utilStyles.lightText} style={{ display: "flex", fontSize: "0.75rem" }}>
-                            <p style={{ margin: 0 }}><Date dateString={date} />{" | "}{Math.ceil(readTime)} Minute Read</p>
-                        </small>
-                    </div>
 
+    return <div className="mt-4 flex flex-wrap w-full">
+        {postData.map(({ date, title, postImage, body: { raw }, url }, index) => {
+            const pageUrl = `${url}`
+            return <div key={title} className="w-full">
+                <div className="flex flex-wrap w-full">
+                    <div className="w-full h-auto sm:w-44 sm:h-32 relative mr-5 mb-2">
+                        <Link href={pageUrl}><Image priority={index < 4} alt="decorative thumbnail" src={postImage} fill className="rounded-md" /></Link>
+                    </div>
+                    <div className="min-w-6/12 flex-grow">
+                        <Link href={pageUrl}><h3 className="hover:underline">{title}</h3></Link>
+                        <p><Date dateString={date} /> {` | ${Math.round(raw.split(" ").length / 238)} minute read`}</p>
+                        <div className='mt-2'>
+                            <Link href={pageUrl}><Button2>Read</Button2></Link>
+                        </div>
+                    </div>
                 </div>
-            </li>
-        ))}
-    </ul>
+                <hr className=" my-6 bg-neutral-800 border-0 h-0.5" />
+            </div>
+        })}
+    </div>
 }
