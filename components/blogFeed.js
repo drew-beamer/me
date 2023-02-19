@@ -5,11 +5,11 @@ import Date from './date';
 
 export default function BlogFeed({ postData }) {
 
-    return <div className="mt-4 flex flex-wrap">
+    return <div className="mt-4 flex flex-wrap w-full">
         {postData.map(({ date, title, postImage, body: { raw }, url}, index) => {
-        const pageUrl = `/posts/${url}`
+        const pageUrl = `${url}`
         return <div key={title} className="w-full">
-            <div className="flex flex-wrap">
+            <div className="flex flex-wrap w-full">
                 <div className="w-full h-auto sm:w-44 sm:h-32 relative mr-5 mb-2">
                     <Link href={pageUrl}><Image priority={index < 4} alt="decorative thumbnail" src={postImage} fill className="rounded-md" /></Link>
                 </div>

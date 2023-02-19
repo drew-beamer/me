@@ -3,7 +3,7 @@
 
 export default function About() {
     return <section>
-        <h2>About Me</h2>
+        <h1>About Me</h1>
         I have honed my technical skills in a variety of programming languages and frameworks,
         including Next.js, React, Javascript Python, and Java. I have a deep love for learning
         and love taking on new challenges that will expand my skillset. I'm particularly motivated

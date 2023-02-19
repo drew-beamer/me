@@ -13,8 +13,11 @@
   }
 
   h1 {
+    @apply text-green-400 mb-2;
+    @apply uppercase;
     @apply text-5xl;
     @apply font-bold;
+
   }
 
   h2 {

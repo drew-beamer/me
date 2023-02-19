@@ -14,7 +14,7 @@ const computedFields = {
 export const Post = defineDocumentType(() => ({
   name: 'Post',
   contentType: 'mdx',
-  filePathPattern: `**/*.mdx`,
+  filePathPattern: `**/posts/*.mdx`,
   fields: {
     title: {
       type: 'string',
@@ -35,8 +35,39 @@ export const Post = defineDocumentType(() => ({
   computedFields
 }))
 
+export const Project = defineDocumentType(() => ({
+  name: 'Project',
+  contentType: 'mdx',
+  filePathPattern: `**/projects/*.mdx`,
+  fields: {
+    title: {
+      type: 'string',
+      description: 'The title of the post',
+      required: true,
+    },
+    description: {
+      type: 'string',
+      description: 'The title of the post',
+      required: true,
+    },
+    categories: {
+      type: 'string',
+      description: 'A comma-separated string of categories',
+      required: true,
+    },
+    projectImage: {
+      type: 'string',
+      description: 'An image to show as a thumbnail',
+      required: true
+    }
+  },
+  computedFields
+}))
+
+
+
 export default makeSource({
-  contentDirPath: 'posts',
-  documentTypes: [Post],
+  contentDirPath: 'content',
+  documentTypes: [Post, Project],
   mdx: { remarkPlugins: [remarkGfm] }
 })

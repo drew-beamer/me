@@ -1,8 +1,5 @@
 'use client';
-import Head from 'next/head'
-import Layout, { siteTitle } from '../components/layout';
 import Image from 'next/image';
-import { getSortedPostsData } from '../lib/posts';
 
 import { GithubIcon, InstagramIcon } from '../components/icons';
 import { useEffect, useState } from 'react';
@@ -26,7 +23,7 @@ export default function Home() {
     const goalText = "DREW BEAMER"
     const [headlineText, setHeadlineText] = useState("DREW BEAMER");
 
-    function generateRandomString(length : number) : string {
+    function generateRandomString(length: number): string {
         const RANDOM_LETTERS = "1234567890!#$%^&*";
         let randomString = ""
         for (let i = 0; i < length; i++) {
@@ -54,11 +51,11 @@ export default function Home() {
         <section>
             <div className='bg-raisin-black'>
                 <h1><span className="text-green-400">{headlineText}</span></h1>
-                <p className='mt-2'>Hi there, I'm Drew. I'm a computer science student at Davidson College, pursuing a career in software engineering.</p>
+                <p>Hi there, I'm Drew. I'm a computer science student at Davidson College, pursuing a career in software engineering.</p>
             </div>
             <div className='w-full flex flex-wrap items-center mt-6'>
                 <div className='h-24 w-24 relative flex mr-6 my-1.5 item'>
-                    <Image alt="portrait of author at beach" className='rounded-full m-0 w-full' priority src="/images/profile.jpg" height={96} width={96} />
+                    <Image alt="portrait of author at beach" className='rounded-full m-0 w-full' priority src="/images/profile.png" height={96} width={96} />
                 </div>
                 <div className='relative flex w-fit sm:m-0 leading-tight'>
                     <ul>

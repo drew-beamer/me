@@ -29,7 +29,9 @@ const buttonData = {
 export default function Navbar() {
     let pathName = usePathname();
     if (pathName.includes("/posts/")) {
-        pathName = "/posts"
+        pathName = "/posts";
+    } else if (pathName.includes("/projects/")) {
+        pathName = "/projects";
     }
     return <>
             <nav className="w-full pt-6 sm:pt-3">
