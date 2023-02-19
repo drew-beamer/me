@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 @layer base {
   body {
     @apply bg-raisin-black;
@@ -42,6 +40,10 @@
   section {
     @apply mb-5;
   }
+
+  ul {
+    @apply list-disc list-inside;
+  }
 }
 
 
@@ -56,14 +58,18 @@ body {
 .blogPost p {
   @apply mt-2;
   @apply mb-8;
-} 
+}
 
 .blogPost a {
-  @apply text-viridian;
+  @apply text-green-400;
   @apply transition-all;
   @apply border-viridian;
 }
 
 .blogPost a:hover {
   @apply underline;
+}
+
+.blogPost ul {
+  @apply mb-8
 }

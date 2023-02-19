@@ -27,7 +27,6 @@ const LinkWrapper = (props) => {
 const PostLayout = ({ params }) => {
 
     const post = allPosts.find((post) => {
-        console.log(params, post)
         return ("posts/" + params.slug === post.url)
     })
 

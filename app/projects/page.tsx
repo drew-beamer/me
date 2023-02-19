@@ -1,5 +1,5 @@
 
-import Card from "components/ui-components/card";
+import ProjectCard from "components/ui-components/card";
 import { allProjects } from "contentlayer/generated";
 
 
@@ -11,14 +11,14 @@ export default function Projects() {
             of projects that showcase my creativity, versatility, and technical
             expertise.
         </p>
-        <div className="container flex flex-wrap mt-6 justify-center items-center">
-            {allProjects.map((project) => {
-                console.log(project.projectImage)
-                return <div key={project._id} className="sm:px-3 my-3 w-full max-w-[360px] md:w-1/2 lg:my-4">
-                    <Card img={project.projectImage} alt="decor" categories={project.categories} text={project.description} title={project.title} />
-                </div>
-            })}
-        </div>
+            <div className="mt-6 mx-4 sm:mx-0 columns-1 sm:columns-2 gap-4 w-full">
+                {allProjects.sort((a, b) => a.title.localeCompare(b.title)).map((project) => {
+                    return <div key={project._id} className="w-full px-6 sm:px-0 mb-6 break-inside-avoid  inline-block">
+                        <ProjectCard url={project.url} img={project.projectImage} alt="decor" categories={project.categories} text={project.description} title={project.title} />
+                    </div>
+                })}
+            </div>
+
 
     </section>
 
