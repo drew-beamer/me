@@ -58,7 +58,7 @@ export default function Home() {
                     <Image alt="portrait of author at beach" className='rounded-full m-0 w-full' priority src="/images/profile.png" height={96} width={96} />
                 </div>
                 <div className='relative flex w-fit sm:m-0 leading-tight'>
-                    <ul>
+                    <ul className="list-none">
                         {quickLinkData.map((data, index) => {
                             return <li key={index}>
                                 <a target="_blank" href={data.url} className="flex flex-wrap hover:underline my-3">{data.component}<span className="ml-3">{data.text}</span></a>
