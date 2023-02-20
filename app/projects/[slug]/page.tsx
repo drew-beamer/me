@@ -1,9 +1,9 @@
-//'use client';
 import { allProjects } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import Image from "next/image";
 import Link from "next/link";
-//import { useEffect, useRef, useLayoutEffect, useState } from "react";
+import ScrollingTitle from "../../../components/ui-components/scrollingTitle"
+
 
 export async function generateStaticParams() {
     return allProjects.map((post) => {
@@ -23,49 +23,11 @@ const NextImage = (props) => {
 
 
 export default function ProjectPage({ params }) {
-    /*
-    const ref = useRef(null);
-    const post = useRef(null)
-    const [hovered, setHovered] = useState(false);
-    const [right, setRight] = useState(0);
-    */
 
-    /*
-    useEffect(() => {
-        console.log(right, ref.current?.offsetWidth, post.current?.clientWidth)
-    }, [])
-
-    useEffect(() => {
-        if (hovered) {
-            if (right < (ref.current.offsetWidth - post.current.offsetWidth)) {
-                setRight(right + 2)
-            }
-        } else if (right > 0) {
-            setRight(right - 2)
-        }
-    }, [hovered])
-
-    useEffect(() => {
-        if (hovered && right <= 2 + (ref.current.offsetWidth - post.current.offsetWidth)) {
-            setTimeout(() => {
-                setRight(right + 2)
-            }, 10);
-        } else if (!hovered && right > 2) {
-            setTimeout(() => {
-                setRight(right - 2)
-            }, 10);
-        }
-    }, [right])
-    */
 
     const project = allProjects.find((post) => {
         return ("projects/" + params.slug === post.url)
     })
-
-
-   // console.log(project.body.code)
-   // onMouseEnter={() => setHovered(true)}
-   // onMouseLeave={() => setHovered(false)}
 
 
     const components = {
@@ -75,8 +37,8 @@ export default function ProjectPage({ params }) {
     const Content = useMDXComponent(project.body.code)
     return (
         <>
-            <article  className="blogPost relative sm:overflow-clip w-full">
-                <h1 style={{ right: 0 }} className="marquee hidden sm:inline-block whitespace-nowrap ">{project.title}</h1>
+            <article  className="blogPost relative overflow-clip">
+                <ScrollingTitle>{project.title}</ScrollingTitle>
                 <div className="inline-block sm:hidden w-full overflow-auto">
                     <h1 className="whitespace-nowrap">{project.title}</h1>
                 </div>
