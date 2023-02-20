@@ -4,7 +4,7 @@ import { allProjects } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useRef, useLayoutEffect, useState } from "react";
 
 export async function generateStaticParams() {
     return allProjects.map((post) => {
@@ -24,15 +24,12 @@ const NextImage = (props) => {
 
 
 export default function ProjectPage({ params }) {
-    const project = allProjects.find((post) => {
-        return ("projects/" + params.slug === post.url)
-    })
-
     const ref = useRef(null);
     const post = useRef(null)
     const [hovered, setHovered] = useState(false);
     const [right, setRight] = useState(0);
 
+    /*
     useEffect(() => {
         console.log(right, ref.current?.offsetWidth, post.current?.clientWidth)
     }, [])
@@ -58,14 +55,21 @@ export default function ProjectPage({ params }) {
             }, 10);
         }
     }, [right])
+    */
+
+    const project = allProjects.find((post) => {
+        return ("projects/" + params.slug === post.url)
+    })
+
+
+   // console.log(project.body.code)
+
 
     const components = {
         Image: NextImage
     }
 
     const Content = useMDXComponent(project.body.code)
-
-    console.log(hovered)
     return (
         <>
             <article ref={post} className="blogPost relative sm:overflow-clip w-full">
