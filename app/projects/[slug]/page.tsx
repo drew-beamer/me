@@ -37,9 +37,8 @@ export default function ProjectPage({ params }) {
     const Content = useMDXComponent(project.body.code)
     return (
         <>
-            <article  className="blogPost relative overflow-clip">
-                <ScrollingTitle>{project.title}</ScrollingTitle>
-                <div className="inline-block sm:hidden w-full overflow-auto">
+            <article className="blogPost relative overflow-clip">
+                <div className="inline-block w-full overflow-auto">
                     <h1 className="whitespace-nowrap">{project.title}</h1>
                 </div>
 
