@@ -38,7 +38,8 @@ export default function ProjectPage({ params }) {
     return (
         <>
             <article className="blogPost relative overflow-clip">
-                <div className="inline-block w-full overflow-auto">
+                <ScrollingTitle>{project.title}</ScrollingTitle>
+                <div className="inline-block sm:hidden w-full overflow-auto">
                     <h1 className="whitespace-nowrap">{project.title}</h1>
                 </div>
 
