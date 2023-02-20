@@ -11,9 +11,9 @@ export default function Projects() {
             of projects that showcase my creativity, versatility, and technical
             expertise.
         </p>
-            <div className="mt-6 mx-4 sm:mx-0 columns-1 sm:columns-2 gap-4 w-full">
+            <div className="mt-6 mx-auto columns-1 sm:columns-2 gap-4 w-full">
                 {allProjects.sort((a, b) => a.title.localeCompare(b.title)).map((project) => {
-                    return <div key={project._id} className="w-full px-6 sm:px-0 mb-6 break-inside-avoid  inline-block">
+                    return <div key={project._id} className="w-full px-6 sm:px-0 mb-6 break-inside-avoid inline-block">
                         <ProjectCard url={project.url} img={project.projectImage} alt="decor" categories={project.categories} text={project.description} title={project.title} />
                     </div>
                 })}

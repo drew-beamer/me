@@ -4,7 +4,7 @@ import { Button2 } from "./buttons"
 
 
 export default function ProjectCard({ img, alt, text, title, categories, url }: { img: string, alt: string, text: string, title: string, categories: string, url: string }) {
-    return <div className="rounded-xl bg-neutral-800">
+    return <div className="rounded-xl bg-neutral-800 max-w-[340px] mx-auto">
         <Image className="rounded-t-xl" width={720} height={480} src={img} alt={alt} />
         <div className="px-6 pt-4 mb-4">
             <div className="font-bold text-xl">{title}</div>
