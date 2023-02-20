@@ -1,10 +1,9 @@
-
-'use client';
+//'use client';
 import { allProjects } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useLayoutEffect, useState } from "react";
+//import { useEffect, useRef, useLayoutEffect, useState } from "react";
 
 export async function generateStaticParams() {
     return allProjects.map((post) => {
@@ -24,10 +23,12 @@ const NextImage = (props) => {
 
 
 export default function ProjectPage({ params }) {
+    /*
     const ref = useRef(null);
     const post = useRef(null)
     const [hovered, setHovered] = useState(false);
     const [right, setRight] = useState(0);
+    */
 
     /*
     useEffect(() => {
@@ -63,6 +64,8 @@ export default function ProjectPage({ params }) {
 
 
    // console.log(project.body.code)
+   // onMouseEnter={() => setHovered(true)}
+   // onMouseLeave={() => setHovered(false)}
 
 
     const components = {
@@ -72,8 +75,8 @@ export default function ProjectPage({ params }) {
     const Content = useMDXComponent(project.body.code)
     return (
         <>
-            <article ref={post} className="blogPost relative sm:overflow-clip w-full">
-                <h1 style={{ right: right }} ref={ref} className="marquee hidden sm:inline-block whitespace-nowrap " onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>{project.title}</h1>
+            <article  className="blogPost relative sm:overflow-clip w-full">
+                <h1 style={{ right: 0 }} className="marquee hidden sm:inline-block whitespace-nowrap ">{project.title}</h1>
                 <div className="inline-block sm:hidden w-full overflow-auto">
                     <h1 className="whitespace-nowrap">{project.title}</h1>
                 </div>
