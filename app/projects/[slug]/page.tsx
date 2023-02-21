@@ -1,9 +1,9 @@
-
-import { Button1 } from "components/ui-components/buttons";
 import { allProjects } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import Image from "next/image";
 import Link from "next/link";
+import ScrollingTitle from "../../../components/ui-components/scrollingTitle"
+
 
 export async function generateStaticParams() {
     return allProjects.map((post) => {
@@ -23,23 +23,32 @@ const NextImage = (props) => {
 
 
 export default function ProjectPage({ params }) {
+
+
     const project = allProjects.find((post) => {
         return ("projects/" + params.slug === post.url)
     })
+
 
     const components = {
         Image: NextImage
     }
 
     const Content = useMDXComponent(project.body.code)
-
     return (
         <>
-            <h1>{project.title}</h1>
-            <article className="blogPost">
-                <Content components={{ ...components }} />
+            <article className="blogPost relative overflow-clip">
+                <ScrollingTitle>{project.title}</ScrollingTitle>
+                <div className="inline-block sm:hidden w-full overflow-auto">
+                    <h1 className="whitespace-nowrap">{project.title}</h1>
+                </div>
+
+                <div className="relative">
+                    <Content components={{ ...components }} />
+                </div>
+
             </article>
-            <div className="hover:underline text-green-400"><Link href="/projects">← Return to Projects</Link></div>
+            <div className="hover:underline text-green-400 mb-24"><Link href="/projects">← Return to Projects</Link></div>
         </>
     )
 }
