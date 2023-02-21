@@ -12,8 +12,8 @@ function FooterList({ children }) {
 }
 
 export default function Footer() {
-    return <footer className="p-4 sm:p-6 bg-neutral-800 flex justify-center">
-        <div className="w-[540px] flex items-top flex-wrap p-4 mx-auto">
+    return <footer className="p-4 w-screen sm:p-6 bg-neutral-800 flex justify-center">
+        <div className="w-[100vw] max-w-[720px] flex items-start flex-wrap p-4 mx-auto">
             <div className="flex-grow">
                 <h2>{"<db>"}</h2>
             </div>
