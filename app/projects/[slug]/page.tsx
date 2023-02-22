@@ -17,11 +17,12 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params, searchParams }) {
 
+    // dynamic will have to wait until Next.js patches
+    /*
     const project = allProjects.find((post) => {
         return ("projects/" + params.slug === post.url)
     })
 
-    console.log(params)
     return {
         title: project?.title + " | Drew Beamer",
         description: project?.description,
@@ -38,6 +39,11 @@ export async function generateMetadata({ params, searchParams }) {
             ]
         }
     }
+    */
+    return {
+        title: "Projects | Drew Beamer",
+        description: "One of Drew Beamer's projects"
+   }
 
 }
 
@@ -50,31 +56,37 @@ const NextImage = (props) => {
 
 export default function ProjectPage({ params }) {
 
-
     const project = allProjects.find((post) => {
         return ("projects/" + params.slug === post.url)
     })
 
+    if (project !== undefined) {
 
-    const components = {
-        Image: NextImage
+        const components = {
+            Image: NextImage
+        }
+        const Content = useMDXComponent(project.body.code)
+
+        return (
+            <>
+                <article className="blogPost relative overflow-clip">
+                    <ScrollingTitle>{project.title}</ScrollingTitle>
+                    <div className="inline-block sm:hidden w-full overflow-auto">
+                        <h1 className="whitespace-nowrap">{project.title}</h1>
+                    </div>
+
+                    <div className="relative">
+                        <Content components={{ ...components }} />
+                    </div>
+
+                </article>
+                <div className="hover:underline text-green-400 mb-24"><Link href="/projects">← Return to Projects</Link></div>
+            </>
+        )
+    } else {
+        return <div>
+            Oops! There should be a project here...
+        </div>
     }
 
-    const Content = useMDXComponent(project.body.code)
-    return (
-        <>
-            <article className="blogPost relative overflow-clip">
-                <ScrollingTitle>{project.title}</ScrollingTitle>
-                <div className="inline-block sm:hidden w-full overflow-auto">
-                    <h1 className="whitespace-nowrap">{project.title}</h1>
-                </div>
-
-                <div className="relative">
-                    <Content components={{ ...components }} />
-                </div>
-
-            </article>
-            <div className="hover:underline text-green-400 mb-24"><Link href="/projects">← Return to Projects</Link></div>
-        </>
-    )
 }
