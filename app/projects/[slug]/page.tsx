@@ -15,6 +15,32 @@ export async function generateStaticParams() {
     });
 }
 
+export async function generateMetadata({ params, searchParams }) {
+
+    const project = allProjects.find((post) => {
+        return ("projects/" + params.slug === post.url)
+    })
+
+    console.log(params)
+    return {
+        title: project?.title + " | Drew Beamer",
+        description: project?.description,
+        openGraph: {
+            title: project?.title,
+            description: project?.description,
+            url: "https://drewbeamer.vercel.app/" + project?.url,
+            images: [
+                {
+                    url: project?.projectImage,
+                    width: 1080,
+                    height: 720
+                }
+            ]
+        }
+    }
+
+}
+
 const NextImage = (props) => {
     return <div className="rounded-[30px]">
         <Image src={props.src} {...props} className="rounded-[30px] px-4 py-4 relative bottom-4" />
