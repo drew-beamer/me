@@ -1,4 +1,5 @@
 import { allProjects } from "contentlayer/generated";
+import { projectFromSlug } from "lib/contentlayerHelpers";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import Image from "next/image";
 import Link from "next/link";
@@ -42,11 +43,6 @@ export async function generateMetadata({ params, searchParams }) {
 
 }
 */
-export const metadata = {
-    title: "Projects | Drew Beamer",
-    description: "One of Drew Beamer's projects"
-}
-
 
 const NextImage = (props) => {
     return <div className="rounded-[30px]">
@@ -57,9 +53,7 @@ const NextImage = (props) => {
 
 export default function ProjectPage({ params }) {
 
-    const project = allProjects.find((post) => {
-        return ("projects/" + params.slug === post.url)
-    })
+    const project = projectFromSlug(params.slug);
 
     if (project !== undefined) {
 
