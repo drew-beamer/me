@@ -3,12 +3,12 @@ import ProjectCard from "components/ui-components/card";
 import { allProjects } from "contentlayer/generated";
 
 export const metadata = {
-    title: "Drew Beamer | Projects",
+    title: "Projects | Drew Beamer",
     description: "Explore my portfolio of web development projects, including minimalist, data-driven applications and analytics projects for sports teams..",
     keywords: ['projects', 'web development', 'front-end development', 'software engineering', 'react', 'next.js', 'javascript', 'responsive design', 'birds', 'bird photography', 'student', 'developer'],
     creator: "Drew Beamer",
     openGraph: {
-        title: "Drew Beamer | Projects",
+        title: "Projects",
         description: "Explore my portfolio of projects ranging from web development, data analysis, and social media apps. Discover how I apply my skills in computer science and design to create impactful solutions for real-world problems."
     }
 }
