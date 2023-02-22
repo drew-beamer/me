@@ -15,10 +15,10 @@ export async function generateStaticParams() {
     });
 }
 
+/*
 export async function generateMetadata({ params, searchParams }) {
 
     // dynamic will have to wait until Next.js patches
-    /*
     const project = allProjects.find((post) => {
         return ("projects/" + params.slug === post.url)
     })
@@ -39,13 +39,14 @@ export async function generateMetadata({ params, searchParams }) {
             ]
         }
     }
-    */
-    return {
-        title: "Projects | Drew Beamer",
-        description: "One of Drew Beamer's projects"
-   }
 
 }
+*/
+export const metadata = {
+    title: "Projects | Drew Beamer",
+    description: "One of Drew Beamer's projects"
+}
+
 
 const NextImage = (props) => {
     return <div className="rounded-[30px]">
@@ -83,10 +84,9 @@ export default function ProjectPage({ params }) {
                 <div className="hover:underline text-green-400 mb-24"><Link href="/projects">← Return to Projects</Link></div>
             </>
         )
-    } else {
-        return <div>
-            Oops! There should be a project here...
-        </div>
     }
+    return <div>
+        Oops! There should be a project here...
+    </div>
 
 }

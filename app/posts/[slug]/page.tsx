@@ -35,16 +35,21 @@ const PostLayout = ({ params }) => {
         a: LinkWrapper
     }
 
-    const Content = useMDXComponent(post.body.code)
 
-    return (
-        <>
-            <article className="blogPost">
-                <Content components={{ ...components }} />
-            </article>
+    if (post !== undefined) {
+        const Content = useMDXComponent(post.body.code)
 
-        </>
-    )
+        return (
+            <>
+                <article className="blogPost">
+                    <Content components={{ ...components }} />
+                </article>
+
+            </>
+        )
+    }
+    return <div>Oops! There should be a post here...</div>
+
 }
 
 export default PostLayout;
