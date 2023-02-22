@@ -1,5 +1,13 @@
 import Link from "next/link";
 
+export const metadata = {
+    title: "Privacy Policy",
+    description: "A brief privacy policy for Drew Beamer's website.",
+    openGraph: {
+        title: "Privacy Policy",
+        description: "A brief privacy policy for Drew Beamer's website."
+    }
+}
 
 export default function Privacy() {
     return <section>
