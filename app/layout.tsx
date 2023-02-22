@@ -2,7 +2,7 @@ import '../styles/globals.css';
 
 import { Assistant } from '@next/font/google';
 import Navbar from "../components/ui-components/navbar";
-import Footer from 'components/footer';
+import Footer from 'components/ui-components/footer';
 
 const assistant = Assistant({ subsets: ['latin'] });
 

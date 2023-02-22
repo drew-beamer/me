@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { GithubIcon, InstagramIcon } from "./icons";
+import { GithubIcon, InstagramIcon } from "../icons";
 
 function FooterLink({ to, children }) {
     return <Link href={to} className=" hover:text-green-400 hover:underline transition-colors">{children}</Link>
