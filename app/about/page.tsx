@@ -1,5 +1,12 @@
-'use client';
 
+export const metadata = {
+    title: "About Me | Drew Beamer",
+    description: "Drew Beamer is a student at Davidson College, web developer and birder.",
+    openGraph: {
+        title: "About Me",
+        description: "Drew Beamer is a student at Davidson College, web developer and birder.",
+    }
+}
 
 export default function About() {
     return <section>

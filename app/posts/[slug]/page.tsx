@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { allPosts } from 'contentlayer/generated'
 import { useMDXComponent } from 'next-contentlayer/hooks'
+import { postFromSlug } from 'lib/contentlayerHelpers';
 
 export async function generateStaticParams() {
     return allPosts.map((post) => {
@@ -26,25 +27,27 @@ const LinkWrapper = (props) => {
 
 const PostLayout = ({ params }) => {
 
-    const post = allPosts.find((post) => {
-        return ("posts/" + params.slug === post.url)
-    })
+    const post = postFromSlug(params.slug);
 
     const components = {
         Image: NextImage,
         a: LinkWrapper
     }
 
-    const Content = useMDXComponent(post.body.code)
 
-    return (
-        <>
-            <article className="blogPost">
-                <Content components={{ ...components }} />
-            </article>
+    if (post !== undefined) {
+        const Content = useMDXComponent(post.body.code)
+        return (
+            <>
+                <article className="blogPost">
+                    <Content components={{ ...components }} />
+                </article>
 
-        </>
-    )
+            </>
+        )
+    }
+    return <div>Oops! There should be a post here...</div>
+
 }
 
 export default PostLayout;
