@@ -1,3 +1,4 @@
+import PageWrapper from "components/ui-components/pageWrapper";
 import { allProjects } from "contentlayer/generated";
 import { projectFromSlug } from "lib/contentlayerHelpers";
 import { useMDXComponent } from "next-contentlayer/hooks";
@@ -63,7 +64,7 @@ export default function ProjectPage({ params }) {
         const Content = useMDXComponent(project.body.code)
 
         return (
-            <>
+            <PageWrapper>
                 <article className="blogPost relative overflow-clip">
                     <ScrollingTitle>{project.title}</ScrollingTitle>
                     <div className="inline-block sm:hidden w-full overflow-auto">
@@ -76,7 +77,7 @@ export default function ProjectPage({ params }) {
 
                 </article>
                 <div className="hover:underline text-green-400 mb-24"><Link href="/projects">← Return to Projects</Link></div>
-            </>
+            </PageWrapper>
         )
     }
     return <div>

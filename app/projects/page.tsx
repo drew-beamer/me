@@ -1,5 +1,6 @@
 
 import ProjectCard from "components/ui-components/card";
+import PageWrapper from "components/ui-components/pageWrapper";
 import { allProjects } from "contentlayer/generated";
 
 export const metadata = {
@@ -14,22 +15,22 @@ export const metadata = {
 }
 
 export default function Projects() {
-    return <section>
-        <h1>PROJECTS</h1>
-        <p>
-            From sports analytics to birds, my portfolio features a diverse range
-            of projects that showcase my creativity, versatility, and technical
-            expertise.
-        </p>
-        <div className="mt-6 mx-auto columns-1 sm:columns-2 gap-4 w-full align-start">
-            {allProjects.sort((a, b) => a.title.localeCompare(b.title)).map((project) => {
-                return <div key={project._id} className="w-full inline-block px-6 sm:px-0 mb-6 break-inside-avoid">
-                    <ProjectCard url={project.url} img={project.projectImage} alt="decor" categories={project.categories} text={project.description} title={project.title} />
-                </div>
-            })}
-        </div>
-
-
-    </section>
+    return <PageWrapper>
+        <section>
+            <h1>PROJECTS</h1>
+            <p>
+                From sports analytics to birds, my portfolio features a diverse range
+                of projects that showcase my creativity, versatility, and technical
+                expertise.
+            </p>
+            <div className="mt-6 mx-auto columns-1 sm:columns-2 gap-4 w-full align-start">
+                {allProjects.sort((a, b) => a.title.localeCompare(b.title)).map((project) => {
+                    return <div key={project._id} className="w-full inline-block px-6 sm:px-0 mb-6 break-inside-avoid">
+                        <ProjectCard url={project.url} img={project.projectImage} alt="decor" categories={project.categories} text={project.description} title={project.title} />
+                    </div>
+                })}
+            </div>
+        </section>
+    </PageWrapper>
 
 }
