@@ -42,6 +42,7 @@ export default function Navbar() {
                 <div className="flex flex-row items-start relative pb-0 fade">
                     <div className="flex relative w-[256px] flex-row items-center space-x-0">
                         {buttonData[pathName] ? <motion.div
+                            layoutId="navbutton-slider"
                             initial={{ x: buttonData[pathName].x, opacity: 0 }}
                             animate={{ opacity: 1, x: buttonData[pathName].x, width: buttonData[pathName].width }}
                             transition={{
