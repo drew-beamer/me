@@ -17,40 +17,32 @@ export async function generateStaticParams() {
     });
 }
 
-/*
-export async function generateMetadata({ params, searchParams }) {
-
-    // dynamic will have to wait until Next.js patches
-    const project = allProjects.find((post) => {
-        return ("projects/" + params.slug === post.url)
-    })
-
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+    const project = projectFromSlug(params.slug)
     return {
-        title: project?.title + " | Drew Beamer",
-        description: project?.description,
+        metadataBase: "https://drewbeamer.vercel.app",
+        title: project.title + " | Drew Beamer",
+        description: project.description,
         openGraph: {
-            title: project?.title,
-            description: project?.description,
+            title: project.title,
+            description: project.description,
             url: "https://drewbeamer.vercel.app/" + project?.url,
             images: [
                 {
-                    url: project?.projectImage,
-                    width: 1080,
-                    height: 720
+                    url: project.projectImage,
+                    width: 720,
+                    height: 480
                 }
             ]
         }
     }
-
 }
-*/
 
 const NextImage = (props) => {
     return <div className="rounded-[30px]">
         <Image src={props.src} {...props} className="rounded-[30px] px-4 py-4 relative bottom-4" />
     </div>
 }
-
 
 export default function ProjectPage({ params }) {
 

@@ -22,8 +22,6 @@ const quickLinkData = [
 export const metadata = {
     title: "Drew Beamer | Student, Web Developer, Birder",
     description: "Drew is a computer science student and web developer who loves designing minimalist, data-driven web applications. This site acts as his project portfolio and blog.",
-    keywords: ['web development', 'front-end development', 'software engineering', 'react', 'next.js', 'javascript', 'responsive design', 'birds', 'bird photography', 'student', 'developer'],
-    creator: "Drew Beamer",
     openGraph: {
         title: "Drew Beamer - Student, Web Developer, Birder",
         description: "Drew is a web developer and computer science student at Davidson College. This is his portfolio and blog site."
