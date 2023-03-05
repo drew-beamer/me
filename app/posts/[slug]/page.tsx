@@ -1,9 +1,9 @@
 
-
 import Image from 'next/image'
 import { allPosts } from 'contentlayer/generated'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import { postFromSlug } from 'lib/contentlayerHelpers';
+import { Metadata } from 'next';
 
 export async function generateStaticParams() {
     return allPosts.map((post) => {
@@ -14,6 +14,27 @@ export async function generateStaticParams() {
         }
     });
 }
+
+export function generateMetadata({ params }: { params: { slug: string } }){
+    const post = postFromSlug(params.slug);
+    return {
+        metadataBase: "https://drewbeamer.vercel.app",
+        title: post.title,
+        openGraph: {
+            title: post.title,
+            url: post.url,
+            siteName: "Drew Beamer",
+            images: [{
+                url: "https://drewbeamer.vercel.app" + post.postImage,
+                width: 720,
+                height: 480
+            }],
+            locale: "en-US",
+            type: "website"
+        }
+    }
+}
+
 
 const NextImage = (props) => {
     return <div className="blog-post-image">

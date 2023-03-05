@@ -1,4 +1,5 @@
 
+import PageWrapper from "components/ui-components/pageWrapper";
 import { allPosts } from "contentlayer/generated";
 import BlogFeed from "../../components/blogFeed.js";
 
@@ -12,7 +13,7 @@ export const metadata = {
 }
 
 export default function PostsPage() {
-    return <section className="w-full">
+    return <PageWrapper><section className="w-full">
         <h1 className="w-full">Posts</h1>
         <p>
             This is where I share my thoughts, insights, and experiences
@@ -20,5 +21,5 @@ export default function PostsPage() {
             posts both informative and enjoyable!
         </p>
         <BlogFeed postData={allPosts} />
-    </section>
+    </section></PageWrapper>
 }
