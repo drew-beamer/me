@@ -15,6 +15,25 @@ export async function generateStaticParams() {
     });
 }
 
+export async function generateMetadata({ params }) {
+    const post = postFromSlug(params.slug);
+    return {
+        title: post.title,
+        openGraph: {
+            title: post.title,
+            url: post.url,
+            siteName: "Drew Beamer",
+            images: [{
+                url: "https://drewbeamer.vercel.app" + post.postImage,
+                width: 720,
+                height: 480
+            }],
+            locale: "en-US",
+            type: "website"
+        }
+    }
+}
+
 const NextImage = (props) => {
     return <div className="blog-post-image">
         <Image src={props.src} {...props} className="px-4 py-4 relative bottom-4" />
