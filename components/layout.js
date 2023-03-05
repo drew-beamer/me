@@ -1,3 +1,4 @@
+import { AnimatePresence } from 'framer-motion';
 import Head from 'next/head';
 import Link from 'next/link';
 
@@ -18,6 +19,7 @@ export default function Layout({ children, home }) {
                 <div className='mt-0 sm:mt-12 mx-10 sm:mx-0 max-w-[540px]'>
                     {children}
                 </div>
+
 
             </main>
             {!home && (
