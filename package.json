@@ -26,6 +26,7 @@
     "touch-cli": "^0.0.1"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.9",
     "@types/node": "^18.14.0",
     "@types/react": "^18.0.28",
     "postcss": "^8.4.21",

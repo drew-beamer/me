@@ -6,6 +6,16 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
+    typography: {
+      DEFAULT: {
+        css: {
+          fontFamily: {
+            'sans': ["assistant", "system-ui"]
+          },
+          fontWeight: 500,
+        }
+      }
+    },
     fontFamily: {
       'sans': ["assistant", "system-ui"]
     },
@@ -18,5 +28,7 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 }

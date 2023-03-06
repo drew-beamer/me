@@ -4,6 +4,8 @@ import { allPosts } from 'contentlayer/generated'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import { postFromSlug } from 'lib/contentlayerHelpers';
 import { Metadata } from 'next';
+import ScrollingTitle from 'components/ui-components/scrollingTitle';
+import PageWrapper from 'components/ui-components/pageWrapper';
 
 export async function generateStaticParams() {
     return allPosts.map((post) => {
@@ -59,12 +61,12 @@ const PostLayout = ({ params }) => {
     if (post !== undefined) {
         const Content = useMDXComponent(post.body.code)
         return (
-            <>
-                <article className="blogPost">
+            <PageWrapper>
+                <article className="blogPost prose-xl prose-invert prose-h1:text-green-400">
+                    <h1>{post.title}</h1>
                     <Content components={{ ...components }} />
                 </article>
-
-            </>
+            </PageWrapper>
         )
     }
     return <div>Oops! There should be a post here...</div>
