@@ -9,7 +9,7 @@ import { notFound } from 'next/navigation';
 
 export async function generateStaticParams() {
     return allPosts.map((post) => ({
-        slug: post.slug
+        slug: post.slug.split("/")[1]
     }));
 }
 

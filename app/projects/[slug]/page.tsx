@@ -8,13 +8,15 @@ import ScrollingTitle from "../../../components/ui-components/scrollingTitle"
 
 
 export async function generateStaticParams() {
-    return allProjects.map((project) => ({ slug: project.slug }));
+    return allProjects.map((project) => {
+        return { slug: project.slug.split("/")[1] }
+    });
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
     const project = projectFromSlug(params.slug);
 
-    const {description, title, slug, projectImage} = project;
+    const { description, title, slug, projectImage } = project;
 
     return {
         title: project.title + " | Drew Beamer",
