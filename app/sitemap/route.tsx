@@ -26,13 +26,13 @@ function generateSiteMap() {
         </url>${allPosts.map((post) => {
     return `
         <url>
-            <loc>https://drewbeamer.vercel.app/posts/${post.slug}</loc>
+            <loc>https://drewbeamer.vercel.app/${post.slug}</loc>
             <priority>0.75</priority>
         </url>`
 }).join("")}${allProjects.map((project) => {
     return `
         <url>
-            <loc>https://drewbeamer.vercel.app/projects/${project.slug}</loc>
+            <loc>https://drewbeamer.vercel.app/${project.slug}</loc>
             <priority>0.75</priority>
         </url>`
 }).join("")}
