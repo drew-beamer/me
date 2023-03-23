@@ -4,11 +4,57 @@ import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 import remarkGfm from 'remark-gfm'
 
 /** @type {import('contentlayer/source-files').ComputedFields} */
-const computedFields = {
-  url: {
+const generalCalculatedFields = {
+  slug: {
     type: 'string',
     resolve: (doc) => doc._raw.flattenedPath,
   },
+}
+
+/** @type {import('contentlayer/source-files').ComputedFields} */
+const postCalculatedFields = {
+  jsonLD: {
+    type: 'object',
+    resolve: (doc) => ({
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": doc.title,
+      "description": doc.description,
+      "dateCreated": new Date(doc.date),
+      "datePublished": new Date(doc.date),
+      "about": {
+        "@type": "Thing",
+        "name": doc.about
+      },
+      "inLanguage": "en-US",
+      "isAccessibleForFree": true,
+      "url": "https://www.drewbeamer.io/" + doc._raw.flattenedPath,
+      "author": {
+        "@type": "Person",
+        "name": "Drew Beamer",
+        "url": "https://www.drewbeamer.io/"
+      }
+    })
+  }
+}
+
+/** @type {import('contentlayer/source-files').ComputedFields} */
+const projectCalculatedFields = {
+  jsonLD: {
+    type: 'object',
+    resolve: (doc) => ({
+      "@context": "https://schema.org",
+      "@type": "Project",
+      "name": doc.title,
+      "description": doc.description,
+      "keywords": doc.categories,
+      "founder": {
+        "@type": "Person",
+        "name": "Drew Beamer",
+        "url": "https://www.drewbeamer.io/",
+      }
+    })
+  }
 }
 
 export const Post = defineDocumentType(() => ({
@@ -30,9 +76,22 @@ export const Post = defineDocumentType(() => ({
       type: 'string',
       description: 'An image to show as a thumbnail',
       required: true
+    },
+    description: {
+      type: 'string',
+      description: 'A description of the post',
+      required: true
+    },
+    about: {
+      type: 'string',
+      description: 'A couple words at most identifying the post topic',
     }
   },
-  computedFields
+  computedFields: {
+    ...generalCalculatedFields,
+    ...postCalculatedFields
+
+  }
 }))
 
 export const Project = defineDocumentType(() => ({
@@ -61,7 +120,10 @@ export const Project = defineDocumentType(() => ({
       required: true
     }
   },
-  computedFields
+  computedFields: {
+    ...generalCalculatedFields,
+    ...projectCalculatedFields
+  },
 }))
 
 

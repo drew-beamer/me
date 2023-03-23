@@ -8,28 +8,24 @@ import ScrollingTitle from "../../../components/ui-components/scrollingTitle"
 
 
 export async function generateStaticParams() {
-    return allProjects.map((post) => {
-        if (post.url !== undefined) {
-            return {
-                slug: post.url.substring(9),
-            }
-        }
-    });
+    return allProjects.map((project) => ({ slug: project.slug }));
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
-    const project = projectFromSlug(params.slug)
+    const project = projectFromSlug(params.slug);
+
+    const {description, title, slug, projectImage} = project;
+
     return {
-        metadataBase: "https://drewbeamer.vercel.app",
         title: project.title + " | Drew Beamer",
-        description: project.description,
+        description: description,
         openGraph: {
-            title: project.title,
-            description: project.description,
-            url: "https://drewbeamer.vercel.app/" + project?.url,
+            title: title + " | Drew Beamer",
+            description: description,
+            url: "https://drewbeamer.vercel.app/projects/" + slug,
             images: [
                 {
-                    url: project.projectImage,
+                    url: projectImage,
                     width: 720,
                     height: 480
                 }
@@ -46,6 +42,7 @@ const NextImage = (props) => {
 
 export default function ProjectPage({ params }) {
 
+
     const project = projectFromSlug(params.slug);
 
     if (project !== undefined) {
@@ -56,20 +53,25 @@ export default function ProjectPage({ params }) {
         const Content = useMDXComponent(project.body.code)
 
         return (
-            <PageWrapper>
-                <article className="blogPost relative overflow-clip">
-                    <ScrollingTitle>{project.title}</ScrollingTitle>
-                    <div className="inline-block sm:hidden w-full overflow-auto">
-                        <h1 className="whitespace-nowrap">{project.title}</h1>
-                    </div>
+            <article>
+                <script type="application/ld+json">
+                    {JSON.stringify(project.jsonLD)}
+                </script>
+                <PageWrapper>
+                    <section className="blogPost relative overflow-clip">
+                        <ScrollingTitle>{project.title}</ScrollingTitle>
+                        <div className="inline-block sm:hidden w-full overflow-auto">
+                            <h1 className="whitespace-nowrap">{project.title}</h1>
+                        </div>
 
-                    <div className="relative">
-                        <Content components={{ ...components }} />
-                    </div>
+                        <div className="relative">
+                            <Content components={{ ...components }} />
+                        </div>
 
-                </article>
-                <div className="hover:underline text-green-400 mb-24"><Link href="/projects">← Return to Projects</Link></div>
-            </PageWrapper>
+                    </section>
+                    <div className="hover:underline text-green-400 mb-24"><Link href="/projects">← Return to Projects</Link></div>
+                </PageWrapper>
+            </article>
         )
     }
     return <div>

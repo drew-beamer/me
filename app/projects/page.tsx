@@ -26,7 +26,7 @@ export default function Projects() {
             <div className="mt-6 mx-auto columns-1 sm:columns-2 gap-4 w-full align-start">
                 {allProjects.sort((a, b) => a.title.localeCompare(b.title)).map((project) => {
                     return <div key={project._id} className="w-full inline-block px-6 sm:px-0 mb-6 break-inside-avoid">
-                        <ProjectCard url={project.url} img={project.projectImage} alt="decor" categories={project.categories} text={project.description} title={project.title} />
+                        <ProjectCard url={project.slug} img={project.projectImage} alt="decor" categories={project.categories} text={project.description} title={project.title} />
                     </div>
                 })}
             </div>
