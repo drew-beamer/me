@@ -40,5 +40,9 @@ function generateSiteMap() {
 }
 
 export async function GET() {
-    return new Response(generateSiteMap(), {});
+    return new Response(generateSiteMap(), {
+        headers: {
+            "content-type": "application/xml;charset=UTF-8"
+        }
+    });
 }
