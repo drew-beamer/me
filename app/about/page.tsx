@@ -15,22 +15,21 @@ export default function About() {
         <h1>ABOUT ME</h1>
         <section>
             <h2>Who Am I?</h2>
-            <p className="my-4">
-                My name is Drew Beamer and I am a current student at Davidson College. I love to code and I am currently working on a few <Link href="/projects">projects</Link>. 
+            <p>
+                My name is Drew Beamer and I am a current student at Davidson College. I love to code and I am currently working on a few <Link href="/projects">projects</Link>.
                 I specialize in web development and I am currently honing my skills in React and Next.js.
             </p>
-            <p className="my-4">
+            <p>
                 Outside of coding, I am a birder and have seen over 850 species worldwide. You can check out my Instagram account <a href="https://www.instagram.com/crazed4birds/">@crazed4birds</a> to see some of my favorite photos.
             </p>
-            <p>Insert a brief description of yourself here, including your background, interests, and any relevant information that you'd like to share.</p>
         </section>
         <section>
             <h2>What Do I Do?</h2>
-            <p>Explain your current occupation or what you're studying in school, and any notable achievements or experiences you've had in your career or education.</p>
+            <p>I am currently working toward a major in Computer Science with an interdisciplinary minor in Genomics. I am hoping to go into software engineering post-graduation so that I can apply what I've learned in college to tackle real problems.</p>
         </section>
         <section>
             <h2>Contact Me</h2>
-            <p>Include your contact information here, such as your email address or social media handles, so that visitors can easily get in touch with you.</p>
+            <p>To contact me, I can be reached via email at <a href="mailto:andrewmbeamer@gmail.com">andrewmbeamer@gmail.com</a></p>
         </section>
     </PageWrapper>
 }

@@ -30,7 +30,7 @@ export default function Footer() {
                     <h3 className="dark:text-green-400 text-green-500">About</h3>
                     <FooterList>
                         <li><FooterLink to="/about">About</FooterLink></li>
-                        <li><FooterLink to="/contact">Contact</FooterLink></li>
+                        <br/>
                     </FooterList>
                 </div>
                 <div>
