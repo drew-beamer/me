@@ -66,17 +66,24 @@ export default function PostLayout({ params }): JSX.Element {
 
     if (post !== null) {
         const Content = useMDXComponent(post.body.code);
-        return (<article>
-            <script type="application/ld+json">
-                {jsonld}
-            </script>
-            <PageWrapper>
-                <div className="blogPost prose-xl prose-invert prose-h1:dark:text-green-400 prose-h1:text-green-500">
-                    <h1>{post.title}</h1>
-                    <Content components={{ ...components }} />
-                </div>
-            </PageWrapper>
-            </article>
+        return (
+            <>
+                <script type="application/ld+json">
+                    {jsonld}
+                </script>
+
+
+
+                <PageWrapper>
+                    <article className='pt-32'>
+                        <div className="blogPost prose-xl prose-invert">
+                            <h1>{post.title}</h1>
+                            <Content components={{ ...components }} />
+                        </div>
+                    </article>
+                </PageWrapper>
+
+            </>
         )
     }
     return <div>Oops! There should be a post here...</div>

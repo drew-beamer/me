@@ -6,13 +6,13 @@
   body {
     @apply bg-neutral-900;
     @apply min-h-screen;
-    @apply dark:text-floral-white text-raisin-black;
+    @apply text-floral-white;
     @apply antialiased
   }
 
   h1 {
     @apply text-transparent bg-gradient-to-r from-green-400 to-cyan-400 bg-clip-text;
-    @apply text-5xl sm:text-7xl mb-3;
+    @apply text-5xl sm:text-7xl pb-3 leading-[4rem];
     @apply font-bold;
 
   }
@@ -23,7 +23,7 @@
   }
 
   h3 {
-    @apply text-lg;
+    @apply text-xl;
     @apply font-bold;
   }
 
@@ -37,7 +37,10 @@
   }
 
   section {
-    @apply px-8 sm:px-48 inline-block mx-auto;
+    @apply inline-block w-full;
+  }
+  article {
+    @apply inline-block;
   }
 
   ul {
