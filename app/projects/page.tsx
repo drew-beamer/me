@@ -5,7 +5,7 @@ import { allProjects } from "contentlayer/generated";
 
 export const metadata = {
     title: "Projects | Drew Beamer",
-    description: "Explore my portfolio of web development projects, including minimalist, data-driven applications and analytics projects for sports teams..",
+    description: "Explore my portfolio of web development projects, including data-driven web applications, responsive design, and user-focused interfaces. See examples of my work and learn more about my skills in software engineering, data analysis, and visualization, along with miscelaneous bird-related projects.",
     keywords: ['projects', 'web development', 'front-end development', 'software engineering', 'react', 'next.js', 'javascript', 'responsive design', 'birds', 'bird photography', 'student', 'developer'],
     creator: "Drew Beamer",
     openGraph: {

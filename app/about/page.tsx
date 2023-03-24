@@ -3,7 +3,7 @@ import Link from "next/link"
 
 export const metadata = {
     title: "About Me | Drew Beamer",
-    description: "Drew Beamer is a student at Davidson College, web developer and birder.",
+    description: "Learn more about Drew, a computer science student at Davidson College with a passion for designing minimalist web applications. Discover Drew's skills in data and web development. Get to know the person behind the code and explore Drew's portfolio of projects and photography.",
     openGraph: {
         title: "About Me",
         description: "Drew Beamer is a student at Davidson College, web developer and birder.",

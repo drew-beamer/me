@@ -4,10 +4,10 @@ import { allPosts } from "contentlayer/generated";
 import BlogFeed from "../../components/blogFeed.js";
 
 export const metadata = {
-    title: "Posts | Drew Beamer",
-    description: "A collection of Drew Beamer's writing on various topics, ranging from web development to birding.",
+    title: "Blog Posts | Drew Beamer",
+    description: "Explore a variety of topics on my blog, from birding adventures to insights on personal life, as well as my thoughts on web development and data analysis. Join me on my journey of discovery and growth in these diverse areas of interest.",
     openGraph: {
-        title: "Posts",
+        title: "Blog Posts",
         description: "A collection of Drew Beamer's writing on various topics, ranging from web development to birding."
     }
 }
