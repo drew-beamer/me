@@ -21,7 +21,7 @@ export default function BlogFeed({ postData }) {
                         </div>
                     </div>
                 </div>
-                <hr className=" my-6 bg-neutral-800 border-0 h-0.5" />
+                <hr className=" my-6 dark:bg-neutral-800 bg-neutral-200 border-0 h-0.5" />
             </div>
         })}
     </div>

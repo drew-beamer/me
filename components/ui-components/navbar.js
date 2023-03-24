@@ -37,7 +37,7 @@ export default function Navbar() {
         <nav className="w-full pt-6 sm:pt-3">
             <div className="flex items-center justify-center sm:justify-start h-full flex-wrap px-5">
                 <div className="grow flex justify-center w-full sm:w-auto sm:justify-start">
-                    <Link href="/"><h2 className="m-0 hover:cursor-pointer">{"<db>"}</h2></Link>
+                    <Link href="/"><h2 className="m-0 hover:cursor-pointer dark:text-floral-white text-raisin-black">{"<db>"}</h2></Link>
                 </div>
                 <div className="flex flex-row items-start relative pb-0 fade">
                     <div className="flex relative w-[256px] flex-row items-center space-x-0">
@@ -50,17 +50,17 @@ export default function Navbar() {
                                 damping: 40,
                                 stiffness: 300
                             }}
-                            className={`absolute h-[30px] bg-neutral-800 z-[-1] rounded-md left-0`}
+                            className={`absolute h-[30px] dark:bg-neutral-800 bg-neutral-200 z-[-1] rounded-md left-0`}
                         /> : null}
                         {Object.entries(buttonData).map(([path, { name }]) => {
                             const isActive = pathName === path;
-                            return <div key={path} className={`${isActive ? "text-green-400" : ""} rounded-md py-[10px] px-[10px] text-base font-bold`}>
-                                <Link href={path}> {name} </Link>
+                            return <div key={path} className={` rounded-md py-[10px] px-[10px] text-base font-bold`}>
+                                <Link className={`${isActive ? "dark:text-green-400 text-green-500" : " dark:text-floral-white text-raisin-black"} hover:no-underline`} href={path}> {name} </Link>
                             </div>
                         })}
                     </div>
                 </div>
             </div>
-        </nav >
+        </nav>
     </>
 }

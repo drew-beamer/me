@@ -69,7 +69,7 @@ export default function ProjectPage({ params }) {
                         </div>
 
                     </section>
-                    <div className="hover:underline text-green-400 mb-24"><Link href="/projects">← Return to Projects</Link></div>
+                    <div className="mb-24"><Link href="/projects">← Return to Projects</Link></div>
                 </PageWrapper>
             </article>
         )

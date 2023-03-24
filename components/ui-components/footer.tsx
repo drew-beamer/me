@@ -2,7 +2,7 @@ import Link from "next/link";
 import { GithubIcon, InstagramIcon } from "../icons";
 
 function FooterLink({ to, children }) {
-    return <Link href={to} className=" hover:text-green-400 hover:underline transition-colors">{children}</Link>
+    return <Link href={to} className="text-raisin-black dark:text-floral-white font-normal transition-colors">{children}</Link>
 }
 
 function FooterList({ children }) {
@@ -12,14 +12,14 @@ function FooterList({ children }) {
 }
 
 export default function Footer() {
-    return <footer className="p-4 w-screen sm:p-6 bg-neutral-800 flex justify-center">
+    return <footer className="p-4 w-screen sm:p-6 flex justify-center">
         <div className="w-[100vw] max-w-[720px] flex items-start flex-wrap p-4 mx-auto">
             <div className="flex-grow">
                 <h2>{"<db>"}</h2>
             </div>
             <div className="columns-3 gap-4 break-after-avoid">
                 <div className="inline-block">
-                    <h3 className="text-green-400">Home</h3>
+                    <h3 className="dark:text-green-400 text-green-500">Home</h3>
                     <FooterList>
                         <li><FooterLink to="/">Home</FooterLink></li>
                         <li><FooterLink to="/projects">Projects</FooterLink></li>
@@ -27,14 +27,14 @@ export default function Footer() {
                     </FooterList>
                 </div>
                 <div>
-                    <h3 className="text-green-400">About</h3>
+                    <h3 className="dark:text-green-400 text-green-500">About</h3>
                     <FooterList>
                         <li><FooterLink to="/about">About</FooterLink></li>
                         <li><FooterLink to="/contact">Contact</FooterLink></li>
                     </FooterList>
                 </div>
                 <div>
-                    <h3 className="text-green-400">Legal</h3>
+                    <h3 className="dark:text-green-400 text-green-500">Legal</h3>
                     <FooterList>
                         <li><FooterLink to="/legal/privacy">Privacy</FooterLink></li>
                     </FooterList>

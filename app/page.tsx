@@ -32,7 +32,7 @@ export default function Home() {
 
     return <PageWrapper>
         <section>
-            <div className='bg-raisin-black'>
+            <div>
                 <ScrambleText text="DREW BEAMER" />
                 <p>Hi there, I'm Drew. I'm a computer science student at Davidson College, pursuing a career in software engineering.</p>
             </div>
@@ -44,7 +44,7 @@ export default function Home() {
                     <ul className="list-none">
                         {quickLinkData.map((data, index) => {
                             return <li key={index}>
-                                <a target="_blank" href={data.url} className="flex flex-wrap hover:underline my-3">{data.component}<span className="ml-3">{data.text}</span></a>
+                                <a target="_blank" href={data.url} className="flex flex-wrap hover:underline my-3 font-normal text-raisin-black dark:text-floral-white">{data.component}<span className="ml-3">{data.text}</span></a>
                             </li>
                         })}
                     </ul>

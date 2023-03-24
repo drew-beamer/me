@@ -4,14 +4,14 @@
 
 @layer base {
   body {
-    @apply bg-raisin-black;
+    @apply dark:bg-raisin-black bg-floral-white;
     @apply min-h-screen;
-    @apply text-floral-white;
+    @apply dark:text-floral-white text-raisin-black;
     @apply antialiased
   }
 
   h1 {
-    @apply text-green-400 mb-2;
+    @apply dark:text-green-400 text-green-500 mb-2;
     @apply uppercase;
     @apply text-5xl;
     @apply font-bold;
@@ -35,6 +35,7 @@
 
   p {
     @apply text-lg;
+    @apply mb-4;
   }
 
   section {
@@ -42,7 +43,11 @@
   }
 
   ul {
-    @apply list-disc list-inside;
+    @apply list-disc list-inside my-4;
+  }
+
+  a {
+    @apply dark:text-green-400 text-green-500 font-bold hover:underline;
   }
 }
 
@@ -57,7 +62,7 @@ body {
 
 .blogPost p {
   @apply mt-2;
-  @apply mb-8;
+  @apply mb-4;
 }
 
 .blogPost a {
@@ -68,10 +73,6 @@ body {
 
 .blogPost a:hover {
   @apply underline;
-}
-
-.blogPost ul {
-  @apply mb-8
 }
 
 .marquee {

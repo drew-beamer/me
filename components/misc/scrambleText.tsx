@@ -28,5 +28,5 @@ export default function ScrambleText({ text }) {
     }, [])
 
 
-    return <h1><span className="text-green-400">{headlineText}</span></h1>
+    return <h1><span className="dark:text-green-400 text-green-500">{headlineText}</span></h1>
 }

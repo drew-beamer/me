@@ -71,7 +71,7 @@ export default function PostLayout({ params }): JSX.Element {
                 {jsonld}
             </script>
             <PageWrapper>
-                <div className="blogPost prose-xl prose-invert prose-h1:text-green-400">
+                <div className="blogPost prose-xl prose-invert prose-h1:dark:text-green-400 prose-h1:text-green-500">
                     <h1>{post.title}</h1>
                     <Content components={{ ...components }} />
                 </div>
