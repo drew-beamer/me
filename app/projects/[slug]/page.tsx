@@ -4,7 +4,6 @@ import { projectFromSlug } from "lib/contentlayerHelpers";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import Image from "next/image";
 import Link from "next/link";
-import ScrollingTitle from "../../../components/ui-components/scrollingTitle"
 
 
 export async function generateStaticParams() {
@@ -61,8 +60,7 @@ export default function ProjectPage({ params }) {
                 </script>
                 <PageWrapper>
                     <section className="blogPost relative overflow-clip">
-                        <ScrollingTitle>{project.title}</ScrollingTitle>
-                        <div className="inline-block sm:hidden w-full overflow-auto">
+                        <div className="inline-bloc w-full overflow-auto">
                             <h1 className="whitespace-nowrap">{project.title}</h1>
                         </div>
 
