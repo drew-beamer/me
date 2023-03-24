@@ -46,15 +46,18 @@ const projectCalculatedFields = {
     resolve: (doc) => ({
       "@context": "https://schema.org",
       "@type": "Project",
-      "name": doc.title,
+      "headline": doc.title,
+      "image": doc.projectImage,
       "description": doc.description,
       "keywords": doc.categories,
-      "founder": {
+      "author": {
         "@type": "Person",
         "name": "Drew Beamer",
         "url": "https://www.drewbeamer.io/",
       },
-      "image": doc.projectImage
+      "inLanguage": "en-US",
+      "isAccessibleForFree": true,
+      "url": "https://www.drewbeamer.io/" + doc._raw.flattenedPath,
     })
   }
 }

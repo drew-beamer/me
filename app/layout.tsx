@@ -9,6 +9,9 @@ const assistant = Assistant({ subsets: ['latin'] });
 export const metadata = {
   colorScheme: 'dark',
   creator: "Drew Beamer",
+  icons: {
+    icon: "/favicon.png",
+  },
   keywords: ['web development', 'front-end development', 'software engineering', 'react', 'next.js', 'javascript', 'responsive design', 'birds', 'bird photography', 'student', 'developer'],
 }
 
