@@ -35,7 +35,7 @@ export default function Home() {
             <div>
                 <h2>Hi there, I'm</h2>
                 <h1>Drew Beamer</h1>
-                <p>I'm a computer science student at Davidson College, pursuing a career in software engineering.</p>
+                <p className='mb-0'>I'm a computer science student at Davidson College, pursuing a career in software engineering.</p>
                 <div className="mt-3">
                     <Button1><Link href="/about">Learn more</Link></Button1>
                 </div>

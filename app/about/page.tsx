@@ -34,12 +34,24 @@ const TECHSTACK = [
         count: 20
     },
     {
+        value: "pandas",
+        count: 20,
+    },
+    {
+        value: "numpy",
+        count: 15,
+    },
+    {
         value: "Tableau",
         count: 20
     },
     {
         value: "MongoDB",
         count: 15,
+    },
+    {
+        value: "Tensorflow",
+        count: 10,
     },
     {
         value: "Pytorch",
@@ -49,18 +61,6 @@ const TECHSTACK = [
         value: "scikit-learn",
         count: 10,
     },
-    {
-        value: "Tensorflow",
-        count: 10,
-    },
-    {
-        value: "pandas",
-        count: 20,
-    },
-    {
-        value: "numpy",
-        count: 15,
-    }
 ]
 
 export default function About() {
