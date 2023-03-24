@@ -33,7 +33,8 @@ const postCalculatedFields = {
         "@type": "Person",
         "name": "Drew Beamer",
         "url": "https://www.drewbeamer.io/"
-      }
+      },
+      "image": doc.postImage
     })
   }
 }
@@ -52,7 +53,8 @@ const projectCalculatedFields = {
         "@type": "Person",
         "name": "Drew Beamer",
         "url": "https://www.drewbeamer.io/",
-      }
+      },
+      "image": doc.projectImage
     })
   }
 }
