@@ -23,7 +23,7 @@ export default function Privacy() {
                 </p>
                 <p className="my-4">
                     This privacy policy will help you understand how Drew Beamer
-                    uses and protects the data you provide to me when you visit and use <a ref="https://drewbeamer.io">https://drewbeamer.io</a> ("site").
+                    uses and protects the data you provide to me when you visit and use <a href="https://drewbeamer.io">https://drewbeamer.io</a> ("site").
                 </p>
                 <p className="my-4">
                     This site serves as the home for my blog, portfolio, and other projects. As such, it is not a commercial site. I do not use analytics or advertising on the site.

@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
 const NextImage = (props) => {
     return <div className="blog-post-image">
-        <Image src={props.src} {...props} className="px-4 py-4 relative bottom-4" />
+        <Image src={props.src} alt={props.alt} {...props} className="px-4 py-4 relative bottom-4" />
     </div>
 }
 
