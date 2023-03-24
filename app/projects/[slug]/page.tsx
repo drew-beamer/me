@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
         openGraph: {
             title: title + " | Drew Beamer",
             description: description,
-            url: "https://drewbeamer.vercel.app/projects/" + slug,
+            url: "https://www.drewbeamer.io/projects/" + slug,
             images: [
                 {
                     url: projectImage,
