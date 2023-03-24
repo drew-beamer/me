@@ -9,7 +9,7 @@ export default function PageWrapper({ children }: { children: React.ReactNode })
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ y: { type: "tween", duration: 0.25 } }}
-            className="mb-24"
+            className="w-full mb-24"
         >
             {children}
         </motion.div>

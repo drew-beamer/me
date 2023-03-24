@@ -1,10 +1,12 @@
 import '../styles/globals.css';
 
-import { Assistant } from '@next/font/google';
+import { Poppins } from 'next/font/google';
 import Navbar from "../components/ui-components/navbar";
 import Footer from 'components/ui-components/footer';
+import { KEYWORDS } from 'lib/constants';
+import PageWrapper from 'components/ui-components/pageWrapper';
 
-const assistant = Assistant({ subsets: ['latin'] });
+const poppins = Poppins({ subsets: ['latin'], weight: ["100", "200", "300", "400", "500", "600", "700"] });
 
 export const metadata = {
   colorScheme: 'dark',
@@ -12,20 +14,17 @@ export const metadata = {
   icons: {
     icon: "/favicon.png",
   },
-  keywords: ['web development', 'front-end development', 'software engineering', 'react', 'next.js', 'javascript', 'responsive design', 'birds', 'bird photography', 'student', 'developer'],
-}
-
+  keywords: KEYWORDS,
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head />
-      <body className={`${assistant.className}`}>
+      <body className={`${poppins.className}`}>
         <Navbar />
-        <main className='flex justify-center sm:min-h-[calc(100vh-0.75rem-44px)] min-h-[calc(100vh-1.5rem-76px)]'>
-          <div className='mt-4 sm:mt-12 px-8 sm:px-0 w-full sm:w-[540px]'>
+        <main className='flex justify-center w-full'>
             {children}
-          </div>
         </main>
         <Footer />
       </body >

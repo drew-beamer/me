@@ -1,3 +1,4 @@
+import TagCloudComponent from "components/misc/TagCloud"
 import PageWrapper from "components/ui-components/pageWrapper"
 import Link from "next/link"
 
@@ -10,26 +11,83 @@ export const metadata = {
     }
 }
 
+const TECHSTACK = [
+    {
+        value: "React",
+        count: 35,
+        color: "",
+    },
+    {
+        value: "Next.js",
+        count: 35
+    },
+    {
+        value: "TypeScript",
+        count: 35
+    },
+    {
+        value: "Python",
+        count: 35
+    },
+    {
+        value: "Java",
+        count: 20
+    },
+    {
+        value: "Tableau",
+        count: 20
+    },
+    {
+        value: "MongoDB",
+        count: 15,
+    },
+    {
+        value: "Pytorch",
+        count: 10,
+    },
+    {
+        value: "scikit-learn",
+        count: 10,
+    },
+    {
+        value: "Tensorflow",
+        count: 10,
+    },
+    {
+        value: "pandas",
+        count: 20,
+    },
+    {
+        value: "numpy",
+        count: 15,
+    }
+]
+
 export default function About() {
     return <PageWrapper>
-        <h1>ABOUT ME</h1>
-        <section>
-            <h2>Who Am I?</h2>
+        <section className="pt-32">
+            <h1>About Me</h1>
             <p>
-                My name is Drew Beamer and I am a current student at Davidson College. I love to code and I am currently working on a few <Link href="/projects">projects</Link>.
-                I specialize in web development and I am currently honing my skills in React and Next.js.
-            </p>
-            <p>
-                Outside of coding, I am a birder and have seen over 850 species worldwide. You can check out my Instagram account <a href="https://www.instagram.com/crazed4birds/">@crazed4birds</a> to see some of my favorite photos.
+                Hi, I'm Drew Beamer, a <strong>college student</strong> and <strong>aspiring software engineer</strong> with a passion for <strong>web development</strong> and <strong>data</strong>. On this website, I share my thoughts, experiences, and projects related to these topics, as well as birding and other miscellaneous topics. I started blogging in 2023 as a way to express my ideas and connect with others who share my enthusiasm.
             </p>
         </section>
-        <section>
-            <h2>What Do I Do?</h2>
-            <p>I am currently working toward a major in Computer Science with an interdisciplinary minor in Genomics. I am hoping to go into software engineering post-graduation so that I can apply what I've learned in college to tackle real problems.</p>
+        <section className="w-full">
+            <h2>Technologies I Use</h2>
+            <p>I work with the following technologies, sorted in approximate order of familiarity.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full">
+                {TECHSTACK.map((item, index) => {
+                    return <div className="bg-neutral-800 p-6 text-xl w-full rounded-xl font-medium">
+                        {item.value}
+                    </div>
+                })}
+            </div>
+
         </section>
-        <section>
-            <h2>Contact Me</h2>
-            <p>To contact me, I can be reached via email at <a href="mailto:andrewmbeamer@gmail.com">andrewmbeamer@gmail.com</a></p>
+        <section id="contact" className="pt-16">
+            <h2>Get In Touch</h2>
+            <p>
+                Thank you for visiting my website. If you have any questions, comments, or feedback, feel free to send an email to <a href="mailto:andrewmbeamer@gmail.com">andrewmbeamer@gmail.com</a>.
+            </p>
         </section>
     </PageWrapper>
 }
