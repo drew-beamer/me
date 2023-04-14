@@ -1,5 +1,6 @@
 
 import Image from 'next/image'
+import Script from 'next/script';
 import { allPosts } from 'contentlayer/generated'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import { postFromSlug } from 'lib/contentlayerHelpers';
@@ -68,9 +69,9 @@ export default function PostLayout({ params }): JSX.Element {
         const Content = useMDXComponent(post.body.code);
         return (
             <>
-                <script type="application/ld+json">
+                <Script type="application/ld+json">
                     {jsonld}
-                </script>
+                </Script>
 
 
 

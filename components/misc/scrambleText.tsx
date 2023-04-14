@@ -6,7 +6,7 @@ export default function ScrambleText({ text }) {
     const [headlineText, setHeadlineText] = useState("DREW BEAMER");
 
     function generateRandomString(length: number): string {
-        const RANDOM_LETTERS = "1234567890/.,<>?;':\"[]{}\\|`~!@#$%^&*()_+-=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const RANDOM_LETTERS = "1234567890";
         let randomString = ""
         for (let i = 0; i < length; i++) {
             randomString += RANDOM_LETTERS.charAt(Math.floor(RANDOM_LETTERS.length * Math.random()))
