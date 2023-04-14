@@ -16,14 +16,14 @@ export const metadata = {
 
 export default function Projects() {
     return <PageWrapper>
-        <section>
-            <h1>PROJECTS</h1>
+        <section className="pt-32">
+            <h1 className=" overflow-y-visible " >Projects</h1>
             <p>
                 From sports analytics to birds, my portfolio features a diverse range
                 of projects that showcase my creativity, versatility, and technical
                 expertise.
             </p>
-            <div className="mt-6 mx-auto columns-1 sm:columns-2 gap-4 w-full align-start">
+            <div className="mt-6 mx-auto grid grid-cols-1 sm:grid-cols-2  gap-4 w-full align-start">
                 {allProjects.sort((a, b) => a.title.localeCompare(b.title)).map((project) => {
                     return <div key={project._id} className="w-full inline-block px-6 sm:px-0 mb-6 break-inside-avoid">
                         <ProjectCard url={project.slug} img={project.projectImage} alt="decor" categories={project.categories} text={project.description} title={project.title} />

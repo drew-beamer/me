@@ -4,27 +4,26 @@
 
 @layer base {
   body {
-    @apply dark:bg-raisin-black bg-floral-white;
+    @apply bg-neutral-900;
     @apply min-h-screen;
-    @apply dark:text-floral-white text-raisin-black;
+    @apply text-floral-white;
     @apply antialiased
   }
 
   h1 {
-    @apply dark:text-green-400 text-green-500 mb-6;
-    @apply uppercase;
-    @apply text-5xl;
+    @apply text-transparent bg-gradient-to-r from-green-400 to-cyan-400 bg-clip-text;
+    @apply text-5xl sm:text-7xl pb-3 leading-[4rem];
     @apply font-bold;
 
   }
 
   h2 {
-    @apply text-2xl;
-    @apply font-bold mb-2;
+    @apply text-3xl mb-3;
+    @apply font-bold;
   }
 
   h3 {
-    @apply text-lg;
+    @apply text-xl;
     @apply font-bold;
   }
 
@@ -34,20 +33,22 @@
   }
 
   p {
-    @apply text-lg;
-    @apply mb-4;
+    @apply text-lg max-w-[60ch] mb-12;
   }
 
   section {
-    @apply mb-5;
+    @apply inline-block w-full;
+  }
+  article {
+    @apply inline-block;
   }
 
   ul {
     @apply list-disc list-inside my-4;
   }
 
-  a {
-    @apply dark:text-green-400 text-green-500 font-bold hover:underline;
+  p a {
+    @apply text-green-400 hover:underline;
   }
 }
 
@@ -61,7 +62,6 @@ body {
 
 
 .blogPost p {
-  @apply mt-2;
   @apply mb-4;
 }
 

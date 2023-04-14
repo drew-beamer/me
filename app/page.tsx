@@ -1,9 +1,9 @@
 
 import Image from 'next/image';
 import { GithubIcon, InstagramIcon } from '../components/icons';
-import ScrambleText from 'components/misc/scrambleText';
-import { motion } from "framer-motion";
+import Link from 'next/link';
 import PageWrapper from 'components/ui-components/pageWrapper';
+import { Button1 } from 'components/ui-components/buttons';
 
 const quickLinkData = [
     {
@@ -31,28 +31,19 @@ export const metadata = {
 export default function Home() {
 
     return <PageWrapper>
-        <section>
+        <section className='py-32 flex items-center min-h-screen'>
             <div>
-                <ScrambleText text="DREW BEAMER" />
-                <p>Hi there, I'm Drew. I'm a computer science student at Davidson College, pursuing a career in software engineering.</p>
-            </div>
-            <div className='w-full flex flex-wrap items-center mt-6'>
-                <div className='h-24 w-24 relative flex mr-6 my-1.5 item'>
-                    <Image alt="portrait of author at beach" className='rounded-full m-0 w-full' priority src="/images/profile.png" height={96} width={96} />
-                </div>
-                <div className='relative flex w-fit sm:m-0 leading-tight'>
-                    <ul className="list-none">
-                        {quickLinkData.map((data, index) => {
-                            return <li key={index}>
-                                <a target="_blank" href={data.url} className="flex flex-wrap hover:underline my-3 font-normal text-raisin-black dark:text-floral-white">{data.component}<span className="ml-3">{data.text}</span></a>
-                            </li>
-                        })}
-                    </ul>
+                <h2>Hi there, I'm</h2>
+                <h1>Drew Beamer</h1>
+                <p className='mb-0'>I'm a computer science student at Davidson College, pursuing a career in software engineering.</p>
+                <div className="mt-3">
+                    <Button1><Link href="/about">Learn more</Link></Button1>
                 </div>
             </div>
-            <div className="mt-6">
-                <p>I'm passionate about creating <b>data-driven</b>, minimalist web applications, and enjoy working with <b>React/Next.js</b> and <b>Python</b> On this website, you will find a showcase of some of my previous work, as well as a blog where I write about various interests of mine. If you have any questions or would like to potentially collaborate on a project, feel free to get in touch.</p>
-            </div>
+        </section>
+        <section>
+            <h2>About Me</h2>
+            <p>As a passionate college student with a love for birding, web development, and data analysis, I am constantly seeking to expand my knowledge and explore new opportunities. Through my blog, I share my personal experiences and insights on topics that fascinate me, while also providing valuable information on data privacy and technology. With a keen eye for detail and a drive to succeed, I am dedicated to making a positive impact in the world of technology and beyond.</p>
         </section>
     </PageWrapper>
 }

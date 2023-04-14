@@ -2,6 +2,7 @@ import PageWrapper from "components/ui-components/pageWrapper";
 import { allProjects } from "contentlayer/generated";
 import { projectFromSlug } from "lib/contentlayerHelpers";
 import { useMDXComponent } from "next-contentlayer/hooks";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -53,25 +54,26 @@ export default function ProjectPage({ params }) {
         }
         const Content = useMDXComponent(project.body.code)
 
-        return (
-            <article>
-                <script type="application/ld+json">
-                    {JSON.stringify(project.jsonLD)}
-                </script>
-                <PageWrapper>
-                    <section className="blogPost relative overflow-clip">
-                        <div className="inline-bloc w-full overflow-auto">
-                            <h1 className="whitespace-nowrap">{project.title}</h1>
+        return (<>
+            <script type="application/ld+json">
+                {JSON.stringify(project.jsonLD)}
+            </script>
+            <PageWrapper>
+                <article>
+                    <section className="blogPost relative overflow-clip pt-32">
+                        <div className="inline-block w-full">
+                            <h1 >{project.title}</h1>
                         </div>
 
                         <div className="relative">
                             <Content components={{ ...components }} />
                         </div>
-
+                        <div><Link href="/projects">← Return to Projects</Link></div>
                     </section>
-                    <div className="mb-24"><Link href="/projects">← Return to Projects</Link></div>
-                </PageWrapper>
-            </article>
+
+                </article>
+            </PageWrapper>
+        </>
         )
     }
     return <div>

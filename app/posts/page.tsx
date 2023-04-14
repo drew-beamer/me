@@ -13,13 +13,15 @@ export const metadata = {
 }
 
 export default function PostsPage() {
-    return <PageWrapper><section className="w-full">
-        <h1 className="w-full">Posts</h1>
-        <p>
-            This is where I share my thoughts, insights, and experiences
-            as a web developer, student, and birder. I hope you'll find these
-            posts both informative and enjoyable!
-        </p>
-        <BlogFeed postData={allPosts} />
-    </section></PageWrapper>
+    return <PageWrapper>
+        <section className="pt-32">
+            <h1 className="w-full">Posts</h1>
+            <p>
+                This is where I share my thoughts, insights, and experiences
+                as a web developer, student, and birder. I hope you'll find these
+                posts both informative and enjoyable!
+            </p>
+            <BlogFeed postData={allPosts} />
+        </section>
+    </PageWrapper>
 }

@@ -6,7 +6,7 @@ export default function ScrambleText({ text }) {
     const [headlineText, setHeadlineText] = useState("DREW BEAMER");
 
     function generateRandomString(length: number): string {
-        const RANDOM_LETTERS = "1234567890!#$%^&*";
+        const RANDOM_LETTERS = "1234567890";
         let randomString = ""
         for (let i = 0; i < length; i++) {
             randomString += RANDOM_LETTERS.charAt(Math.floor(RANDOM_LETTERS.length * Math.random()))
@@ -28,5 +28,5 @@ export default function ScrambleText({ text }) {
     }, [])
 
 
-    return <h1><span className="dark:text-green-400 text-green-500">{headlineText}</span></h1>
+    return <h1><span className="dark:text-green-400 text-green-500 text-7xl">{headlineText}</span></h1>
 }

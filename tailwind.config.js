@@ -23,7 +23,7 @@ module.exports = {
       colors: {
         'viridian': '#62A783',
         'golden-yellow': '#F0B86C',
-        'raisin-black': '#191919',
+        'raisin-black': '#121212',
         'floral-white': '#f5f5f5'
       }
     },

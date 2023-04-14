@@ -12,7 +12,7 @@ export const metadata = {
 
 export default function Privacy() {
     return <PageWrapper>
-        <section className="mb-24">
+        <section className="mb-24 pt-32">
             <h1>PRIVACY POLICY</h1>
             <p>(Last updated: March 23)</p>
             <div className="mt-2">
