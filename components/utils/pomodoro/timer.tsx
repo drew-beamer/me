@@ -92,10 +92,8 @@ export default function Timer() {
             }
         } else if (isRunning) {
             setTimeout(() => {
-                setTimeLeft(timeLeft - 1);
-            }, 1000);
-        } else {
-            setTimeLeft(intervalLength);
+                setTimeLeft(timeLeft - 0.25);
+            }, 250);
         }
     }, [timeLeft, isRunning]);
 
@@ -145,7 +143,7 @@ export default function Timer() {
             )`}} className={`h-${DESKTOP_HEIGHT} w-${DESKTOP_WIDTH} rounded-full p-4 shadow-lg`}>
                     <div className={`h-40 w-40 rounded-full flex bg-neutral-900 items-center justify-center`}>
                         <div className='text-4xl font-bold'>
-                            <i>{Math.floor(timeLeft / 60)}:{padNumber(timeLeft % 60)}</i>
+                            <i>{Math.floor(timeLeft / 60)}:{padNumber(Math.round(timeLeft % 60))}</i>
                         </div>
 
                     </div>
