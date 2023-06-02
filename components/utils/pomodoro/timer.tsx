@@ -1,6 +1,5 @@
 'use client';
 import { motion } from "framer-motion";
-import { type } from "os";
 import { useState, useEffect } from 'react';
 
 const LONG_BREAK_TIME_MINS = 15;
