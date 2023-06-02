@@ -11,7 +11,7 @@ export const metadata = {
         description: "A simple, modern pomodoro timer built with React and Next.js.",
         images: [
             {
-                url: "https://drewbeamer.com/images/projects/pomodoro/pomodoro.png",
+                url: "https://drewbeamer.io/images/projects/pomodoro/pomodoro.png",
                 width: 790,
                 height: 750,
             }
