@@ -90,29 +90,30 @@ export default function Timer() {
                 setIntervalType('work');
                 setIsRunning(false);
             }
-        } else if (isRunning) {
-            setTimeout(() => {
-                setTimeLeft(timeLeft - 0.25);
-            }, 250);
         }
+        const timeout = setTimeout(() => {
+            if (!isRunning) return;
+            setTimeLeft(timeLeft - 0.1);
+            console.log("set time left to " + (timeLeft - 0.1));
+        }, 100);
+
+        return () => clearTimeout(timeout);
     }, [timeLeft, isRunning]);
 
     useEffect(() => {
         if (intervalType === 'work') {
             setIntervalLength(WORK_TIME_MINS * 60);
+            setTimeLeft(WORK_TIME_MINS * 60);
         } else if (intervalType === 'break') {
             setIntervalLength(BREAK_TIME_MINS * 60);
+            setTimeLeft(BREAK_TIME_MINS * 60);
         } else {
             setIntervalLength(LONG_BREAK_TIME_MINS * 60);
+            setTimeLeft(LONG_BREAK_TIME_MINS * 60);
         }
         setIsRunning(false);
+        console.log("set is running to false");
     }, [intervalType]);
-
-    useEffect(() => {
-        setTimeLeft(intervalLength);
-    }, [intervalLength])
-
-    console.log(timeLeft, isRunning)
 
     return (
         <div className="flex justify-center flex-wrap">
@@ -143,7 +144,7 @@ export default function Timer() {
             )`}} className={`h-${DESKTOP_HEIGHT} w-${DESKTOP_WIDTH} rounded-full p-4 shadow-lg`}>
                     <div className={`h-40 w-40 rounded-full flex bg-neutral-900 items-center justify-center`}>
                         <div className='text-4xl font-bold'>
-                            <i>{Math.floor(timeLeft / 60)}:{padNumber(Math.round(timeLeft % 60))}</i>
+                            <i>{Math.floor(timeLeft / 60)}:{padNumber(Math.floor(timeLeft % 60))}</i>
                         </div>
 
                     </div>
