@@ -94,7 +94,6 @@ export default function Timer() {
         const timeout = setTimeout(() => {
             if (!isRunning) return;
             setTimeLeft(timeLeft - 0.1);
-            console.log("set time left to " + (timeLeft - 0.1));
         }, 100);
 
         return () => clearTimeout(timeout);
@@ -112,7 +111,6 @@ export default function Timer() {
             setTimeLeft(LONG_BREAK_TIME_MINS * 60);
         }
         setIsRunning(false);
-        console.log("set is running to false");
     }, [intervalType]);
 
     return (
