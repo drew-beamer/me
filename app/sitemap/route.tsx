@@ -21,21 +21,25 @@ function generateSiteMap() {
             <priority>1.0</priority>
         </url>
         <url>
+        <loc>https://www.drewbeamer.io/utils/pomodoro</loc>
+        <priority>0.75</priority>
+    </url>
+        <url>
             <loc>https://www.drewbeamer.io/legal/privacy</loc>
             <priority>0.5</priority>
         </url>${allPosts.map((post) => {
-    return `
+        return `
         <url>
             <loc>https://www.drewbeamer.io/${post.slug}</loc>
             <priority>0.75</priority>
         </url>`
-}).join("")}${allProjects.map((project) => {
-    return `
+    }).join("")}${allProjects.map((project) => {
+        return `
         <url>
             <loc>https://www.drewbeamer.io/${project.slug}</loc>
             <priority>0.75</priority>
         </url>`
-}).join("")}
+    }).join("")}
     </urlset>`
 }
 

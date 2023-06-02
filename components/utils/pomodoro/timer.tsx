@@ -2,20 +2,22 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from 'react';
 
-const LONG_BREAK_TIME_MINS = 15;
-const BREAK_TIME_MINS = 5;
-const WORK_TIME_MINS = 25;
+type IntervalType = 'work' | 'break' | 'long-break';
+
+const LONG_BREAK_TIME_MINS: number = 15;
+const BREAK_TIME_MINS: number = 5;
+const WORK_TIME_MINS: number = 25;
 
 const DESKTOP_HEIGHT = 48;
 const DESKTOP_WIDTH = 48;
 
 
-const WORK_COLOR = "#4ade80";
-const WORK_ALT_COLOR = "#bbf7d0";
-const BREAK_COLOR = "#2dd4bf";
-const BREAK_ALT_COLOR = "#99f6e4";
-const LONG_BREAK_COLOR = "#22d3ee";
-const LONG_BREAK_ALT_COLOR = "#a5f3fc";
+const WORK_COLOR: string = "#4ade80";
+const WORK_ALT_COLOR: string = "#86efac";
+const BREAK_COLOR: string = "#2dd4bf";
+const BREAK_ALT_COLOR: string = "#5eead4";
+const LONG_BREAK_COLOR: string = "#22d3ee";
+const LONG_BREAK_ALT_COLOR: string = "#67e8f9";
 
 const sliderData = {
     work: {
@@ -38,15 +40,13 @@ const sliderData = {
     }
 }
 
-function padNumber(num) {
-    num = num.toString();
-    if (num.length < 2) {
-        num = '0' + num;
+function padNumber(num: number) {
+    let stringified: string = num.toString();
+    if (stringified.length < 2) {
+        stringified = '0' + num;
     }
-    return num;
+    return stringified;
 }
-
-type IntervalType = 'work' | 'break' | 'long-break';
 
 function getCurrentColor(intervalType: IntervalType) {
     if (intervalType === 'work') {
@@ -58,8 +58,6 @@ function getCurrentColor(intervalType: IntervalType) {
     }
 }
 
-
-
 function getCurrentAltColor(intervalType: IntervalType) {
     if (intervalType === 'work') {
         return WORK_ALT_COLOR;
@@ -70,18 +68,20 @@ function getCurrentAltColor(intervalType: IntervalType) {
     }
 }
 
-export default function Timer() {
+export default function Timer(): JSX.Element {
 
     const [intervalType, setIntervalType] = useState<IntervalType>('work');
-    const [intervalLength, setIntervalLength] = useState(WORK_TIME_MINS * 60);
-    const [timeLeft, setTimeLeft] = useState(intervalLength);
-    const [isRunning, setIsRunning] = useState(false);
+    const [intervalLength, setIntervalLength] = useState<number>(WORK_TIME_MINS * 60);
+    const [timeLeft, setTimeLeft] = useState<number>(intervalLength);
+    const [sessionsCompleted, setSessionsCompleted] = useState<number>(0);
+    const [isRunning, setIsRunning] = useState<boolean>(false);
 
     useEffect(() => {
-        if (timeLeft === 0) {
+        if (timeLeft <= 0 && isRunning) {
             if (intervalType === 'work') {
                 setIntervalType('break');
                 setIsRunning(false);
+                setSessionsCompleted(sessionsCompleted + 1);
             } else if (intervalType === 'break') {
                 setIntervalType('work');
                 setIsRunning(false);
@@ -99,6 +99,12 @@ export default function Timer() {
     }, [timeLeft, isRunning]);
 
     useEffect(() => {
+        if (sessionsCompleted % 4 === 0 && sessionsCompleted > 0) {
+            setIntervalType('long-break');
+        }
+    }, [sessionsCompleted])
+
+    useEffect(() => {
         if (intervalType === 'work') {
             setIntervalLength(WORK_TIME_MINS * 60);
             setTimeLeft(WORK_TIME_MINS * 60);
@@ -114,6 +120,7 @@ export default function Timer() {
 
     return (
         <div className="flex justify-center flex-wrap">
+
             <div className="w-full flex justify-center">
                 <div className="relative bg-neutral-800 rounded-xl w-min">
                     <motion.div className="absolute w-10 h-full top-0 left-0 rounded-xl"
@@ -148,9 +155,14 @@ export default function Timer() {
                 </div>
             </div>
 
-            <div className="w-full justify-center flex mt-6">
-                <button className={`transition-colors ease-in-out duration-500 w-28 font-bold text-2xl rounded-lg ${isRunning ? "bg-red-500" : "bg-green-400 text-neutral-900"} px-6 py-2`} onClick={() => setIsRunning(!isRunning)}>{!isRunning ? "Start" : "Pause"}</button>
+            <div className="mt-4 w-full text-center">
+                <h5>Pomodoros Completed: {sessionsCompleted}</h5>
             </div>
+
+            <div className="w-full justify-center flex mt-4">
+                <button className={`transition-colors ease-in-out duration-500 w-28 font-bold text-lg rounded-lg ${isRunning ? "bg-red-500" : "bg-green-400 text-neutral-900"} px-6 py-1`} onClick={() => setIsRunning(!isRunning)}>{!isRunning ? "Start" : "Pause"}</button>
+            </div>
+
 
         </div>
     );

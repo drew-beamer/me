@@ -22,12 +22,12 @@ export const metadata = {
 export default function Pomodoro() {
     return (
         <PageWrapper>
-            <section className="pt-32">
-                <h1>Pomodoro</h1>
+            <section className="pt-32 min-h-screen sm:min-h-0">
+                <h1 className="text-4xl">Pomodoro Timer</h1>
+                <p>A timer for focus/work/study sessions using the Pomodoro method. For more information on the Pomodoro method, the Wikipedia page can be found <a target="_blank" href="https://en.wikipedia.org/wiki/Pomodoro_Technique">here</a>.</p>
                 <div className="sm:mt-4">
                 <Timer/>
                 </div>
-                
             </section>
         </PageWrapper>
 
