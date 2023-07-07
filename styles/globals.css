@@ -12,7 +12,7 @@
 
   h1 {
     @apply text-transparent bg-gradient-to-r from-green-400 to-cyan-400 bg-clip-text;
-    @apply text-5xl sm:text-7xl pb-3 leading-[4rem];
+    @apply text-5xl pb-3 leading-[4rem];
     @apply font-bold;
 
   }
@@ -33,7 +33,7 @@
   }
 
   p {
-    @apply text-lg max-w-[60ch] mb-12;
+    @apply text-base max-w-[60ch] mb-12;
   }
 
   section {
