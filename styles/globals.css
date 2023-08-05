@@ -12,7 +12,7 @@
 
   h1 {
     @apply text-transparent bg-gradient-to-r from-green-400 to-cyan-400 bg-clip-text;
-    @apply text-5xl pb-3 leading-[4rem];
+    @apply text-3xl sm:text-5xl pb-3;
     @apply font-bold;
 
   }
