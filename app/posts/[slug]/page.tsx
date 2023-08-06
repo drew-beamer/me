@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Script from "next/script";
 import { allPosts } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
@@ -103,12 +103,14 @@ export default function PostLayout({ params }): JSX.Element {
     return (
       <>
         <Script type="application/ld+json">{jsonld}</Script>
-        <article className="pt-32">
-          <div className="blogPost prose-xl prose-invert">
-            <h1>{post.title}</h1>
-            <Content components={{ ...components }} />
-          </div>
-        </article>
+        <PageWrapper>
+          <article className="pt-32">
+            <div className="blogPost prose-xl prose-invert">
+              <h1>{post.title}</h1>
+              <Content components={{ ...components }} />
+            </div>
+          </article>
+        </PageWrapper>
       </>
     );
   }
