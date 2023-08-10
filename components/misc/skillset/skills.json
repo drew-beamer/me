@@ -1,0 +1,56 @@
+[
+  {
+    "id": "JavaScript",
+    "displayName": "JavaScript",
+    "category": "web",
+    "level": 8
+  },
+  {
+    "id": "NextJS",
+    "displayName": "Next.js",
+    "category": "web",
+    "level": 7
+  },
+  {
+    "id": "NodeJS",
+    "displayName": "Node.js",
+    "category": "web",
+    "level": 4
+  },
+  {
+    "id": "React",
+    "displayName": "React",
+    "category": "frontend",
+    "level": 8
+  },
+  {
+    "id": "TypeScript",
+    "displayName": "TypeScript",
+    "category": "web",
+    "level": 7
+  },
+  {
+    "id": "Python",
+    "displayName": "Python",
+    "category": "other",
+    "level": 8
+  },
+  {
+    "id": "Java",
+    "displayName": "Java",
+    "category": "other",
+    "level": 6
+  },
+  {
+    "id": "HTML",
+    "displayName": "HTML",
+    "category": "frontend",
+    "level": 8
+  },
+  {
+    "id": "CSS",
+    "displayName": "CSS",
+    "category": "frontend",
+    "level": 8
+  }
+]
