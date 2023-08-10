@@ -3,13 +3,13 @@
     "id": "JavaScript",
     "displayName": "JavaScript",
     "category": "web",
-    "level": 9
+    "level": 8
   },
   {
     "id": "NextJS",
     "displayName": "Next.js",
     "category": "web",
-    "level": 6
+    "level": 7
   },
   {
     "id": "NodeJS",
@@ -33,7 +33,7 @@
     "id": "Python",
     "displayName": "Python",
     "category": "other",
-    "level": 9
+    "level": 8
   },
   {
     "id": "Java",
@@ -45,7 +45,7 @@
     "id": "HTML",
     "displayName": "HTML",
     "category": "frontend",
-    "level": 7
+    "level": 8
   },
   {
     "id": "CSS",
