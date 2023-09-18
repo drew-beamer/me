@@ -28,3 +28,5 @@ export async function PATCH(req: NextRequest) {
         return NextResponse.json({ message: 'Internal Server Error' }, { status: 500 });
     }
 }
+
+export const runtime = 'nodejs';
