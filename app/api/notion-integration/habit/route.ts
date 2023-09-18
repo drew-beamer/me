@@ -7,9 +7,8 @@ type HabitProperties = {
 }
 
 export async function PATCH(req: NextRequest) {
-    const { body } = req;
     try {
-        const { pageId, property } = body as unknown as HabitProperties;
+        const { pageId, property } = await req.json() as HabitProperties;
         const notion = new Client({ auth: process.env.NOTION_TOKEN });
         const response = await notion.pages.update({
             page_id: pageId,
@@ -25,6 +24,7 @@ export async function PATCH(req: NextRequest) {
         return NextResponse.json({ message: 'Success' })
     }
     catch (err) {
+        console.error(err)
         return NextResponse.json({ message: 'Internal Server Error' }, { status: 500 });
     }
 }
