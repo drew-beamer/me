@@ -10,22 +10,14 @@ module.exports = {
       DEFAULT: {
         css: {
           fontFamily: {
-            'sans': ["assistant", "system-ui"]
+            'sans': ["poppins", "system-ui"]
           },
           fontWeight: 500,
         }
       }
     },
     fontFamily: {
-      'sans': ["assistant", "system-ui"]
-    },
-    extend: {
-      colors: {
-        'viridian': '#62A783',
-        'golden-yellow': '#F0B86C',
-        'raisin-black': '#121212',
-        'floral-white': '#f5f5f5'
-      }
+      'sans': ["poppins", "system-ui"]
     },
   },
   plugins: [
