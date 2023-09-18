@@ -1,7 +1,7 @@
 'use client';
 import Link from "next/link";
 import { usePathname } from 'next/navigation'
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 const buttonData = {
     "/": {
@@ -33,7 +33,7 @@ export default function Navbar() {
     } else if (pathName.includes("/projects/")) {
         pathName = "/projects";
     }
-    return <>
+    return <AnimatePresence>
         <nav className="w-full pt-6 sm:pt-3 fixed bg-neutral-900 opacity-[99%] z-50">
             <div className="flex items-center justify-center sm:justify-start h-full flex-wrap px-5">
                 <div className="grow flex justify-center w-full sm:w-auto sm:justify-start">
@@ -41,20 +41,17 @@ export default function Navbar() {
                 </div>
                 <div className="flex flex-row items-start relative pb-0 fade">
                     <div className="flex relative w-[290px] flex-row items-center space-x-0">
-                        {buttonData[pathName] ? <motion.div
-                            layoutId="navbutton-slider"
-                            initial={{ x: buttonData[pathName].x, opacity: 0 }}
-                            animate={{ opacity: 1, x: buttonData[pathName].x, width: buttonData[pathName].width }}
-                            transition={{
-                                type: "spring",
-                                damping: 40,
-                                stiffness: 300
+                        {buttonData[pathName] ? <div
+                            style={{
+                                width: buttonData[pathName].width,
+                                transform: `translateX(${buttonData[pathName].x}px)`,
+                                transition: 'ease 0.45s'
                             }}
                             className={`absolute h-[30px] bg-neutral-800 z-[-1] rounded-md left-0`}
                         /> : null}
                         {Object.entries(buttonData).map(([path, { name, width }]) => {
                             const isActive = pathName === path;
-                            return <div key={path} style={{width: width}} className={`rounded-md py-[10px] px-[10px] text-base text-center`}>
+                            return <div key={path} style={{ width: width }} className={`rounded-md py-[10px] px-[10px] text-base text-center`}>
                                 <Link className={`${isActive ? " w-full text-green-400" : "text-floral-white"} font-medium hover:no-underline`} href={path}> {name} </Link>
                             </div>
                         })}
@@ -62,5 +59,5 @@ export default function Navbar() {
                 </div>
             </div>
         </nav>
-    </>
+    </AnimatePresence >
 }
