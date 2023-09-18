@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { GithubIcon, InstagramIcon } from "../components/icons";
 import Link from "next/link";
 import PageWrapper from "components/ui-components/page-wrapper";
