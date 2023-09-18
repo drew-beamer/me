@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import crypto from "crypto";
+import { pbkdf2 } from "lib/utils/crypto";
 
-export function middleware(req: NextRequest) {
+export async function middleware(req: NextRequest) {
 	if (req.nextUrl.pathname.startsWith("/api/notion-integration/habit")) {
 		const providedKey = req.headers.get("x-api-key");
 		const expectedKey = process.env.NOTION_INTEGRATION_API_KEY;
@@ -11,15 +11,8 @@ export function middleware(req: NextRequest) {
 			process.env.SALT &&
 			process.env.SALT_ROUNDS
 		) {
-			const providedHash = crypto
-				.pbkdf2Sync(
-					providedKey,
-					process.env.SALT,
-					parseInt(process.env.SALT_ROUNDS),
-					64,
-					"sha3-256"
-				)
-				.toString("hex");
+			const providedHash = await pbkdf2(providedKey, process.env.SALT, parseInt(process.env.SALT_ROUNDS))
+				.then((bits) => Buffer.from(bits).toString("hex"));
 
 			if (providedHash !== expectedKey) {
 				return NextResponse.json(
