@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import crypto from "crypto";
 
 export function middleware(req: NextRequest) {
-	if (req.nextUrl.pathname === "/api/notion-integration/habit") {
+	if (req.nextUrl.pathname.startsWith("/api/notion-integration/habit")) {
 		const providedKey = req.headers.get("x-api-key");
 		const expectedKey = process.env.NOTION_INTEGRATION_API_KEY;
 		if (
