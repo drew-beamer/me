@@ -1,6 +1,6 @@
 import { GithubIcon, InstagramIcon } from "../components/icons";
 import Link from "next/link";
-import PageWrapper from "components/ui-components/pageWrapper";
+import PageWrapper from "components/ui-components/page-wrapper";
 import { Button1 } from "components/ui-components/buttons";
 
 const quickLinkData = [
