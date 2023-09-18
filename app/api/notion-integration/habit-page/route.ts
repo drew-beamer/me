@@ -24,6 +24,7 @@ export async function GET() {
             },
         });
         if ("properties" in response.results[0]) {
+            const pageId = response.results[0].id;
             const pageProperties = response.results[0]?.properties;
 
             // removes non-habit properties 
@@ -34,7 +35,7 @@ export async function GET() {
             delete pageProperties["Day"];
             delete pageProperties["Progress Bar"];
 
-            return NextResponse.json(pageProperties);
+            return NextResponse.json({ pageId, pageProperties });
         } else {
             return NextResponse.json({ message: "Internal Server Error" }, { status: 500 });
         }
