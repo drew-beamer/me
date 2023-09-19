@@ -23,7 +23,6 @@ export async function GET() {
                 },
             },
         });
-        console.log(response)
         if ("properties" in response.results[0]) {
             const pageId = response.results[0].id;
             const pageProperties = response.results[0]?.properties;
