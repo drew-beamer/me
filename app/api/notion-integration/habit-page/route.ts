@@ -12,7 +12,6 @@ export async function GET() {
     const currDate = new Date(new Date().toLocaleDateString("en-US", {
         timeZone: "America/New_York",
     })).toISOString();
-    console.log(currDate)
     if (process.env.NOTION_HABIT_DATABASE !== undefined) {
         const response = await notion.databases.query({
             database_id: process.env.NOTION_HABIT_DATABASE,
@@ -48,4 +47,3 @@ export async function GET() {
 }
 
 export const dynamic = "force-dynamic";
-export const runtime = 'nodejs';
