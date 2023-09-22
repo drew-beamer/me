@@ -3,17 +3,29 @@ import { motion } from "framer-motion";
 import { useMemo } from "react";
 import { GithubIcon, InstagramIcon } from "./icons";
 
-const variants = {
+export const containerVariants = {
+  hidden: {},
   visible: {
-    opacity: 1,
-    y: 0,
     transition: {
-      type: "tween",
-      duration: 0.25,
-      staggerChildren: 0.1,
+      delayChildren: 0,
+      staggerChildren: 0.15,
     },
   },
-  hidden: { opacity: 0, y: 50 },
+};
+export const dropUpVariants = {
+  hidden: {
+    y: 50,
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 150,
+      mass: 0.1,
+    },
+  },
 };
 
 export default function QuickLinks() {
@@ -32,25 +44,20 @@ export default function QuickLinks() {
   );
 
   return (
-    <motion.div
+    <motion.ul
+      variants={containerVariants}
       initial="hidden"
-      variants={variants}
       animate="visible"
-      className="flex flex-row justify-center space-x-4 ">
+      className="flex flex-row space-x-4 items-center justify-center w-full">
       {quickLinkData.map((link, i) => {
         return (
-          <motion.a
-            custom={i}
-            animate="visible"
-            variants={variants}
-            href={link.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            key={link.url}>
-            {link.component}
-          </motion.a>
+          <motion.p key={link.url} variants={dropUpVariants}>
+            <motion.a href={link.url} target="_blank" rel="noopener noreferrer">
+              {link.component}
+            </motion.a>
+          </motion.p>
         );
       })}
-    </motion.div>
+    </motion.ul>
   );
 }
