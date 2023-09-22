@@ -74,7 +74,7 @@ export async function GET() {
   const currDate = new Date(
     new Date().toLocaleDateString("en-US", {
       timeZone: "America/New_York",
-    }),
+    })
   ).toISOString();
   if (process.env.NOTION_HABIT_DATABASE !== undefined) {
     const response = await notion.databases.query({
@@ -97,13 +97,13 @@ export async function GET() {
     } else {
       return NextResponse.json(
         { message: "Internal Server Error" },
-        { status: 500 },
+        { status: 500 }
       );
     }
   } else {
     return NextResponse.json(
       { message: "Internal Server Error" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }
@@ -152,7 +152,7 @@ export async function PATCH(req: NextRequest) {
     if (response.id === undefined) {
       return NextResponse.json(
         { message: "Internal Server Error" },
-        { status: 500 },
+        { status: 500 }
       );
     }
     return NextResponse.json({ message: "Success" });
@@ -160,7 +160,7 @@ export async function PATCH(req: NextRequest) {
     console.error(err);
     return NextResponse.json(
       { message: "Internal Server Error" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }
@@ -200,20 +200,20 @@ export async function middleware(req: NextRequest) {
       const providedHash = await pbkdf2(
         providedKey,
         process.env.SALT,
-        parseInt(process.env.SALT_ROUNDS),
+        parseInt(process.env.SALT_ROUNDS)
       ).then((bits) => Buffer.from(bits).toString("hex"));
 
       if (providedHash !== expectedKey) {
         return NextResponse.json(
           { message: "Invalid API key" },
-          { status: 401 },
+          { status: 401 }
         );
       }
     } else {
       if (!providedKey) {
         return NextResponse.json(
           { message: "No API key provided" },
-          { status: 401 },
+          { status: 401 }
         );
       } else if (
         !expectedKey ||
@@ -222,7 +222,7 @@ export async function middleware(req: NextRequest) {
       ) {
         return NextResponse.json(
           { message: "Internal Server Error" },
-          { status: 500 },
+          { status: 500 }
         );
       }
     }
@@ -259,7 +259,7 @@ This was probably the most challenging part, as I lack familiarity with many of 
      alt="screenshot of step 3. Save the PATCH URL endpoint link to a variable and call the PATCH endpoint. Save the resulting dictionary to a variable."
      height={720}
      width={1080}
-     src="/images/posts/creating-a-notion-siri-integration/step1.png"
+     src="/images/posts/creating-a-notion-siri-integration/step3.png"
    />
 4. (Optional) I added extra steps to send myself a notification if the shortcut was successfully completed.
    <Image
