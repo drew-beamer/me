@@ -28,9 +28,8 @@ export default function RootLayout({
     <html lang="en">
       <head />
       <body
-        className={`${poppins.className} mx-4 flex max-w-2xl flex-col antialiased sm:mx-auto md:flex-row`}
-      >
-        <main className="prose-slate mx-auto min-w-0 flex-auto">
+        className={`${poppins.className} flex max-w-full sm:max-w-2xl flex-col antialiased sm:mx-auto md:flex-row`}>
+        <main className="prose-slate mx-4 sm:mx-auto min-w-0 flex-auto">
           <Navbar />
           <div className="relative">{children}</div>
         </main>

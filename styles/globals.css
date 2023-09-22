@@ -23,6 +23,10 @@ body {
   @apply text-sm;
 }
 
+.prose pre {
+  @apply overflow-x-auto;
+}
+
 .page-wrapper {
   @apply my-16;
 }
