@@ -1,6 +1,6 @@
 import { GithubIcon, InstagramIcon } from "../components/icons";
 import Link from "next/link";
-import PageWrapper from "components/ui-components/page-wrapper";
+import PageWrapper from "components/page-wrapper";
 import { Button1 } from "components/ui-components/buttons";
 
 const quickLinkData = [
@@ -29,34 +29,26 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <PageWrapper>
-      <section className="py-32 flex items-center min-h-screen">
-        <div>
-          <h2>Hi there, I'm</h2>
-          <h1>Drew Beamer</h1>
-          <p className="mb-0">
-            I'm a computer science student at Davidson College, pursuing a
-            career in software engineering.
-          </p>
-          <div className="mt-3">
-            <Button1>
-              <Link href="/about">Learn more</Link>
-            </Button1>
+    <div>
+      <section className="flex min-h-[calc(100vh-55px)] items-center text-center">
+        <div className="relative top-[-110px] w-full">
+          <span className="prose-invert prose-sm md:prose-base prose">
+            <h3 className="mb-0">Hi there, I'm</h3>
+          </span>
+          <h1 className="mb-0 bg-gradient-to-r from-green-400 to-teal-400 bg-clip-text text-5xl font-bold tracking-wide text-transparent md:text-7xl">
+            Drew Beamer
+          </h1>
+          <span className="prose-invert prose-sm md:prose-base prose">
+            <h5 className="mt-0 tracking-wide">
+              Student | Full-stack Engineer | Birder
+            </h5>
+          </span>
+          <div className="mt-4 flex flex-row justify-center space-x-4">
+            <Button1>About Me</Button1>
+            <Button1>Read Posts</Button1>
           </div>
         </div>
       </section>
-      <section>
-        <h2>About Me</h2>
-        <p>
-          As a passionate college student with a love for birding, web
-          development, and data analysis, I am constantly seeking to expand my
-          knowledge and explore new opportunities. Through my blog, I share my
-          personal experiences and insights on topics that fascinate me, while
-          also providing valuable information on data privacy and technology.
-          With a keen eye for detail and a drive to succeed, I am dedicated to
-          making a positive impact in the world of technology and beyond.
-        </p>
-      </section>
-    </PageWrapper>
+    </div>
   );
 }

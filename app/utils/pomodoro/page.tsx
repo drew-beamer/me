@@ -1,4 +1,4 @@
-import PageWrapper from "components/ui-components/page-wrapper";
+import PageWrapper from "components/page-wrapper";
 import Timer from "components/utils/pomodoro/timer";
 
 export const metadata = {
@@ -32,7 +32,7 @@ export const metadata = {
 export default function Pomodoro() {
   return (
     <PageWrapper>
-      <section className="pt-32 min-h-screen sm:min-h-0">
+      <section className="min-h-screen pt-32 sm:min-h-0">
         <h1 className="text-4xl">Pomodoro Timer</h1>
         <p>
           A timer for focus/work/study sessions using the Pomodoro method. For
@@ -40,7 +40,8 @@ export default function Pomodoro() {
           found{" "}
           <a
             target="_blank"
-            href="https://en.wikipedia.org/wiki/Pomodoro_Technique">
+            href="https://en.wikipedia.org/wiki/Pomodoro_Technique"
+          >
             here
           </a>
           .

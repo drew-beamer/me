@@ -1,0 +1,272 @@
+---
+title: "Creating a Siri Shortcut to Track My Habits in Notion"
+date: "2023-09-21"
+postImage: "/images/posts/creating-a-notion-siri-integration/icon.png"
+description: "A walk-through of how I created a Siri Shortcut to track my habits in Notion."
+about: development, automation
+---
+
+In this blog post, I will walk you through my journey of building a Habit Tracking Notion Siri Integration step-by-step. You will learn how to integrate Notion's API with Apple Shortcuts and create a custom solution that fits your needs. If you are ready to take control of your habits and build a custom Notion Siri Integration, this blog post is for you.
+
+I will be honest: building habits is hard. I recently read *Atomic Habits* by James Clear to better understand how to establish and maintain positive habits. Several things stuck with me, ranging from mindset to making minor changes and creating a game of habit-building. This post will focus on the latter and my attempts to do so.
+
+Clear preaches the benefits of gamifying habit building via habit tracking. I tried out a few apps on my phone but did not like most or would have needed a monthly subscription to continue using them. I then came across [Amelia Notion’s Ultimate Productivity System](https://amelianotion.com/)—which comes with a great habit tracker built in.
+
+_Although I am using this habit tracker within Notion, I suspect almost any could be integrated similarly to how I did it._
+
+However, I quickly encountered an issue: inputting a habit was not always frictionless, and I would forget to track it. Clear talks about this as a problem with habit tracking in the book, and I tried to think of ways I could make this experience seamless.
+
+I am a big proponent of Apple Shortcuts—I think it is an underused app and can make life **_a lot_** easier. The ability to say, "Siri, [name of shortcut]," makes automating things on command ridiculously easy. I also knew Notion has a great API and that I could potentially access the database storing the habits programmatically in this manner.
+
+Given this, I had a couple of thoughts:
+
+1. The ability to say, 'Siri, I completed a habit,” would be very nice
+2. If I can make an API call from the Shortcuts App, I can call either Notion’s API or an API I created that connects to Notion.
+3. I might want to put something that pulls from Notion on my website in the future.
+4. This would be a great learning opportunity to learn about Next.js’s middleware and apply what I have learned to date in my Applied Cryptography class.
+
+_In hindsight, I probably could have pulled directly from Notion’s API. However, parsing the data in the Shortcuts app would have been difficult._
+
+# The General Process
+
+1. Get the current page ID, return it alongside a dictionary of the habits within the page
+2. Parse this, present it in a list to me
+3. Send my selection and the page ID to a PATCH endpoint, which will then call Notion’s API accordingly
+
+There were a couple more “hidden” steps in here that I wanted to add. For one, I wanted my API to have a key so only I could claim I made a habit or see my current habits. For this:
+
+1. One-time step: generate a key using pbkdf2 (with salt and iterations for security against rainbow table and dictionary attacks).
+2. When a user sends a request, the middleware first runs. It will take the API key in the request and validate it against the stored hash.
+3. If the hash matches, we continue. Otherwise, we return an error message.
+
+This step posed a challenge that was easily fixable with some minor tweaks.
+
+# Creating the API
+
+I decided to break up the API into two endpoints:
+
+- `/habit-page` - takes a GET request and responds with the page ID and habits on the current day
+- /`habit` - which takes PATCH requests containing a body of the following structure:
+
+```tsx
+type HabitProperties = {
+  pageId: string;
+  property: string; // name of the habit
+};
+```
+
+I used the Notion SDK to access and use the Notion APIs. I found the documentation on the SDK was terrific, and it sped up the development process.
+
+### /habit-page
+
+```tsx
+import { NextResponse } from "next/server";
+import { Client } from "@notionhq/client";
+/**
+ * GET request handler
+ * Makes a request to the Notion API to get the current day's habits from my database.
+ *
+ * @returns a response containing the current day's habits
+ */
+export async function GET() {
+  const notion = new Client({ auth: process.env.NOTION_TOKEN });
+  // convert to your time zone
+  const currDate = new Date(
+    new Date().toLocaleDateString("en-US", {
+      timeZone: "America/New_York",
+    }),
+  ).toISOString();
+  if (process.env.NOTION_HABIT_DATABASE !== undefined) {
+    const response = await notion.databases.query({
+      database_id: process.env.NOTION_HABIT_DATABASE,
+      filter: {
+        property: "Date",
+        date: {
+          equals: currDate.slice(0, 10),
+        },
+      },
+    });
+    if ("properties" in response.results[0]) {
+      const pageId = response.results[0].id;
+      const pageProperties = response.results[0]?.properties;
+
+      // remove non-habit properties, ex:
+      delete pageProperties.Date;
+
+      return NextResponse.json({ pageId, pageProperties });
+    } else {
+      return NextResponse.json(
+        { message: "Internal Server Error" },
+        { status: 500 },
+      );
+    }
+  } else {
+    return NextResponse.json(
+      { message: "Internal Server Error" },
+      { status: 500 },
+    );
+  }
+}
+
+export const dynamic = "force-dynamic";
+```
+
+Some of the error handling could be cleaner (and I might clean it up in the future). But it gets the job done for now. A step by step walkthrough:
+
+1. Create the Notion client.
+2. Get the current time and convert it to my time zone.
+   1. *A quick note:* I may change the way this is being done. If I were to go on vacation to another time zone, this might break some of the functionality.
+3. Query the database for pages matching the date, and return the first (should be the only one).
+4. Delete properties that are not the page ID or habits.
+5. Respond with page ID and pageProperties — an object containing only the habits.
+
+If there are any errors, we respond with a 500 status code.
+
+The bottom line is critical. Next.js 13 caches GET request responses that do not take headers by default, so we need to tell the system that we want it to always be dynamic. Otherwise, the page returned may be outdated if a habit was completed shortly after midnight.
+
+### /habit
+
+After working with the Notion SDK, I found developing this method easier. The SDK makes updating a page property simple.
+
+```tsx
+import { NextRequest, NextResponse } from "next/server";
+import { Client } from "@notionhq/client";
+
+type HabitProperties = {
+  pageId: string;
+  property: string;
+};
+
+export async function PATCH(req: NextRequest) {
+  try {
+    const { pageId, property } = (await req.json()) as HabitProperties;
+    const notion = new Client({ auth: process.env.NOTION_TOKEN });
+    const response = await notion.pages.update({
+      page_id: pageId,
+      properties: {
+        [property]: {
+          checkbox: true,
+        },
+      },
+    });
+    if (response.id === undefined) {
+      return NextResponse.json(
+        { message: "Internal Server Error" },
+        { status: 500 },
+      );
+    }
+    return NextResponse.json({ message: "Success" });
+  } catch (err) {
+    console.error(err);
+    return NextResponse.json(
+      { message: "Internal Server Error" },
+      { status: 500 },
+    );
+  }
+}
+```
+
+To recap what is happening here:
+
+1. I create a Notion SDK Client
+2. I pass the page ID and the property I want to update to the update function.
+3. If there are any errors, respond with a 500 status code.
+
+## Middleware
+
+I had never worked with middleware before this, so there was a lot of trial and error here. I wanted to create a middleware that would ensure that I was the one making the request and otherwise would respond with a 401 Not Authenticated code. Next.js runs its middleware on the Edge runtime, a super lightweight runtime with minimal Node.js APIs.
+
+Unfortunately, the lightweight aspect posed a couple challenges:
+
+- The runtime does not support Native Node.js packages. I had planned to use the crypto library but had to switch to the Web API version.
+- I only wanted to run it on these two API endpoints. Fortunately, Next.js provides an easy way of configuring routes to run middleware on.
+
+With all that being said, this is what the file looked like:
+
+```tsx
+import { NextRequest, NextResponse } from "next/server";
+import { pbkdf2 } from "lib/utils/crypto";
+
+export async function middleware(req: NextRequest) {
+  if (req.nextUrl.pathname.startsWith("/api/notion-integration/habit")) {
+    const providedKey = req.headers.get("x-api-key");
+    const expectedKey = process.env.NOTION_INTEGRATION_API_KEY;
+    if (
+      providedKey &&
+      expectedKey &&
+      process.env.SALT &&
+      process.env.SALT_ROUNDS
+    ) {
+      const providedHash = await pbkdf2(
+        providedKey,
+        process.env.SALT,
+        parseInt(process.env.SALT_ROUNDS),
+      ).then((bits) => Buffer.from(bits).toString("hex"));
+
+      if (providedHash !== expectedKey) {
+        return NextResponse.json(
+          { message: "Invalid API key" },
+          { status: 401 },
+        );
+      }
+    } else {
+      if (!providedKey) {
+        return NextResponse.json(
+          { message: "No API key provided" },
+          { status: 401 },
+        );
+      } else if (
+        !expectedKey ||
+        !process.env.SALT ||
+        !process.env.SALT_ROUNDS
+      ) {
+        return NextResponse.json(
+          { message: "Internal Server Error" },
+          { status: 500 },
+        );
+      }
+    }
+  }
+}
+
+export const config = {
+  matcher: ["/api/notion-integration/:path*"],
+};
+```
+
+## Creating the Shortcut
+
+This was probably the most challenging part, as I lack familiarity with many of the blocks in the Shortcuts app. I will break this section up into three steps.
+
+1. Fetch from our GET endpoint and parse the data into several variables needed later.
+
+   <Image
+     alt="screenshot of step 1. Get contents from URL, add to a variable called habits, get pageId and properties from the habits variable, and add them to their respective variables."
+     height={720}
+     width={1080}
+     src="/images/posts/creating-a-notion-siri-integration/step1.png"
+   />
+
+2. Get user input and store it.
+   <Image
+     alt="screenshot of step 1. Choose from Habit names and save to a variable."
+     height={720}
+     width={1080}
+     src="/images/posts/creating-a-notion-siri-integration/step2.png"
+   />
+3. Send another API request to our PATCH endpoint to mark the habit as completed in Notion.
+   <Image
+     alt="screenshot of step 3. Save the PATCH URL endpoint link to a variable and call the PATCH endpoint. Save the resulting dictionary to a variable."
+     height={720}
+     width={1080}
+     src="/images/posts/creating-a-notion-siri-integration/step1.png"
+   />
+4. (Optional) I added extra steps to send myself a notification if the shortcut was successfully completed.
+   <Image
+     alt="screenshot of step 4. Create a notification with the response."
+     height={720}
+     width={1080}
+     src="/images/posts/creating-a-notion-siri-integration/step4.png"
+   />
+
+And with that, your shortcut should be made! I hope this helped in some way, and if you have any questions, feel free to reach out to me.

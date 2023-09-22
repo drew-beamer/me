@@ -1,5 +1,5 @@
 import { SkillsetDiagram } from "components/misc/skillset";
-import PageWrapper from "components/ui-components/page-wrapper";
+import PageWrapper from "components/page-wrapper";
 
 export const metadata = {
   title: "About Me | Drew Beamer",
@@ -14,8 +14,8 @@ export const metadata = {
 
 export default function About() {
   return (
-    <PageWrapper>
-      <section className="pt-32">
+    <div className="page-wrapper prose-invert prose">
+      <section>
         <h1>About Me</h1>
         <p>
           Hi, I'm Drew Beamer, a <strong>college student</strong> and{" "}
@@ -30,11 +30,11 @@ export default function About() {
       <section className="w-full">
         <h2>Technologies I Use</h2>
         <p>I work with the following technologies:</p>
-        <figure className="w-full mt-8">
+        <figure className="mt-8 w-full">
           <SkillsetDiagram />
         </figure>
       </section>
-      <section id="contact" className="pt-16">
+      <section id="contact">
         <h2>Get In Touch</h2>
         <p>
           Thank you for visiting my website. If you have any questions,
@@ -42,6 +42,6 @@ export default function About() {
           <a href="mailto:andrewmbeamer@gmail.com">andrewmbeamer@gmail.com</a>.
         </p>
       </section>
-    </PageWrapper>
+    </div>
   );
 }

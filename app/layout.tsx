@@ -4,7 +4,6 @@ import { Poppins } from "next/font/google";
 import Navbar from "../components/ui-components/navbar";
 import Footer from "components/ui-components/footer";
 import { KEYWORDS } from "lib/constants";
-import PageWrapper from "components/ui-components/page-wrapper";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -28,11 +27,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head />
-      <body className={`${poppins.className}`}>
-        <Navbar />
-        <main className="flex justify-center w-full">{children}</main>
-        <Footer />
+      <body
+        className={`${poppins.className} mx-4 flex max-w-2xl flex-col antialiased sm:mx-auto md:flex-row`}
+      >
+        <main className="prose-slate mx-auto min-w-0 flex-auto">
+          <Navbar />
+          <div className="relative">{children}</div>
+        </main>
       </body>
     </html>
   );
 }
+//  <Footer />

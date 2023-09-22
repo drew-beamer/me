@@ -2,53 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  body {
-    @apply bg-neutral-900;
-    @apply min-h-screen;
-    @apply text-white;
-    @apply antialiased;
-  }
+body {
+  @apply bg-neutral-900;
+  @apply min-h-screen;
+  @apply text-white;
+  @apply antialiased;
+}
 
-  h1 {
-    @apply text-transparent bg-gradient-to-r from-green-400 to-cyan-400 bg-clip-text;
-    @apply text-3xl sm:text-5xl pb-3;
-    @apply font-bold;
-  }
+.prose h1 {
+  @apply text-green-400;
+  @apply drop-shadow-lg;
+}
 
-  h2 {
-    @apply text-3xl my-3;
-    @apply font-bold;
-  }
+.prose a {
+  @apply text-green-400;
+  @apply hover:text-green-500;
+}
 
-  h3 {
-    @apply text-xl;
-    @apply font-bold;
-  }
+.prose code {
+  @apply text-sm;
+}
 
-  h4 {
-    @apply text-base;
-    @apply font-bold;
-  }
-
-  p {
-    @apply mb-3;
-  }
-
-  section {
-    @apply inline-block w-full;
-  }
-  article {
-    @apply inline-block;
-  }
-
-  ul {
-    @apply list-disc list-inside;
-  }
-
-  p a {
-    @apply text-green-400 hover:underline;
-  }
+.page-wrapper {
+  @apply my-16;
 }
 
 html,

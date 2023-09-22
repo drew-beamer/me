@@ -1,4 +1,4 @@
-import PageWrapper from "components/ui-components/page-wrapper";
+import PageWrapper from "components/page-wrapper/index";
 import { allPosts } from "contentlayer/generated";
 import BlogFeed from "../../components/blogFeed.js";
 
@@ -15,8 +15,8 @@ export const metadata = {
 
 export default function PostsPage() {
   return (
-    <PageWrapper>
-      <section className="pt-32">
+    <div className="page-wrapper prose-invert prose">
+      <section>
         <h1>Posts</h1>
         <p>
           This is where I share my thoughts, insights, and experiences as a web
@@ -25,6 +25,6 @@ export default function PostsPage() {
         </p>
         <BlogFeed postData={allPosts} />
       </section>
-    </PageWrapper>
+    </div>
   );
 }

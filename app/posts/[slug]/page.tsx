@@ -3,7 +3,7 @@ import Script from "next/script";
 import { allPosts } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import { postFromSlug } from "lib/contentlayerHelpers";
-import PageWrapper from "components/ui-components/page-wrapper";
+import PageWrapper from "components/page-wrapper";
 import LinkWrapper from "components/blog-components/link-wrapper";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -62,14 +62,12 @@ export default function PostLayout({ params }): JSX.Element {
     return (
       <>
         <Script type="application/ld+json">{jsonld}</Script>
-        <PageWrapper>
-          <article className="pt-32">
-            <div className="blogPost prose-xl prose-invert">
-              <h1>{post.title}</h1>
-              <Content components={{ ...components }} />
-            </div>
+        <div className="page-wrapper">
+          <article className="prose-base prose-slate prose-invert prose">
+            <h1>{post.title}</h1>
+            <Content components={{ ...components }} />
           </article>
-        </PageWrapper>
+        </div>
       </>
     );
   }

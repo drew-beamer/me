@@ -1,4 +1,4 @@
-import PageWrapper from "components/ui-components/page-wrapper";
+import PageWrapper from "components/page-wrapper";
 import { allProjects } from "contentlayer/generated";
 import { projectFromSlug } from "lib/contentlayerHelpers";
 import { useMDXComponent } from "next-contentlayer/hooks";
@@ -45,7 +45,7 @@ const NextImage = (props) => {
       <Image
         src={props.src}
         {...props}
-        className="rounded-[30px] px-4 py-4 relative bottom-4"
+        className="relative bottom-4 rounded-[30px] px-4 py-4"
       />
     </div>
   );
@@ -65,9 +65,9 @@ export default function ProjectPage({ params }) {
         <script type="application/ld+json">
           {JSON.stringify(project.jsonLD)}
         </script>
-        <PageWrapper>
+        <div className="prose-invert page-wrapper prose">
           <article>
-            <section className="blogPost relative overflow-clip pt-32">
+            <section className="blogPost relative overflow-clip">
               <div className="inline-block w-full">
                 <h1>{project.title}</h1>
               </div>
@@ -80,7 +80,7 @@ export default function ProjectPage({ params }) {
               </div>
             </section>
           </article>
-        </PageWrapper>
+        </div>
       </>
     );
   }

@@ -1,5 +1,5 @@
-
-export const KEYWORDS = ["Web development",
+export const KEYWORDS = [
+  "Web development",
   "Data analysis",
   "Birding",
   "Personal life",
@@ -16,7 +16,7 @@ export const KEYWORDS = ["Web development",
   "bird watching adventures",
   "photography techniques",
   "Davidson College student",
-  "software engineering projects"
-]
+  "software engineering projects",
+];
 
-export const url = "https://www.drewbeamer.io"
+export const url = "https://www.drewbeamer.io";
