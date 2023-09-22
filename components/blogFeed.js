@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Date from "./date";
+import parseISO from "date-fns/parseISO";
 
 function PostCard({ postData }) {
     const { title, description, date, about, postImage, slug } = postData;
@@ -29,7 +30,7 @@ function PostCard({ postData }) {
 }
 
 export default function BlogFeed({ postData }) {
-    const posts = postData.reverse();
+    const posts = postData.sort((a, b) => { return parseISO(b.date) - parseISO(a.date) });
     return (
         <div className="mt-4">
             <h2 className="w-full">Latest post</h2>
