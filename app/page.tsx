@@ -1,20 +1,6 @@
-import { GithubIcon, InstagramIcon } from "../components/icons";
 import Link from "next/link";
-import PageWrapper from "components/page-wrapper";
 import { Button1 } from "components/ui-components/buttons";
-
-const quickLinkData = [
-  {
-    component: <GithubIcon size="24" />,
-    url: "https://github.com/drew-beamer",
-    text: "see my code",
-  },
-  {
-    component: <InstagramIcon size="24" />,
-    url: "https://www.instagram.com/crazed4birds/",
-    text: "check out my photography",
-  },
-];
+import QuickLinks from "components/quick-links";
 
 export const metadata = {
   title: "Drew Beamer | Student, Web Developer, Birder",
@@ -43,9 +29,16 @@ export default function Home() {
               Student | Full-stack Engineer | Birder
             </h5>
           </span>
-          <div className="mt-4 flex flex-row justify-center space-x-4">
-            <Button1>About Me</Button1>
-            <Button1>Read Posts</Button1>
+          <div className="relative mt-2 mb-4 z-0">
+            <QuickLinks />
+          </div>
+          <div className="relative flex flex-row justify-center space-x-4 z-10">
+            <Button1>
+              <Link href="/about">About Me</Link>
+            </Button1>
+            <Button1>
+              <Link href="/posts">Read Posts</Link>
+            </Button1>
           </div>
         </div>
       </section>
