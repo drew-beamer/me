@@ -17,7 +17,7 @@ const NextImage = (props) => {
         src={props.src}
         placeholder="blur"
         blurDataURL={`data:image/svg+xml;base64,${toBase64(
-          generatePlaceholder(720, 480)
+          generatePlaceholder(720, 480),
         )}`}
         alt={props.alt}
         {...props}

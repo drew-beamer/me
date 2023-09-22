@@ -1,5 +1,5 @@
 import ProjectCard from "components/ui-components/card";
-import PageWrapper from "components/ui-components/page-wrapper";
+import PageWrapper from "components/page-wrapper";
 import { allProjects } from "contentlayer/generated";
 
 export const metadata = {
@@ -30,22 +30,23 @@ export const metadata = {
 
 export default function Projects() {
   return (
-    <PageWrapper>
-      <section className="pt-32">
+    <div className="prose-invert page-wrapper prose">
+      <section>
         <h1 className=" overflow-y-visible ">Projects</h1>
         <p>
           From sports analytics to birds, my portfolio features a diverse range
           of projects that showcase my creativity, versatility, and technical
           expertise.
         </p>
-        <div className="mt-6 mx-auto grid grid-cols-1 sm:grid-cols-2  gap-4 w-full align-start">
+        <div className="align-start mx-auto mt-6 grid w-full  grid-cols-1 gap-4 sm:grid-cols-2">
           {allProjects
             .sort((a, b) => a.title.localeCompare(b.title))
             .map((project) => {
               return (
                 <div
                   key={project._id}
-                  className="w-full inline-block px-6 sm:px-0 mb-6 break-inside-avoid">
+                  className="mb-6 inline-block w-full break-inside-avoid px-6 sm:px-0"
+                >
                   <ProjectCard
                     url={project.slug}
                     img={project.projectImage}
@@ -59,6 +60,6 @@ export default function Projects() {
             })}
         </div>
       </section>
-    </PageWrapper>
+    </div>
   );
 }

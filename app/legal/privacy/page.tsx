@@ -1,4 +1,4 @@
-import PageWrapper from "components/ui-components/page-wrapper";
+import PageWrapper from "components/page-wrapper";
 import Link from "next/link";
 
 export const metadata = {
