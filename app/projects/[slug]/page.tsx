@@ -1,10 +1,11 @@
-import PageWrapper from "components/page-wrapper";
+import StandardPageWrapper from "components/page-wrapper";
 import { allProjects } from "contentlayer/generated";
 import { projectFromSlug } from "lib/contentlayerHelpers";
 import { useMDXComponent } from "next-contentlayer/hooks";
 
-import Image from "next/image";
+import Image, { ImageProps } from "next/image";
 import Link from "next/link";
+import Script from "next/script";
 
 export async function generateStaticParams() {
   return allProjects.map((project) => {
@@ -39,16 +40,8 @@ export async function generateMetadata({
   };
 }
 
-const NextImage = (props) => {
-  return (
-    <div className="rounded-[30px]">
-      <Image
-        src={props.src}
-        {...props}
-        className="relative bottom-4 rounded-[30px] px-4 py-4"
-      />
-    </div>
-  );
+const NextImage = (props: ImageProps) => {
+  return <Image {...props} className={`rounded-lg ${props.className}`} />;
 };
 
 export default function ProjectPage({ params }) {
@@ -62,16 +55,16 @@ export default function ProjectPage({ params }) {
 
     return (
       <>
-        <script type="application/ld+json">
+        <Script type="application/ld+json" strategy="beforeInteractive">
           {JSON.stringify(project.jsonLD)}
-        </script>
-        <div className="prose-invert page-wrapper prose">
+        </Script>
+        <StandardPageWrapper>
           <article>
             <section className="blogPost relative overflow-clip">
               <div className="inline-block w-full">
-                <h1>{project.title}</h1>
+                <h1 className="mb-0">{project.title}</h1>
+                <p className="lead">{project.description}</p>
               </div>
-
               <div className="relative">
                 <Content components={{ ...components }} />
               </div>
@@ -80,7 +73,7 @@ export default function ProjectPage({ params }) {
               </div>
             </section>
           </article>
-        </div>
+        </StandardPageWrapper>
       </>
     );
   }

@@ -1,6 +1,8 @@
 import Link from "next/link";
-import { Button1 } from "components/ui-components/buttons";
 import QuickLinks from "components/quick-links";
+import { Button } from "@/components/ui/button";
+import animations from "@/styles/animations.module.css";
+import StandardPageWrapper from "@/components/page-wrapper";
 
 export const metadata = {
   title: "Drew Beamer | Student, Web Developer, Birder",
@@ -15,30 +17,35 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <div>
-      <section className="flex min-h-[calc(100vh-55px)] items-center text-center">
-        <div className="relative top-[-110px] w-full">
-          <span className="prose-invert prose-sm md:prose-base prose">
-            <h3 className="mb-0">Hi there, I'm</h3>
-          </span>
-          <h1 className="mb-0 bg-gradient-to-r from-green-400 to-teal-400 bg-clip-text text-5xl font-bold tracking-wide text-transparent md:text-7xl">
-            Drew Beamer
+    <div className="w-full relative flex justify-center mx-auto prose dark:prose-invert px-4 sm:px-0">
+      <section className="w-full mx-auto text-center">
+        <div className={`flex flex-col justify-center items-center w-full`}>
+          <h1
+            className={`text-4xl md:text-5xl font-bold mt-32 leading-relaxed mb-6 ${animations.pulseScaleAfter500}`}>
+            Hey, I'm{" "}
+            <span
+              className="px-2 font-bold"
+              style={{
+                backgroundSize: "200%",
+                animation: `${animations.highlight} 500ms ease`,
+                animationFillMode: "forwards",
+                color: "hsl(var(--background))",
+                backgroundImage:
+                  "linear-gradient(to right, hsl(var(--background)) 50%, transparent 50%), linear-gradient(hsl(var(--primary)) 50%, hsl(var(--primary)) 50%)",
+              }}>
+              Drew Beamer
+            </span>
           </h1>
-          <span className="prose-invert prose-sm md:prose-base prose">
-            <h5 className="mt-0 tracking-wide">
-              Student | Full-stack Engineer | Birder
-            </h5>
-          </span>
-          <div className="relative mt-2 mb-4 z-0">
-            <QuickLinks />
-          </div>
-          <div className="relative flex flex-row justify-center space-x-4 z-10">
-            <Button1>
-              <Link href="/about">About Me</Link>
-            </Button1>
-            <Button1>
-              <Link href="/posts">Read Posts</Link>
-            </Button1>
+          <p style={{ margin: 0 }} className="lead">
+            I'm a student, web developer, and birder.
+          </p>
+          <div className="flex flex-row flex-wrap justify-center mt-5">
+            <Link href="/about" className="mx-2 my-1">
+              <Button variant="default">Learn More</Button>
+            </Link>
+            <Link href="/projects" className="mx-2 my-1">
+              <Button variant="outline">View Projects</Button>
+            </Link>
           </div>
         </div>
       </section>

@@ -1,6 +1,6 @@
-import ProjectCard from "components/ui-components/card";
-import PageWrapper from "components/page-wrapper";
-import { allProjects } from "contentlayer/generated";
+import ProjectCard from "@/components/cards/project-card";
+import StandardPageWrapper from "@/components/page-wrapper";
+import { Project, allProjects } from "contentlayer/generated";
 
 export const metadata = {
   title: "Projects | Drew Beamer",
@@ -30,36 +30,26 @@ export const metadata = {
 
 export default function Projects() {
   return (
-    <div className="prose-invert page-wrapper prose">
+    <StandardPageWrapper>
       <section>
-        <h1 className=" overflow-y-visible ">Projects</h1>
-        <p>
+        <h1 className="m-0">Projects</h1>
+        <p className="lead">
           From sports analytics to birds, my portfolio features a diverse range
           of projects that showcase my creativity, versatility, and technical
           expertise.
         </p>
-        <div className="align-start mx-auto mt-6 grid w-full  grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="align-start mx-auto mt-6 grid w-full grid-cols-1 gap-4 sm:grid-cols-2">
           {allProjects
             .sort((a, b) => a.title.localeCompare(b.title))
-            .map((project) => {
+            .map((project: Project) => {
               return (
-                <div
-                  key={project._id}
-                  className="mb-6 inline-block w-full break-inside-avoid px-6 sm:px-0"
-                >
-                  <ProjectCard
-                    url={project.slug}
-                    img={project.projectImage}
-                    alt="decor"
-                    categories={project.categories}
-                    text={project.description}
-                    title={project.title}
-                  />
+                <div key={project._id}>
+                  <ProjectCard {...project} />
                 </div>
               );
             })}
         </div>
       </section>
-    </div>
+    </StandardPageWrapper>
   );
 }

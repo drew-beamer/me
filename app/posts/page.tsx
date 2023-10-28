@@ -1,6 +1,6 @@
-import PageWrapper from "components/page-wrapper/index";
 import { allPosts } from "contentlayer/generated";
 import BlogFeed from "../../components/blogFeed.js";
+import StandardPageWrapper from "components/page-wrapper/index";
 
 export const metadata = {
   title: "Blog Posts | Drew Beamer",
@@ -15,7 +15,7 @@ export const metadata = {
 
 export default function PostsPage() {
   return (
-    <div className="page-wrapper prose-invert prose">
+    <StandardPageWrapper>
       <section>
         <h1>Posts</h1>
         <p>
@@ -25,6 +25,6 @@ export default function PostsPage() {
         </p>
         <BlogFeed postData={allPosts} />
       </section>
-    </div>
+    </StandardPageWrapper>
   );
 }

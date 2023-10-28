@@ -1,22 +1,28 @@
-import "../styles/globals.css";
-
-import { Poppins } from "next/font/google";
-import Navbar from "../components/ui-components/navbar";
-import Footer from "components/ui-components/footer";
+import "@/styles/globals.css";
+import Navigation from "@/components/navigation";
 import { KEYWORDS } from "lib/constants";
+import { Poppins, Source_Code_Pro } from "next/font/google";
+import { cn } from "@/lib/utils";
 
-const poppins = Poppins({
+export const fontSans = Poppins({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-sans",
+});
+
+export const fontMono = Source_Code_Pro({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-mono",
 });
 
 export const metadata = {
-  colorScheme: "dark",
   creator: "Drew Beamer",
   icons: {
     icon: "/favicon.png",
   },
   keywords: KEYWORDS,
+  metadataBase: "https://www.drewbeamer.io/",
 };
 
 export default function RootLayout({
@@ -28,10 +34,14 @@ export default function RootLayout({
     <html lang="en">
       <head />
       <body
-        className={`${poppins.className} flex max-w-full sm:max-w-2xl flex-col antialiased sm:mx-auto md:flex-row`}>
-        <main className="prose-slate mx-4 sm:mx-auto min-w-0 flex-auto">
-          <Navbar />
-          <div className="relative">{children}</div>
+        className={cn(
+          "font-sans bg-background",
+          fontSans.variable,
+          fontMono.variable
+        )}>
+        <Navigation />
+        <main>
+          <div className={"max-w-screen-xl w-full mx-auto"}>{children}</div>
         </main>
       </body>
     </html>

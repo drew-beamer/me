@@ -1,10 +1,11 @@
-import NextImage from "components/blog-components/next-image";
+import NextImage from "@/components/blog-components/next-image";
+import LinkWrapper from "@/components/blog-components/link-wrapper";
 import Script from "next/script";
+import StandardPageWrapper from "@/components/page-wrapper";
 import { allPosts } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import { postFromSlug } from "lib/contentlayerHelpers";
-import PageWrapper from "components/page-wrapper";
-import LinkWrapper from "components/blog-components/link-wrapper";
+
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
@@ -62,12 +63,12 @@ export default function PostLayout({ params }): JSX.Element {
     return (
       <>
         <Script type="application/ld+json">{jsonld}</Script>
-        <div className="page-wrapper">
-          <article className="prose-base prose-slate prose-invert prose">
+        <StandardPageWrapper>
+          <article>
             <h1>{post.title}</h1>
             <Content components={{ ...components }} />
           </article>
-        </div>
+        </StandardPageWrapper>
       </>
     );
   }
