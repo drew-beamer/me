@@ -18,13 +18,12 @@ const pages = [
 
 export default function Navigation() {
   return (
-    <header className="border-b-border border-b-2 h-[4rem] flex flex-column items-center justify-center w-full px-4 sticky top-0">
-      <nav className="flex flex-row items-center w-full max-w-screen-xl grow">
+    <header className="bg-background/70 backdrop-blur-xl bg-opacity-90 border-b-border border-b-2 h-[4rem] flex flex-column items-center justify-center w-full px-4 sticky top-0 ">
+      <nav className="flex flex-row items-center w-full max-w-[1400px] grow">
         <Link href="/">
-          <h4 className="mr-3 my-0">{"<db>"}</h4>
+          <h4 className="mr-3 my-0 text-foreground">{"<db>"}</h4>
         </Link>
-
-        <div className="">
+        <div>
           <DesktopNavigation pages={pages} />
         </div>
       </nav>

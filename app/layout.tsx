@@ -6,17 +6,17 @@ import { cn } from "@/lib/utils";
 
 export const fontSans = Poppins({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-sans",
 });
 
 export const metadata = {
-  colorScheme: "dark",
   creator: "Drew Beamer",
   icons: {
     icon: "/favicon.png",
   },
   keywords: KEYWORDS,
+  metadataBase: "https://www.drewbeamer.io/",
 };
 
 export default function RootLayout({
@@ -29,8 +29,8 @@ export default function RootLayout({
       <head />
       <body className={cn("font-sans bg-background", fontSans.variable)}>
         <Navigation />
-        <main className={"max-w-screen-xl w-full mx-auto min-h-[720px]"}>
-          <div className="">{children}</div>
+        <main>
+          <div className={"max-w-screen-xl w-full mx-auto"}>{children}</div>
         </main>
       </body>
     </html>

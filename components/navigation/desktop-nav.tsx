@@ -19,7 +19,7 @@ function DesktopNavigationItem({
     <li className="m-0">
       <Button
         className={`${
-          isActive ? "text-primary" : "text-foreground opacity-75"
+          isActive ? "text-primary" : "text-foreground opacity-60"
         }  hover:opacity-100 transition-all duration-250 hover:no-underline px-2`}
         variant="link">
         <Link className="font-normal" href={page.path}>
