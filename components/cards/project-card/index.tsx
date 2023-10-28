@@ -19,7 +19,6 @@ export default function ProjectCard({
   projectImage,
   slug,
 }: Project) {
-  console.log(title, description, projectImage, slug);
   return (
     <Card className="max-w-[350px] h-full flex flex-col">
       <CardHeader className="grow">
