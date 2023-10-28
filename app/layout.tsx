@@ -1,13 +1,19 @@
 import "@/styles/globals.css";
 import Navigation from "@/components/navigation";
 import { KEYWORDS } from "lib/constants";
-import { Poppins } from "next/font/google";
+import { Poppins, Space_Mono } from "next/font/google";
 import { cn } from "@/lib/utils";
 
 export const fontSans = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-sans",
+});
+
+export const fontMono = Space_Mono({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-mono",
 });
 
 export const metadata = {
@@ -27,7 +33,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head />
-      <body className={cn("font-sans bg-background", fontSans.variable)}>
+      <body
+        className={cn(
+          "font-sans bg-background",
+          fontSans.variable,
+          fontMono.variable
+        )}>
         <Navigation />
         <main>
           <div className={"max-w-screen-xl w-full mx-auto"}>{children}</div>

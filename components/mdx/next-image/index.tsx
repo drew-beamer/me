@@ -12,17 +12,15 @@ const toBase64 = (str: string) =>
 
 const NextImage = (props) => {
   return (
-    <div className="blog-post-image">
-      <Image
-        src={props.src}
-        placeholder="blur"
-        blurDataURL={`data:image/svg+xml;base64,${toBase64(
-          generatePlaceholder(720, 480),
-        )}`}
-        alt={props.alt}
-        {...props}
-      />
-    </div>
+    <Image
+      src={props.src}
+      placeholder="blur"
+      blurDataURL={`data:image/svg+xml;base64,${toBase64(
+        generatePlaceholder(720, 480)
+      )}`}
+      alt={props.alt}
+      {...props}
+    />
   );
 };
 
