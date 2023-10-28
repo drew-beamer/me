@@ -1,7 +1,7 @@
-import NextImage from "@/components/mdx/next-image";
+import NextImage from "@/components/blog-components/next-image";
+import LinkWrapper from "@/components/blog-components/link-wrapper";
 import Script from "next/script";
 import StandardPageWrapper from "@/components/page-wrapper";
-import LinkWrapper from "@/components/mdx/link-wrapper";
 import { allPosts } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import { postFromSlug } from "lib/contentlayerHelpers";
