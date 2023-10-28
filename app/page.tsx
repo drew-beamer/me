@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { Button1 } from "components/ui-components/buttons";
 import QuickLinks from "components/quick-links";
+import { Button } from "@/components/ui/button";
+import animations from "@/styles/animations.module.css";
 
 export const metadata = {
   title: "Drew Beamer | Student, Web Developer, Birder",
@@ -13,32 +14,58 @@ export const metadata = {
   },
 };
 
+function ZoomLine({ width, delay }: { width?: number; delay: number }) {
+  const w = width || 100;
+  return (
+    <div style={{ width: `${w}%` }}>
+      <div
+        style={{
+          animation: `${animations.fadeoutLR} 500ms ease, ${animations.pulse} 5s ease infinite`,
+          animationDelay: `${delay}ms`,
+          animationFillMode: "both",
+        }}
+        className={`mx-4 rounded-full my-4 border-dashed h-1 ${
+          Math.random() < 0.5 ? "bg-primary" : "bg-foreground"
+        }`}></div>
+    </div>
+  );
+}
+
 export default function Home() {
   return (
-    <div>
-      <section className="flex min-h-[calc(100vh-55px)] items-center text-center">
-        <div className="relative top-[-110px] w-full">
-          <span className="prose-invert prose-sm md:prose-base prose">
-            <h3 className="mb-0">Hi there, I'm</h3>
-          </span>
-          <h1 className="mb-0 bg-gradient-to-r from-green-400 to-teal-400 bg-clip-text text-5xl font-bold tracking-wide text-transparent md:text-7xl">
-            Drew Beamer
+    <div className="w-full relative flex justify-center">
+      <div className="absolute z-[-1] w-full flex justify-center flex-wrap space-x-4 px-2 sm:px-8 max-h-[calc(100vh-4rem)] overflow-hidden">
+        {Array.from({ length: 50 }).map((_, i) => (
+          <ZoomLine key={i} width={Math.random() * 35 + 15} delay={i * 25} />
+        ))}
+      </div>
+      <section className="w-full flex flex-wrap items-center justify-around text-center">
+        <div className="flex flex-col justify-center items-center w-full">
+          <h1 className="text-4xl md:text-5xl font-bold mt-32 leading-relaxed">
+            Hey, I'm{" "}
+            <span
+              className="px-2 font-bold"
+              style={{
+                backgroundSize: "200%",
+                animation: `${animations.highlight} 500ms ease`,
+                animationFillMode: "forwards",
+                color: "hsl(var(--background))",
+                backgroundImage:
+                  "linear-gradient(to right, hsl(var(--background)) 50%, transparent 50%), linear-gradient(hsl(var(--primary)) 50%, hsl(var(--primary)) 50%)",
+              }}>
+              Drew Beamer
+            </span>
           </h1>
-          <span className="prose-invert prose-sm md:prose-base prose">
-            <h5 className="mt-0 tracking-wide">
-              Student | Full-stack Engineer | Birder
-            </h5>
-          </span>
-          <div className="relative mt-2 mb-4 z-0">
-            <QuickLinks />
-          </div>
-          <div className="relative flex flex-row justify-center space-x-4 z-10">
-            <Button1>
-              <Link href="/about">About Me</Link>
-            </Button1>
-            <Button1>
-              <Link href="/posts">Read Posts</Link>
-            </Button1>
+          <p className="lead">I'm a student, web developer, and birder.</p>
+          <div className="flex flex-row mt-8">
+            <Link href="/about">
+              <Button variant="default">Learn More</Button>
+            </Link>
+            <Link href="/projects">
+              <Button variant="outline" className="ml-4">
+                View Projects
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

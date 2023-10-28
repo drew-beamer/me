@@ -1,4 +1,4 @@
-import ProjectCard from "components/ui-components/card";
+import ProjectCard from "@/components/ui/card";
 import PageWrapper from "components/page-wrapper";
 import { allProjects } from "contentlayer/generated";
 
@@ -45,8 +45,7 @@ export default function Projects() {
               return (
                 <div
                   key={project._id}
-                  className="mb-6 inline-block w-full break-inside-avoid px-6 sm:px-0"
-                >
+                  className="mb-6 inline-block w-full break-inside-avoid px-6 sm:px-0">
                   <ProjectCard
                     url={project.slug}
                     img={project.projectImage}

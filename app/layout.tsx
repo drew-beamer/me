@@ -1,13 +1,13 @@
-import "../styles/globals.css";
-
-import { Poppins } from "next/font/google";
-import Navbar from "../components/ui-components/navbar";
-import Footer from "components/ui-components/footer";
+import "@/styles/globals.css";
+import Navigation from "@/components/navigation";
 import { KEYWORDS } from "lib/constants";
+import { Poppins } from "next/font/google";
+import { cn } from "@/lib/utils";
 
-const poppins = Poppins({
+export const fontSans = Poppins({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700"],
+  variable: "--font-sans",
 });
 
 export const metadata = {
@@ -27,11 +27,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head />
-      <body
-        className={`${poppins.className} flex max-w-full sm:max-w-2xl flex-col antialiased sm:mx-auto md:flex-row`}>
-        <main className="prose-slate mx-4 sm:mx-auto min-w-0 flex-auto">
-          <Navbar />
-          <div className="relative">{children}</div>
+      <body className={cn("font-sans bg-background", fontSans.variable)}>
+        <Navigation />
+        <main className={"max-w-screen-xl w-full mx-auto min-h-[720px]"}>
+          <div className="">{children}</div>
         </main>
       </body>
     </html>

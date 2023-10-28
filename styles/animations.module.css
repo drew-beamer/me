@@ -1,0 +1,35 @@
+@keyframes fadeoutLR {
+  0% {
+    opacity: 1;
+    width: 0%;
+  }
+  100% {
+    opacity: 0.1;
+    width: 100%;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.15;
+    transform: scaleX(1.03);
+  }
+  100% {
+    opacity: 0.1;
+  }
+}
+
+@keyframes highlight {
+  from {
+    background-position: 0;
+    color: hsl(var(--foreground));
+  }
+
+  to {
+    background-position: -100%;
+    color: hsl(var(--background));
+  }
+}
