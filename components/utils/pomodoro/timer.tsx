@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
 
 type IntervalType = "work" | "break" | "long-break";
 
@@ -70,7 +71,7 @@ function getCurrentAltColor(intervalType: IntervalType) {
 export default function Timer(): JSX.Element {
   const [intervalType, setIntervalType] = useState<IntervalType>("work");
   const [intervalLength, setIntervalLength] = useState<number>(
-    WORK_TIME_MINS * 60,
+    WORK_TIME_MINS * 60
   );
   const [timeLeft, setTimeLeft] = useState<number>(intervalLength);
   const [sessionsCompleted, setSessionsCompleted] = useState<number>(0);
@@ -121,7 +122,7 @@ export default function Timer(): JSX.Element {
   return (
     <div className="flex flex-wrap justify-center">
       <div className="flex w-full justify-center">
-        <div className="relative w-min rounded-xl bg-neutral-800">
+        <div className="relative w-min rounded-xl bg-muted">
           <motion.div
             className="absolute left-0 top-0 h-full w-10 rounded-xl"
             initial={{
@@ -140,31 +141,29 @@ export default function Timer(): JSX.Element {
               type: "spring",
               damping: 40,
               stiffness: 300,
-            }}
-          ></motion.div>
-          <ul className="relative m-0 flex list-none whitespace-nowrap py-0.5">
+            }}></motion.div>
+          <ul
+            style={{ padding: 0, margin: 0 }}
+            className="relative m-0 flex list-none whitespace-nowrap py-0.5">
             <li
               onClick={() => setIntervalType("work")}
               className={`px-4 transition-colors duration-300 ease-in-out hover:cursor-pointer ${
                 intervalType === "work" ? "text-neutral-900" : ""
-              }`}
-            >
+              }`}>
               Work
             </li>
             <li
               onClick={() => setIntervalType("break")}
               className={`px-4 transition-colors duration-300  ease-in-out hover:cursor-pointer ${
                 intervalType === "break" ? "text-neutral-900" : ""
-              }`}
-            >
+              }`}>
               Break
             </li>
             <li
               onClick={() => setIntervalType("long-break")}
               className={`px-4 transition-colors duration-300  ease-in-out hover:cursor-pointer ${
                 intervalType === "long-break" ? "text-neutral-900" : ""
-              }`}
-            >
+              }`}>
               Long Break
             </li>
           </ul>
@@ -183,16 +182,11 @@ export default function Timer(): JSX.Element {
                     }deg
             )`,
           }}
-          className={`h-${DESKTOP_HEIGHT} w-${DESKTOP_WIDTH} rounded-full p-4 shadow-lg`}
-        >
+          className={`h-${DESKTOP_HEIGHT} w-${DESKTOP_WIDTH} rounded-full p-4 shadow-lg`}>
           <div
-            className={`flex h-40 w-40 items-center justify-center rounded-full bg-neutral-900`}
-          >
-            <div className="text-4xl font-bold">
-              <i>
-                {Math.floor(timeLeft / 60)}:
-                {padNumber(Math.floor(timeLeft % 60))}
-              </i>
+            className={`flex h-40 w-40 items-center justify-center rounded-full bg-background`}>
+            <div className="text-4xl">
+              {Math.floor(timeLeft / 60)}:{padNumber(Math.floor(timeLeft % 60))}
             </div>
           </div>
         </div>
@@ -203,14 +197,13 @@ export default function Timer(): JSX.Element {
       </div>
 
       <div className="mt-4 flex w-full justify-center">
-        <button
-          className={`w-28 rounded-lg text-lg font-bold transition-colors duration-500 ease-in-out ${
-            isRunning ? "bg-red-500" : "bg-green-400 text-neutral-900"
+        <Button
+          variant={isRunning ? "destructive" : "default"}
+          className={`transition-colors duration-500 ease-in-out
           } px-6 py-1`}
-          onClick={() => setIsRunning(!isRunning)}
-        >
+          onClick={() => setIsRunning(!isRunning)}>
           {!isRunning ? "Start" : "Pause"}
-        </button>
+        </Button>
       </div>
     </div>
   );

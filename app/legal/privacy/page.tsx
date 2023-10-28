@@ -1,4 +1,4 @@
-import PageWrapper from "components/page-wrapper";
+import StandardPageWrapper from "@/components/page-wrapper";
 import Link from "next/link";
 
 export const metadata = {
@@ -12,10 +12,10 @@ export const metadata = {
 
 export default function Privacy() {
   return (
-    <PageWrapper>
-      <section className="mb-24 pt-32">
-        <h1>PRIVACY POLICY</h1>
-        <p>(Last updated: March 23)</p>
+    <StandardPageWrapper>
+      <section>
+        <h1>Privacy Policy</h1>
+        <p className="lead">(Last updated: March 23, 2023)</p>
         <div className="mt-2">
           <h2 className="my-4">Introduction</h2>
           <p>
@@ -52,6 +52,6 @@ export default function Privacy() {
           </p>
         </div>
       </section>
-    </PageWrapper>
+    </StandardPageWrapper>
   );
 }

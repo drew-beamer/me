@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 import Navigation from "@/components/navigation";
 import { KEYWORDS } from "lib/constants";
-import { Poppins, Space_Mono } from "next/font/google";
+import { Poppins, Source_Code_Pro } from "next/font/google";
 import { cn } from "@/lib/utils";
 
 export const fontSans = Poppins({
@@ -10,7 +10,7 @@ export const fontSans = Poppins({
   variable: "--font-sans",
 });
 
-export const fontMono = Space_Mono({
+export const fontMono = Source_Code_Pro({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-mono",

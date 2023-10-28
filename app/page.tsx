@@ -19,8 +19,9 @@ export default function Home() {
   return (
     <div className="w-full relative flex justify-center mx-auto prose dark:prose-invert px-4 sm:px-0">
       <section className="w-full mx-auto text-center">
-        <div className="flex flex-col justify-center items-center w-full">
-          <h1 className="text-4xl md:text-5xl font-bold mt-32 leading-relaxed mb-6">
+        <div className={`flex flex-col justify-center items-center w-full`}>
+          <h1
+            className={`text-4xl md:text-5xl font-bold mt-32 leading-relaxed mb-6 ${animations.pulseScaleAfter500}`}>
             Hey, I'm{" "}
             <span
               className="px-2 font-bold"

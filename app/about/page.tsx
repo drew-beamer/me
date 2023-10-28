@@ -1,4 +1,4 @@
-import { SkillsetDiagram } from "components/misc/skillset";
+import { SkillsetDiagram } from "@/components/misc/skillset";
 import StandardPageWrapper from "components/page-wrapper";
 
 export const metadata = {
@@ -17,7 +17,7 @@ export default function About() {
     <StandardPageWrapper>
       <section className="">
         <h1 className="m-0">About me</h1>
-        <p className="lead">something here...</p>
+        <p className="lead">I'm a college student and full-stack engineer</p>
         <p>
           Hi, I'm Drew Beamer, a <strong>college student</strong> and{" "}
           <strong>aspiring software engineer</strong> with a passion for{" "}

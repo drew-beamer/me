@@ -27,7 +27,7 @@
   }
 
   * {
-    @apply font-sans font-normal;
+    @apply font-normal;
     border-color: hsl(var(--border));
   }
 
@@ -64,8 +64,13 @@
     @apply my-6 ml-6 list-disc [&>li]:mt-2;
   }
 
+  pre,
   code {
-    @apply relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold;
+    @apply font-mono;
+  }
+
+  code {
+    @apply relative rounded bg-muted px-[0.3rem] py-[0.2rem] text-sm font-semibold;
   }
 
   .lead {

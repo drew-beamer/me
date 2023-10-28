@@ -64,7 +64,7 @@ export default function PostLayout({ params }): JSX.Element {
       <>
         <Script type="application/ld+json">{jsonld}</Script>
         <StandardPageWrapper>
-          <article className="prose-base prose-slate prose-invert prose">
+          <article>
             <h1>{post.title}</h1>
             <Content components={{ ...components }} />
           </article>
