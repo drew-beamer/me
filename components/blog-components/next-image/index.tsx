@@ -15,19 +15,21 @@ const shimmer = (w: number, h: number) => `
 </svg>`;
 
 const toBase64 = (str: string) =>
-  typeof window === "undefined"
-    ? Buffer.from(str).toString("base64")
-    : window.btoa(str);
+    typeof window === "undefined"
+        ? Buffer.from(str).toString("base64")
+        : window.btoa(str);
 
-const NextImage = (props) => {
-  return (
-    <Image
-      src={props.src}
-      alt={props.alt}
-      {...props}
-      placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
-    />
-  );
-};
+function NextImage(props) {
+    return (
+        <Image
+            src={props.src}
+            alt={props.alt}
+            {...props}
+            placeholder={`data:image/svg+xml;base64,${toBase64(
+                shimmer(700, 475)
+            )}`}
+        />
+    );
+}
 
 export default NextImage;
