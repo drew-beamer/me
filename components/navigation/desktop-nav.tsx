@@ -1,10 +1,11 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import React from "react";
 import cn from "@/lib/utils";
-import { Github } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Github } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 type Page = {
     name: string;
@@ -15,10 +16,10 @@ const increaseOpacityOnHover = "hover:opacity-100 transition-all duration-250";
 
 function DesktopNavigationItem({
     page,
-    isActive,
+    isActive = false,
 }: {
     page: Page;
-    isActive?: boolean;
+    isActive: boolean;
 }) {
     return (
         <li className="m-0">
@@ -42,7 +43,6 @@ function DesktopNavigationItem({
 
 function DesktopNavigation({ pages }: { pages: Page[] }) {
     const pathname = usePathname();
-
     return (
         <>
             <ul className="flex flex-row grow list-none m-0">
