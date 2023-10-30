@@ -1,12 +1,10 @@
-import Link from "next/link";
-import Image from "next/image";
 import parseISO from "date-fns/parseISO";
 import PostCard from "@/components/cards/post-card";
-import Date from "./date";
+import { Post } from "contentlayer/generated";
 
-export default function BlogFeed({ postData }) {
+export default function BlogFeed({ postData }: { postData: Post[] }) {
     const posts = postData.sort((a, b) => {
-        return parseISO(b.date) - parseISO(a.date);
+        return parseISO(b.date).getTime() - parseISO(a.date).getTime();
     });
     return (
         <div className="mt-4">
@@ -19,12 +17,8 @@ export default function BlogFeed({ postData }) {
                 style={{ margin: 0, padding: 0 }}
                 className="pl-0 list-none ml-0"
             >
-                {posts.slice(1).map(postData => (
-                    <PostCard
-                        variant="featured"
-                        key={postData.slug}
-                        post={postData}
-                    />
+                {posts.slice(1).map(data => (
+                    <PostCard variant="featured" key={data.slug} post={data} />
                 ))}
             </ul>
         </div>

@@ -133,16 +133,30 @@ export default function Timer(): React.FunctionComponentElement<{}> {
                     <motion.div
                         className="absolute left-0 top-0 h-full w-10 rounded-xl"
                         initial={{
-                            x: sliderData[intervalType].x,
+                            x: sliderData[
+                                intervalType as keyof typeof sliderData
+                            ].x,
                             opacity: 0,
-                            backgroundColor: sliderData[intervalType].color,
-                            width: sliderData[intervalType].width,
+                            backgroundColor:
+                                sliderData[
+                                    intervalType as keyof typeof sliderData
+                                ].color,
+                            width: sliderData[
+                                intervalType as keyof typeof sliderData
+                            ].width,
                         }}
                         animate={{
                             opacity: 1,
-                            x: sliderData[intervalType].x,
-                            width: sliderData[intervalType].width,
-                            backgroundColor: sliderData[intervalType].color,
+                            x: sliderData[
+                                intervalType as keyof typeof sliderData
+                            ].x,
+                            width: sliderData[
+                                intervalType as keyof typeof sliderData
+                            ].width,
+                            backgroundColor:
+                                sliderData[
+                                    intervalType as keyof typeof sliderData
+                                ].color,
                         }}
                         transition={{
                             type: "spring",
@@ -154,22 +168,24 @@ export default function Timer(): React.FunctionComponentElement<{}> {
                         style={{ padding: 0, margin: 0 }}
                         className="relative m-0 flex list-none whitespace-nowrap py-0.5"
                     >
-                        <li
-                            onClick={() => setIntervalType("work")}
-                            onKeyDown={e => {
-                                if (e.key === "Enter") {
-                                    setIntervalType("work");
-                                }
-                            }}
-                            role="button"
-                            tabIndex={0}
-                            className={`px-4 transition-colors duration-300 ease-in-out hover:cursor-pointer ${
-                                intervalType === "work"
-                                    ? "text-neutral-900"
-                                    : ""
-                            }`}
-                        >
-                            Work
+                        <li>
+                            <Button
+                                onClick={() => setIntervalType("work")}
+                                onKeyDown={e => {
+                                    if (e.key === "Enter") {
+                                        setIntervalType("work");
+                                    }
+                                }}
+                                role="button"
+                                tabIndex={0}
+                                className={`px-4 transition-colors duration-300 ease-in-out hover:cursor-pointer ${
+                                    intervalType === "work"
+                                        ? "text-neutral-900"
+                                        : ""
+                                }`}
+                            >
+                                Work
+                            </Button>
                         </li>
                         <li>
                             <Button
@@ -189,20 +205,22 @@ export default function Timer(): React.FunctionComponentElement<{}> {
                                 Break
                             </Button>
                         </li>
-                        <li
-                            onClick={() => setIntervalType("long-break")}
-                            onKeyDown={e => {
-                                if (e.key === "Enter") {
-                                    setIntervalType("long-break");
-                                }
-                            }}
-                            className={`px-4 transition-colors duration-300  ease-in-out hover:cursor-pointer ${
-                                intervalType === "long-break"
-                                    ? "text-neutral-900"
-                                    : ""
-                            }`}
-                        >
-                            Long Break
+                        <li>
+                            <Button
+                                onClick={() => setIntervalType("long-break")}
+                                onKeyDown={e => {
+                                    if (e.key === "Enter") {
+                                        setIntervalType("long-break");
+                                    }
+                                }}
+                                className={`px-4 transition-colors duration-300  ease-in-out hover:cursor-pointer ${
+                                    intervalType === "long-break"
+                                        ? "text-neutral-900"
+                                        : ""
+                                }`}
+                            >
+                                Long Break
+                            </Button>
                         </li>
                     </ul>
                 </div>

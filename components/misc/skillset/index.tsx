@@ -1,7 +1,6 @@
 "use client";
 
-import { is } from "date-fns/locale";
-import { useState, useEffect, use } from "react";
+import { useState, useEffect } from "react";
 import Skills from "./skills.json";
 
 type TSkill = {
@@ -15,7 +14,7 @@ function SkillBar({ skill }: { skill: TSkill }) {
     const [width, setWidth] = useState(0);
     useEffect(() => {
         setWidth(skill.level * 10);
-    }, []);
+    }, [skill.level]);
 
     return (
         <div className="flex w-full flex-row">
@@ -32,7 +31,7 @@ function SkillBar({ skill }: { skill: TSkill }) {
     );
 }
 
-export function SkillsetDiagram() {
+export default function SkillsetDiagram() {
     return (
         <div className="flex flex-wrap gap-y-2">
             {Skills.sort((a, b) => b.level - a.level).map(skill => {

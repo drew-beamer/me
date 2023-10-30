@@ -33,7 +33,10 @@
             }
         ],
         "react/jsx-filename-extension": [2, { "extensions": [".jsx", ".tsx"] }],
-        "react/jsx-props-no-spreading": "off"
+        "react/jsx-props-no-spreading": "off",
+        "react/jsx-uses-react": "off",
+        "react/react-in-jsx-scope": "off",
+        "no-underscore-dangle": "off"
     },
     "globals": {
         "globalThis": false

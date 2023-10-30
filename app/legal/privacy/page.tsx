@@ -19,10 +19,10 @@ export default function Privacy() {
                 <div className="mt-2">
                     <h2 className="my-4">Introduction</h2>
                     <p>
-                        I'm an advocate for data privacy (see{" "}
+                        I&apos;m an advocate for data privacy (see{" "}
                         <Link href="/projects/hound">Hound</Link>), and feel
-                        that it's important to be transparent about how I use
-                        data.
+                        that it&apos;s important to be transparent about how I
+                        use data.
                     </p>
                     <p className="my-4">
                         This privacy policy will help you understand how Drew
@@ -31,7 +31,7 @@ export default function Privacy() {
                         <a href="https://drewbeamer.io">
                             https://drewbeamer.io
                         </a>{" "}
-                        ("site").
+                        (&rdquo;site&rdquo;).
                     </p>
                     <p className="my-4">
                         This site serves as the home for my blog, portfolio, and
@@ -49,7 +49,7 @@ export default function Privacy() {
                         patterns. These services let me see general trends in
                         search performance. I do not (an do not believe I can)
                         use these services to track individual users. I have not
-                        integrated any cookies that I'm aware of.
+                        integrated any cookies that I&apos;m aware of.
                     </p>
                 </div>
                 <div className="my-2">

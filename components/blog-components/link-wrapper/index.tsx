@@ -1,16 +1,16 @@
 import Link from "next/link";
 import React from "react";
 
-interface LinkWrapperProps {
-    target?: string;
+interface LinkWrapperProps
+    extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
     href: string;
     children: React.ReactNode;
 }
 
-function LinkWrapper(props: LinkWrapperProps) {
+function LinkWrapper({ href, children, ...rest }: LinkWrapperProps) {
     return (
-        <Link href={props.href} target={props.target || "_self"}>
-            {props.children}
+        <Link href={href as string} target="_blank" {...rest}>
+            {children}
         </Link>
     );
 }

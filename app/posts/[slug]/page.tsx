@@ -4,10 +4,11 @@ import Script from "next/script";
 import StandardPageWrapper from "@/components/page-wrapper";
 import { allPosts } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
-import { postFromSlug } from "lib/contentlayerHelpers";
+import { postFromSlug } from "lib/utils/contentlayerHelpers";
 
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { MDXComponents } from "mdx/types";
 
 export async function generateStaticParams() {
     return allPosts.map(post => ({
@@ -19,10 +20,8 @@ export async function generateMetadata({
     params,
 }: {
     params: { slug: string };
-}): Promise<Metadata | undefined> {
+}): Promise<Metadata> {
     const post = postFromSlug(params.slug);
-    if (!post) return;
-
     const { title, slug, description, postImage, date } = post;
 
     return {
@@ -45,24 +44,26 @@ export async function generateMetadata({
     };
 }
 
-export default function PostLayout({ params }): JSX.Element {
+const components: MDXComponents = {
+    Image: NextImage,
+    a: LinkWrapper,
+};
+
+export default function PostLayout({ params }: { params: { slug: string } }) {
     const post = postFromSlug(params.slug);
+    const Content = useMDXComponent(post.body.code);
     if (!post) {
         notFound();
     }
 
-    const components = {
-        Image: NextImage,
-        a: LinkWrapper,
-    };
-
     const jsonld = JSON.stringify(post.jsonLD);
 
     if (post !== null) {
-        const Content = useMDXComponent(post.body.code);
         return (
             <>
-                <Script type="application/ld+json">{jsonld}</Script>
+                <Script id="jsonld" type="application/ld+json">
+                    {jsonld}
+                </Script>
                 <StandardPageWrapper>
                     <article>
                         <h1>{post.title}</h1>

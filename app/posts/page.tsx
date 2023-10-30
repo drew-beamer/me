@@ -1,6 +1,6 @@
 import { allPosts } from "contentlayer/generated";
 import StandardPageWrapper from "components/page-wrapper/index";
-import BlogFeed from "../../components/blogFeed.js";
+import BlogFeed from "../../components/blogFeed";
 
 export const metadata = {
     title: "Blog Posts | Drew Beamer",
@@ -20,8 +20,8 @@ export default function PostsPage() {
                 <h1>Posts</h1>
                 <p>
                     This is where I share my thoughts, insights, and experiences
-                    as a web developer, student, and birder. I hope you'll find
-                    these posts both informative and enjoyable!
+                    as a web developer, student, and birder. I hope you&apos;ll
+                    find these posts both informative and enjoyable!
                 </p>
                 <BlogFeed postData={allPosts} />
             </section>

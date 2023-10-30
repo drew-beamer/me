@@ -1,8 +1,6 @@
 import Link from "next/link";
-import QuickLinks from "components/quick-links";
 import { Button } from "@/components/ui/button";
 import animations from "@/styles/animations.module.css";
-import StandardPageWrapper from "@/components/page-wrapper";
 
 export const metadata = {
     title: "Drew Beamer | Student, Web Developer, Birder",
@@ -23,7 +21,7 @@ export default function Home() {
                     <h1
                         className={`text-4xl md:text-5xl font-bold mt-32 leading-relaxed mb-6 ${animations.pulseScaleAfter500}`}
                     >
-                        Hey, I'm{" "}
+                        Hey, I&apos;m{" "}
                         <span
                             className="px-2 font-bold"
                             style={{
@@ -39,7 +37,7 @@ export default function Home() {
                         </span>
                     </h1>
                     <p style={{ margin: 0 }} className="lead">
-                        I'm a student, web developer, and birder.
+                        I&apos;m a student, web developer, and birder.
                     </p>
                     <div className="flex flex-row flex-wrap justify-center mt-5">
                         <Link href="/about" className="mx-2 my-1">

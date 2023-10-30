@@ -1,4 +1,4 @@
-import { SkillsetDiagram } from "@/components/misc/skillset";
+import SkillsetDiagram from "@/components/misc/skillset";
 import StandardPageWrapper from "components/page-wrapper";
 
 export const metadata = {
@@ -18,12 +18,12 @@ export default function About() {
             <section className="">
                 <h1 className="m-0">About me</h1>
                 <p className="lead">
-                    I'm a college student and full-stack engineer
+                    I&apos;m a college student and full-stack engineer
                 </p>
                 <p>
-                    Hi, I'm Drew Beamer, a <strong>college student</strong> and{" "}
-                    <strong>aspiring software engineer</strong> with a passion
-                    for <strong>web development</strong> and{" "}
+                    Hi, I&apos;m Drew Beamer, a <strong>college student</strong>{" "}
+                    and <strong>aspiring software engineer</strong> with a
+                    passion for <strong>web development</strong> and{" "}
                     <strong>data</strong>. On this website, I share my thoughts,
                     experiences, and projects related to these topics, as well
                     as birding and other miscellaneous topics. I started

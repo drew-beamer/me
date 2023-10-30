@@ -1,9 +1,10 @@
+import LinkWrapper from "@/components/blog-components/link-wrapper";
+import NextImage from "@/components/blog-components/next-image";
 import StandardPageWrapper from "components/page-wrapper";
+import type { MDXComponents } from "mdx/types";
 import { allProjects } from "contentlayer/generated";
-import { projectFromSlug } from "lib/contentlayerHelpers";
+import { projectFromSlug } from "lib/utils/contentlayerHelpers";
 import { useMDXComponent } from "next-contentlayer/hooks";
-
-import Image, { ImageProps } from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 
@@ -40,22 +41,18 @@ export async function generateMetadata({
     };
 }
 
-function NextImage(props: ImageProps) {
-    return <Image {...props} className={`rounded-lg ${props.className}`} />;
-}
+const components: MDXComponents = {
+    Image: NextImage,
+    a: LinkWrapper,
+};
 
-export default function ProjectPage({ params }) {
+export default function ProjectPage({ params }: { params: { slug: string } }) {
     const project = projectFromSlug(params.slug);
-
+    const Content = useMDXComponent(project.body.code);
     if (project !== undefined) {
-        const components = {
-            Image: NextImage,
-        };
-        const Content = useMDXComponent(project.body.code);
-
         return (
             <>
-                <Script type="application/ld+json" strategy="beforeInteractive">
+                <Script id="project-data" type="application/ld+json">
                     {JSON.stringify(project.jsonLD)}
                 </Script>
                 <StandardPageWrapper>
@@ -66,7 +63,7 @@ export default function ProjectPage({ params }) {
                                 <p className="lead">{project.description}</p>
                             </div>
                             <div className="relative">
-                                <Content components={{ ...components }} />
+                                <Content components={components} />
                             </div>
                             <div>
                                 <Link href="/projects">

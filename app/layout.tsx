@@ -1,9 +1,9 @@
 import "@/styles/globals.css";
 import React from "react";
 import Navigation from "@/components/navigation";
-import { KEYWORDS } from "lib/constants";
+import { KEYWORDS } from "lib/utils/constants";
 import { Poppins, Source_Code_Pro as SourceCodePro } from "next/font/google";
-import cn from "@/lib/utils";
+import cn from "@/lib/utils/cn";
 
 export const fontSans = Poppins({
     subsets: ["latin"],

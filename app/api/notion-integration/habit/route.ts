@@ -6,6 +6,7 @@ type HabitProperties = {
     property: string;
 };
 
+// eslint-disable-next-line import/prefer-default-export
 export async function PATCH(req: NextRequest) {
     try {
         const { pageId, property } = (await req.json()) as HabitProperties;
@@ -26,7 +27,6 @@ export async function PATCH(req: NextRequest) {
         }
         return NextResponse.json({ message: "Success" });
     } catch (err) {
-        console.error(err);
         return NextResponse.json(
             { message: "Internal Server Error" },
             { status: 500 }
