@@ -1,5 +1,5 @@
 import { Code, Network, Mail } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 const socialLinks = [
   {
