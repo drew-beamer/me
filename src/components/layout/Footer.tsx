@@ -1,21 +1,17 @@
-import { Code, Network, Mail } from "lucide-react";
 import { Button } from "../ui/button";
 
 const socialLinks = [
   {
-    icon: Code,
+    text: "GitHub",
     href: "https://github.com/drew-beamer",
-    label: "GitHub",
   },
   {
-    icon: Network,
+    text: "LinkedIn",
     href: "https://linkedin.com/in/drewmbeamer",
-    label: "LinkedIn",
   },
   {
-    icon: Mail,
+    text: "Email",
     href: "mailto:andrewmbeamer@gmail.com",
-    label: "Email",
   },
 ] as const;
 
@@ -36,21 +32,16 @@ export default function Footer() {
           </div>
 
           <div className="flex items-center gap-2">
-            {socialLinks.map(({ icon: Icon, href, label }) => (
+            {socialLinks.map(({ text, href }) => (
               <Button
-                key={label}
+                key={text}
                 variant="ghost"
-                size="icon"
+                size="sm"
                 asChild
                 className="hover:text-primary"
               >
-                <a
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                >
-                  <Icon className="h-5 w-5" />
+                <a href={href} target="_blank" rel="noopener noreferrer">
+                  {text}
                 </a>
               </Button>
             ))}

@@ -1,4 +1,5 @@
 ---
+import Prose from "@/components/layout/Prose.astro";
 import Layout from "@/layouts/Layout.astro";
 import { getCollection, render } from "astro:content";
 
@@ -14,21 +15,21 @@ const { project } = Astro.props;
 const { Content } = await render(project);
 ---
 
-<Layout title="Projects">
-  <main class="container mx-auto px-4 dark:bg-neutral-950">
-    <div class="fixed inset-0 h-screen w-screen overflow-hidden">
-      <div class="absolute -inset-[100%] opacity-50">
-        <div
-          class="absolute top-1/4 left-1/3 size-1/4 rounded-full bg-radial from-purple-400 to-purple-600/60 blur-3xl"
-        >
-        </div>
+<Layout title="Projects" gradientBackground>
+  <div class="fixed inset-0 h-screen w-screen overflow-hidden">
+    <div class="absolute -inset-[100%] opacity-50">
+      <div
+        class="absolute top-1/4 left-1/3 size-1/4 rounded-full bg-radial from-purple-400 to-purple-600/60 blur-3xl"
+      >
       </div>
     </div>
-    <div
-      class="flex flex-col items-start justify-start bg-card/60 backdrop-blur-sm shadow-xl rounded-xl relative max-w-[64ch] mx-auto p-8 prose prose-neutral prose-sm prose-lead:leading-tight prose-headings:m-1 prose-headings:font-mono dark:prose-invert"
-    >
+  </div>
+  <div
+    class="flex flex-col items-start justify-start bg-card/60 backdrop-blur-sm shadow-xl rounded-xl relative max-w-[64ch] mx-auto p-8"
+  >
+    <Prose>
       <h1 class="font-bold">{project.data.title}</h1>
       <Content />
-    </div>
-  </main>
+    </Prose>
+  </div>
 </Layout>

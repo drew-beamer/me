@@ -2,40 +2,17 @@
 import Layout from "../layouts/Layout.astro";
 import TypewriterEffect from "../components/TypewriterEffect";
 import { ChevronUp } from "lucide-react";
+import GradientBackground from "@/components/layout/GradientBackground";
 ---
 
 <Layout title="Drew Beamer">
   <main class="container mx-auto px-4 bg-background">
-    <div class="fixed inset-0 h-screen w-screen overflow-hidden">
-      <div class="absolute -inset-[100%] opacity-50">
-        <div
-          class="absolute top-1/4 left-1/3 size-1/4 rounded-full bg-radial from-teal-400 to-blue-600/60 blur-3xl"
-        >
-        </div>
-        <div
-          class="absolute top-1/3 right-1/4 size-1/4 rounded-full bg-radial from-pink-400 to-pink-600/60 blur-3xl"
-        >
-        </div>
-        <div
-          class="absolute bottom-1/4 left-1/3 size-1/4 rounded-full bg-radial from-violet-400 to-violet-600/60 blur-3xl"
-        >
-        </div>
-        <div
-          class="fixed inset-0 bg-neutral-100/10 opacity-20 mix-blend-multiply"
-        >
-          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <filter id="noiseFilter">
-              <feTurbulence
-                type="fractalNoise"
-                baseFrequency="0.99"
-                numOctaves="6"
-                stitchTiles="stitch"></feTurbulence>
-            </filter>
-            <rect width="100%" height="100%" filter="url(#noiseFilter)"></rect>
-          </svg>
-        </div>
-      </div>
-    </div>
+    <GradientBackground
+      colors={[
+        { from: "from-teal-400", to: "to-blue-400/90" },
+        { from: "from-pink-400", to: "to-purple-600/20" },
+      ]}
+    />
     <header
       class="relative z-10 h-screen -top-16 flex items-center justify-start"
     >
