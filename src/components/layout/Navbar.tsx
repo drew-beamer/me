@@ -9,15 +9,15 @@ const Navbar: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setHasScrolled(window.scrollY > 0);
+      const scrollPosition =
+        window.scrollY || document.documentElement.scrollTop;
+      setHasScrolled(scrollPosition > 0);
     };
 
-    // Check scroll position immediately
     handleScroll();
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
-    // Clean up event listener on unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -26,8 +26,8 @@ const Navbar: React.FC = () => {
   return (
     <nav
       className={cn(
-        "flex justify-between items-center bg-card/0 py-1 px-6 fixed top-0 left-0 right-0 z-50 rounded-b-xl",
-        hasScrolled && "bg-card/60 backdrop-blur-md transition-all duration-300"
+        "flex justify-between items-center bg-card/0 py-1 px-6 fixed top-0 left-0 right-0 z-50 rounded-b-xl transition-colors duration-300",
+        hasScrolled && "bg-card/60 backdrop-blur-md"
       )}
     >
       <div className="text-lg font-mono">
