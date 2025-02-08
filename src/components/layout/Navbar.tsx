@@ -11,7 +11,16 @@ const Navbar: React.FC = () => {
     const handleScroll = () => {
       setHasScrolled(window.scrollY > 0);
     };
+
+    // Check scroll position immediately
+    handleScroll();
+
     window.addEventListener("scroll", handleScroll);
+
+    // Clean up event listener on unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
