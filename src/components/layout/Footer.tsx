@@ -1,5 +1,3 @@
-import { Button } from "../ui/button";
-
 const socialLinks = [
   {
     text: "GitHub",
@@ -33,17 +31,15 @@ export default function Footer() {
 
           <div className="flex items-center gap-2">
             {socialLinks.map(({ text, href }) => (
-              <Button
+              <a
                 key={text}
-                variant="ghost"
-                size="sm"
-                asChild
-                className="hover:text-primary"
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2"
               >
-                <a href={href} target="_blank" rel="noopener noreferrer">
-                  {text}
-                </a>
-              </Button>
+                {text}
+              </a>
             ))}
           </div>
         </div>

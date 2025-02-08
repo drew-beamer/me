@@ -2,49 +2,38 @@
 import Layout from "../layouts/Layout.astro";
 import TypewriterEffect from "../components/TypewriterEffect";
 import { ChevronUp } from "lucide-react";
-import GradientBackground from "@/components/layout/GradientBackground";
 ---
 
-<Layout title="Drew Beamer">
-  <main class="container mx-auto px-4 bg-background">
-    <GradientBackground
-      colors={[
-        { from: "from-teal-400", to: "to-blue-400/90" },
-        { from: "from-pink-400", to: "to-purple-600/20" },
-      ]}
-    />
-    <header
-      class="relative z-10 h-screen -top-16 flex items-center justify-start"
-    >
-      <div
-        class="flex items-center justify-between bg-card/60 backdrop-blur-sm shadow-xl rounded-xl p-8"
-      >
-        <div class="flex flex-col items-start gap-4">
-          <h1 class="text-5xl font-mono font-medium">Drew Beamer</h1>
-          <p class="text-sm text-card-foreground flex gap-2">
-            <TypewriterEffect
-              client:load
-              words={[
-                "Software Engineer",
-                "FRC Mentor",
-                "Birder",
-                "Problem Solver",
-              ]}
-            />
-          </p>
-        </div>
-      </div>
-    </header>
-
-    <div id="rocket-container" class="fixed inset-0 pointer-events-none z-0">
-    </div>
+<Layout title="Drew Beamer" gradientBackground={true}>
+  <header class="relative h-screen -top-16 flex items-center justify-start">
     <div
-      id="custom-cursor"
-      class="fixed pointer-events-none z-50 text-neutral-500 hidden"
+      class="flex items-center justify-between bg-card/60 backdrop-blur-sm shadow-xl rounded-xl p-8"
     >
-      <ChevronUp className="size-12" />
+      <div class="flex flex-col items-start gap-4">
+        <h1 class="text-5xl font-mono font-medium">Drew Beamer</h1>
+        <p class="text-sm text-card-foreground flex gap-2">
+          <TypewriterEffect
+            client:load
+            words={[
+              "Software Engineer",
+              "FRC Mentor",
+              "Birder",
+              "Problem Solver",
+            ]}
+          />
+        </p>
+      </div>
     </div>
-  </main>
+  </header>
+
+  <div id="rocket-container" class="fixed inset-0 pointer-events-none z-0">
+  </div>
+  <div
+    id="custom-cursor"
+    class="fixed pointer-events-none z-50 text-neutral-500 hidden"
+  >
+    <ChevronUp className="size-12" />
+  </div>
 </Layout>
 
 <script is:inline>
@@ -78,7 +67,7 @@ import GradientBackground from "@/components/layout/GradientBackground";
     }, 1000);
   }
 
-  document.querySelector("main")?.addEventListener("click", (e) => {
+  document.querySelector("header")?.addEventListener("click", (e) => {
     createRocket(e.clientX, e.clientY);
   });
 </script>
