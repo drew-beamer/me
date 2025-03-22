@@ -7,9 +7,9 @@ ScrubJay is a Discord bot that helps birders stay up-to-date with rare bird sigh
 
 ## Features
 
-- Real-time rare bird alerts from eBird
-- Customizable location-based notifications
-- Easy setup and configuration
+- Cron job to check for rare bird sightings from eBird
+- Discord bot to send notifications to users when a rare bird is spotted in their area
+- Easy setup and configuration: application is Dockerized and deployed on a Digital Ocean Droplet
 - Community-friendly Discord integration
 - Support for multiple regions and alert types
 
