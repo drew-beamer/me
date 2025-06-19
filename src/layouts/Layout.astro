@@ -14,7 +14,7 @@ const { title, description = "Drew Beamer's personal website" } = Astro.props;
     <title>{title}</title>
   </head>
   <body class="font-mono overscroll-none dark">
-    <div class="px-8 md:px-0 py-12 mx-auto">
+    <div class="px-8 md:px-0 py-12 mx-auto max-w-prose">
       <slot />
     </div>
   </body>
