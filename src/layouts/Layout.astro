@@ -13,8 +13,8 @@ const { title, description = "Drew Beamer's personal website" } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="overscroll-none dark">
-    <div class="flex flex-col items-center max-w-xl mx-auto px-6 pt-12 pb-24">
+  <body class="dark overscroll-none">
+    <div class="mx-auto flex max-w-xl flex-col items-center px-6 pt-12 pb-24">
       <slot />
     </div>
   </body>

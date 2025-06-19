@@ -9,8 +9,8 @@ export default function ContentCard({ children, className }: ContentCardProps) {
   return (
     <div
       className={cn(
-        "flex flex-col items-start justify-start bg-card/60 backdrop-blur-sm shadow-xl rounded-xl relative max-w-[64ch] mx-auto p-8",
-        className
+        "bg-card/60 relative mx-auto flex max-w-[64ch] flex-col items-start justify-start rounded-xl p-8 shadow-xl backdrop-blur-sm",
+        className,
       )}
     >
       {children}
