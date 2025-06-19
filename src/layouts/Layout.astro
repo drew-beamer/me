@@ -1,20 +1,6 @@
 ---
-import Navbar from "@/components/layout/Navbar";
 import "@/styles/globals.css";
-import Footer from "@/components/layout/Footer";
-import GradientBackground from "@/components/layout/GradientBackground";
-
-interface Props {
-  title: string;
-  description?: string;
-  gradientBackground?: boolean;
-}
-
-const {
-  title,
-  description = "Drew Beamer's personal website",
-  gradientBackground = false,
-} = Astro.props;
+const { title, description = "Drew Beamer's personal website" } = Astro.props;
 ---
 
 <!doctype html>
@@ -27,16 +13,9 @@ const {
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="font-sans overscroll-none">
-    <div class="flex min-h-screen flex-col">
-      <Navbar client:load />
-      <div class="flex-1 pt-16 pb-8 container mx-auto px-4 dark:bg-neutral-950">
-        {gradientBackground && <GradientBackground />}
-        <div class="relative z-10 backdrop-blu">
-          <slot />
-        </div>
-      </div>
-      <Footer />
+  <body class="overscroll-none dark">
+    <div class="flex flex-col items-center max-w-xl mx-auto px-6 pt-12 pb-24">
+      <slot />
     </div>
   </body>
 </html>

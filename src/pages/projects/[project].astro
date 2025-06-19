@@ -6,7 +6,7 @@ import { getCollection, render } from "astro:content";
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
   return projects.map((project) => ({
-    params: { project: project.slug },
+    params: { project: project.id },
     props: { project },
   }));
 }
@@ -15,13 +15,9 @@ const { project } = Astro.props;
 const { Content } = await render(project);
 ---
 
-<Layout title="Projects" gradientBackground>
-  <div
-    class="flex flex-col items-start justify-start bg-card/60 backdrop-blur-sm shadow-xl rounded-xl relative max-w-[64ch] mx-auto p-8"
-  >
-    <Prose>
-      <h1 class="font-bold">{project.data.title}</h1>
-      <Content />
-    </Prose>
-  </div>
+<Layout title="Projects">
+  <Prose>
+    <h1 class="font-normal font-sans">{project.data.title}</h1>
+    <Content />
+  </Prose>
 </Layout>
