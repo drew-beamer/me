@@ -1,48 +1,23 @@
-import type React from "react";
-import { Button } from "@/components/ui/button";
-import { useState } from "react";
-import { useEffect } from "react";
-import { cn } from "@/lib/utils";
+const links = [
+  {
+    label: "Projects",
+    href: "/projects",
+  },
+];
 
-const Navbar: React.FC = () => {
-  const [hasScrolled, setHasScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition =
-        window.scrollY || document.documentElement.scrollTop;
-      setHasScrolled(scrollPosition > 0);
-    };
-
-    handleScroll();
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
+export default function Navbar() {
   return (
-    <nav
-      className={cn(
-        "flex justify-between items-center py-1 px-6 fixed top-0 left-0 right-0 z-50 rounded-b-xl transition-all duration-300",
-        hasScrolled ? "bg-card/60 backdrop-blur-md" : "bg-card/0"
-      )}
-    >
-      <div className="text-lg font-mono">
-        <a href="/">Drew Beamer &#128640;</a>
-      </div>
-      <div className="flex space-x-1 rounded-full text-sm font-sans">
-        <Button variant="ghost" className="font-normal" asChild>
-          <a href="/">Home</a>
-        </Button>
-        <Button variant="ghost" className="font-normal" asChild>
-          <a href="/projects">Projects</a>
-        </Button>
-      </div>
-    </nav>
+    <header className="sticky flex items-center container justify-between top-0 left-0 w-full z-50 bg-background/50 backdrop-blur-sm h-[var(--navbar-height)]">
+      <span className="font-black text-xl">&lt;db&gt;</span>
+      <nav>
+        <ul>
+          {links.map((link) => (
+            <li key={link.href}>
+              <a href={link.href}>{link.label}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </header>
   );
-};
-
-export default Navbar;
+}
