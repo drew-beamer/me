@@ -1,6 +1,12 @@
 ---
-import "@/styles/globals.css";
+interface Props {
+  title: string;
+  description?: string;
+}
+
 const { title, description = "Drew Beamer's personal website" } = Astro.props;
+
+import "@/styles/globals.css";
 ---
 
 <!doctype html>

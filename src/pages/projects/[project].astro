@@ -2,6 +2,7 @@
 import Prose from "@/layouts/Prose.astro";
 import Layout from "@/layouts/Layout.astro";
 import { getCollection, render } from "astro:content";
+import { ArrowLeft } from "@lucide/astro";
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
@@ -15,8 +16,15 @@ const { project } = Astro.props;
 const { Content } = await render(project);
 ---
 
-<Layout title="Projects">
-  <div class="w-full">
+<Layout
+  title={`${project.data.title} | Drew Beamer`}
+  description={project.data.description}
+>
+  <div class="flex w-full flex-col gap-y-6">
+    <a href="/" class="text-muted-foreground flex items-center gap-x-2 text-sm">
+      <ArrowLeft class="size-4" />
+      Back
+    </a>
     <Prose>
       <h1 class="font-sans font-normal">{project.data.title}</h1>
       <Content />
