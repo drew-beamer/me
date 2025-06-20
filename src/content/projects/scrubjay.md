@@ -1,7 +1,7 @@
 ---
 title: ScrubJay
 description: The rare bird alert for Discord
-image: https://storage.googleapis.com/storage.drewtils.xyz/scrubjay.png
+image: https://storage.googleapis.com/storage.drewtils.xyz/scrubjay.webp
 priority: 2
 ---
 
