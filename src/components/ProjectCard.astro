@@ -1,0 +1,45 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+import { ChevronRight } from "@lucide/astro";
+
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+---
+
+<a
+  class="group flex items-center justify-start gap-x-4 no-underline"
+  href={`/projects/${project.id}`}
+>
+  <div class="size-14 shrink-0">
+    {
+      project.data.image ? (
+        <Image
+          src={project.data.image}
+          alt={project.data.title}
+          width={56}
+          height={56}
+          class="my-0 rounded-md object-cover"
+        />
+      ) : (
+        <div class="bg-muted flex size-14 shrink-0 items-center justify-center rounded-md">
+          <span class="text-muted-foreground font-mono text-3xl">
+            {project.data.title.charAt(0)}
+          </span>
+        </div>
+      )
+    }
+  </div>
+  <div class="flex grow flex-col gap-1">
+    <span class="font-mono text-lg group-hover:underline">
+      {project.data.title}
+    </span>
+    <span class="text-muted-foreground line-clamp-1 text-sm overflow-ellipsis">
+      {project.data.description}
+    </span>
+  </div>
+  <ChevronRight class="text-muted-foreground size-8 shrink-0" />
+</a>

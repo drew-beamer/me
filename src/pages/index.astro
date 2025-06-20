@@ -1,9 +1,8 @@
 ---
-import Prose from "@/components/layout/Prose.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
 import Layout from "@/layouts/Layout.astro";
-import { Image } from "astro:assets";
+import Prose from "@/layouts/Prose.astro";
 import { getCollection } from "astro:content";
-import { ChevronRight } from "lucide-react";
 
 const projects = await getCollection("projects");
 ---
@@ -45,33 +44,15 @@ const projects = await getCollection("projects");
 
     <section>
       <h2 id="projects" class="text-2xl">Side quests</h2>
-      <div class="not-prose">
+      <div class="not-prose flex flex-col gap-y-4">
         {
-          projects.map((project) => (
-            <a
-              class="group flex items-center justify-start gap-x-4 no-underline"
-              href={`/projects/${project.id}`}
-            >
-              <div class="size-14 shrink-0">
-                <Image
-                  src={project.data.image}
-                  alt={project.data.title}
-                  width={56}
-                  height={56}
-                  class="my-0 rounded-md object-cover"
-                />
-              </div>
-              <div class="flex grow flex-col gap-1">
-                <span class="font-mono text-lg group-hover:underline">
-                  {project.data.title}
-                </span>
-                <span class="text-muted-foreground line-clamp-1 text-sm overflow-ellipsis">
-                  {project.data.description}
-                </span>
-              </div>
-              <ChevronRight className="size-8 text-muted-foreground shrink-0" />
-            </a>
-          ))
+          projects
+            .sort(
+              (a, b) =>
+                b.data.priority - a.data.priority ||
+                a.data.title.localeCompare(b.data.title),
+            )
+            .map((project) => <ProjectCard project={project} />)
         }
       </div>
     </section>

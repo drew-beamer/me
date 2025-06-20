@@ -1,5 +1,5 @@
 ---
-import Prose from "@/components/layout/Prose.astro";
+import Prose from "@/layouts/Prose.astro";
 import Layout from "@/layouts/Layout.astro";
 import { getCollection, render } from "astro:content";
 
@@ -16,8 +16,10 @@ const { Content } = await render(project);
 ---
 
 <Layout title="Projects">
-  <Prose>
-    <h1 class="font-sans font-normal">{project.data.title}</h1>
-    <Content />
-  </Prose>
+  <div class="w-full">
+    <Prose>
+      <h1 class="font-sans font-normal">{project.data.title}</h1>
+      <Content />
+    </Prose>
+  </div>
 </Layout>
