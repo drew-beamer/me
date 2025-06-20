@@ -1,6 +1,12 @@
 ---
-import "@/styles/globals.css";
+interface Props {
+  title: string;
+  description?: string;
+}
+
 const { title, description = "Drew Beamer's personal website" } = Astro.props;
+
+import "@/styles/globals.css";
 ---
 
 <!doctype html>
@@ -14,7 +20,7 @@ const { title, description = "Drew Beamer's personal website" } = Astro.props;
     <title>{title}</title>
   </head>
   <body class="dark overscroll-none">
-    <div class="mx-auto flex max-w-xl flex-col items-center px-6 pt-12 pb-24">
+    <div class="mx-auto flex max-w-xl flex-col items-center px-6 py-12">
       <slot />
     </div>
   </body>
