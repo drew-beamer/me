@@ -18,22 +18,22 @@
   "dependencies": {
     "@astrojs/vercel": "^8.2.8",
     "@lucide/astro": "^0.518.0",
-    "@tailwindcss/vite": "^4.0.4",
-    "astro": "^5.10.0",
-    "tailwind-merge": "^3.0.1",
-    "tailwindcss": "^4.0.4",
+    "@tailwindcss/vite": "^4.1.14",
+    "astro": "^5.14.1",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss": "^4.1.14",
     "tailwindcss-animate": "^1.0.7"
   },
   "packageManager": "pnpm@10.6.5",
   "devDependencies": {
-    "@eslint/js": "^9.29.0",
-    "@tailwindcss/typography": "^0.5.16",
-    "@types/node": "^24.0.3",
-    "eslint": "^9.29.0",
+    "@eslint/js": "^9.37.0",
+    "@tailwindcss/typography": "^0.5.19",
+    "@types/node": "^24.6.2",
+    "eslint": "^9.37.0",
     "eslint-plugin-react": "^7.37.5",
-    "globals": "^16.2.0",
+    "globals": "^16.4.0",
     "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-tailwindcss": "^0.6.13",
-    "typescript-eslint": "^8.34.1"
+    "prettier-plugin-tailwindcss": "^0.6.14",
+    "typescript-eslint": "^8.45.0"
   }
 }
