@@ -13,7 +13,9 @@ export async function GET({ params }: { params: { project: string } }) {
     return new Response("Project not found", { status: 404 });
   }
 
-  const markdown = entry.body;
+  const { title } = entry.data;
+
+  const markdown = `# ${title}\n\n${entry.body}`;
 
   return new Response(markdown, {
     headers: {
