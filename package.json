@@ -1,40 +1,30 @@
 {
-  "name": "me",
-  "version": "1.0.0",
-  "description": "My personal website containing information about me and my projects",
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "format:fix": "prettier --write .",
-    "format": "prettier --check ."
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@astrojs/vercel": "^8.2.8",
-    "@lucide/astro": "^0.518.0",
-    "@tailwindcss/vite": "^4.1.14",
-    "astro": "^5.14.1",
-    "rehype-external-links": "^3.0.0",
-    "tailwind-merge": "^3.3.1",
-    "tailwindcss": "^4.1.14",
-    "tailwindcss-animate": "^1.0.7"
-  },
-  "packageManager": "pnpm@10.6.5",
-  "devDependencies": {
-    "@eslint/js": "^9.37.0",
-    "@tailwindcss/typography": "^0.5.19",
-    "@types/node": "^24.6.2",
-    "eslint": "^9.37.0",
-    "eslint-plugin-react": "^7.37.5",
-    "globals": "^16.4.0",
-    "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-tailwindcss": "^0.6.14",
-    "rehype-accessible-emojis": "^0.3.2",
-    "typescript-eslint": "^8.45.0"
-  }
+	"name": "me",
+	"version": "1.0.0",
+	"description": "My personal website containing information about me and my projects",
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"format": "biome check",
+		"format:fix": "biome check --write"
+	},
+	"author": "Drew Beamer",
+	"dependencies": {
+		"@astrojs/vercel": "^8.2.8",
+		"@lucide/astro": "^0.518.0",
+		"@tailwindcss/vite": "^4.1.14",
+		"astro": "^5.14.1"
+	},
+	"packageManager": "pnpm@10.6.5",
+	"devDependencies": {
+		"@biomejs/biome": "2.2.5",
+		"tailwind-merge": "^3.3.1",
+		"tailwindcss": "^4.1.14",
+		"tailwindcss-animate": "^1.0.7",
+		"@tailwindcss/typography": "^0.5.19",
+		"@types/node": "^24.6.2",
+		"globals": "^16.4.0",
+		"rehype-external-links": "^3.0.0"
+	}
 }

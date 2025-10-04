@@ -1,15 +1,15 @@
 ---
-import Prose from "@/layouts/Prose.astro";
-import Layout from "@/layouts/Layout.astro";
 import { getCollection, render } from "astro:content";
 import { ArrowLeft } from "@lucide/astro";
+import Layout from "@/layouts/Layout.astro";
+import Prose from "@/layouts/Prose.astro";
 
 export async function getStaticPaths() {
-  const projects = await getCollection("projects");
-  return projects.map((project) => ({
-    params: { project: project.id },
-    props: { project },
-  }));
+	const projects = await getCollection("projects");
+	return projects.map((project) => ({
+		params: { project: project.id },
+		props: { project },
+	}));
 }
 
 const { project } = Astro.props;
