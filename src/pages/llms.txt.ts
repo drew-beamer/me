@@ -11,7 +11,7 @@ export async function GET() {
         )
         .map(
             (project) =>
-                `- [${project.data.title}](${getFullUrl(project.id)}): ${project.data.description}`,
+                `- [${project.data.title}](${getFullUrl(`/projects/${project.id}`)}): ${project.data.description}`,
         )
         .join("\n");
 
