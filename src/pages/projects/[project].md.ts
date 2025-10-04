@@ -23,4 +23,3 @@ export async function GET({ params }: { params: { project: string } }) {
     },
   });
 }
-

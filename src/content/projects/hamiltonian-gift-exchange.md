@@ -6,11 +6,12 @@ priority: 1
 
 ## Overview
 
-<a href="https://gift.drewtils.xyz" target="_blank">Link to site</a>
+[Link to site](https://gift.drewtils.xyz)
 
 Gift exhange is a small side project I built to help my family and friends
 participate in a gift exchange. This can lead to potential awkward situations
 where:
+
 - People are assigned to give a gift to someone they are receiving a gift from
 - People are assigned to someone they don't know well, or don't want to give a gift to
 
@@ -19,6 +20,7 @@ Hamiltonian cycle it finds. The input array is shuffled to ensure that the
 solution is not deterministic.
 
 The algorithm is simple:
+
 - Start with the first person
 - For each person, try to find a person to give a gift to
 - If you can't find a person to give a gift to, backtrack

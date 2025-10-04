@@ -1,8 +1,7 @@
 {
   "name": "me",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "My personal website containing information about me and my projects",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -20,6 +19,7 @@
     "@lucide/astro": "^0.518.0",
     "@tailwindcss/vite": "^4.1.14",
     "astro": "^5.14.1",
+    "rehype-external-links": "^3.0.0",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.14",
     "tailwindcss-animate": "^1.0.7"
@@ -34,6 +34,7 @@
     "globals": "^16.4.0",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.14",
+    "rehype-accessible-emojis": "^0.3.2",
     "typescript-eslint": "^8.45.0"
   }
 }
