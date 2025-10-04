@@ -1,6 +1,7 @@
 # Build output
 dist/
 .astro/
+.vercel/
 
 # IDE
 .vscode/
@@ -20,4 +21,3 @@ node_modules/
 # Cache
 .cache/
 
-.vercel
